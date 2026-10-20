@@ -40,7 +40,7 @@ class PromptMediaTests(unittest.TestCase):
         self.assertIn("evidence", data["voice"])
 
     def test_identical_validated_request_is_cached_without_a_second_call(self):
-        create = Mock(return_value=SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='{"text":"Full publishable copy"}'))]))
+        create = Mock(return_value=SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='{"text":"Full publishable copy","citations":[]}'))]))
         mesh = Mesh.__new__(Mesh)
         mesh.client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
         mesh.metadata_only = False

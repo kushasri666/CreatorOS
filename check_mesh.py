@@ -1,6 +1,7 @@
 """Credential/model metadata check. No generation calls or credential output."""
 import os
 from workflow import Mesh
+from model_policy import routes, image_model
 
 
 if __name__ == "__main__":
@@ -9,8 +10,7 @@ if __name__ == "__main__":
         rows = payload if isinstance(payload, list) else payload["data"]
         models = {m.get("id", m.get("name")) for m in rows}
         print("Mesh authenticated. Available model count:", len(models))
-        for model in (os.getenv("MESH_TEXT_MODEL", "openai/gpt-4o"),
-                      os.getenv("MESH_IMAGE_MODEL", "openai/gpt-image-1")):
+        for model in sorted({v["model"] for v in routes().values()} | {image_model()}):
             print(model, "listed" if model in models else "NOT LISTED; configure a supported identifier")
     except Exception as exc:
         print("Mesh metadata check failed:", type(exc).__name__)

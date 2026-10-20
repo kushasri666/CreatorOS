@@ -1,5 +1,6 @@
 @import url("/static/base.css");
 .layout{align-items:start}.logpanel{align-self:start}#library{max-height:240px;overflow:auto}.graphgateway{position:absolute;left:25px;top:330px;width:1075px;border:1px dashed #534354;border-radius:8px;text-align:center;padding:12px;font:11px monospace;color:#b2a3b6}.node small{line-height:1.3}
+.comparison.warning{border-color:#a85156;background:#251518}.comparison.warning strong{color:#ff8d91}
 
 .video-preview-shell{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.sharp-preview{display:block;width:100%;max-width:360px;aspect-ratio:9/16;border-radius:18px;background:#211533}.video-preview-shell audio{width:100%;max-width:360px}.video-preview-shell:fullscreen{box-sizing:border-box;background:#0d0914;padding:16px;align-items:center;justify-content:center;overflow:auto}.video-preview-shell:fullscreen .sharp-preview{max-width:none;width:auto;height:calc(100vh - 160px);max-height:calc(100vh - 160px);max-width:100%;object-fit:contain}.video-preview-shell:fullscreen p{margin:0;max-width:700px;font-size:12px}.video-preview-shell:fullscreen audio{max-width:600px}
 

@@ -1,0 +1,8 @@
+'use strict';
+function memoryCard(parent,brandId,platform){
+ const panel=el('section',undefined,'planbox');panel.append(el('h3','Self-correcting memory'),el('p','Lessons are checked against their source metrics, content and brand version. Stale lessons stay visible but are withheld from new drafts. Evidence checked does not mean the interpretation is proven.'));
+ if(state.preview){panel.append(el('p','This fictional preview uses simulated evidence; return to your workspace to inspect saved memory.'));parent.append(panel);return}
+ const status=el('p'),list=el('div');panel.append(status,list);const endpoint='/memory/'+encodeURIComponent(brandId)+'/'+platform;
+ function show(data){if(!panel.isConnected)return;status.textContent=data.note;list.replaceChildren();if(!data.items.length)list.append(el('p','No performance lessons yet. Collect comparable observations or record feedback first.'));for(const item of data.items){const row=el('div',undefined,'comparison');row.append(el('strong',(item.memory.usable?'EVIDENCE CHECKED · TENTATIVE':'STALE · WITHHELD')+' · version '+item.memory.version),el('p',item.rule),el('p',item.memory.reason),el('small','Source: '+item.source+' · '+item.platform));details(row,'Evidence references',item.evidence_ids||[item.evidence_id]);const revisions=data.revisions.filter(r=>r.learning_id===item.id);if(revisions.length)details(row,'Previous versions',revisions);list.append(row)}}
+ const refresh=button('Recheck & correct from stored evidence · no AI calls',()=>busy(panel,async()=>{show(await request(endpoint+'/refresh',{}))}));panel.append(refresh);parent.append(panel);request(endpoint).then(show).catch(e=>{status.textContent='Memory check unavailable: '+e.message});
+}

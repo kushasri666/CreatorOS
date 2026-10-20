@@ -9,7 +9,7 @@ class WriterSchemaTests(unittest.TestCase):
     def test_instagram_schema_explicitly_allows_slides(self):
         create = Mock(return_value=SimpleNamespace(choices=[SimpleNamespace(
             message=SimpleNamespace(content=json.dumps({"text": "Caption",
-                "slides": ["Hook", "Useful idea", "Call to action"]})))]))
+                "slides": ["Hook", "Useful idea", "Call to action"], "citations": []})))]))
         mesh = Mesh.__new__(Mesh)
         mesh.client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
         mesh.metadata_only = False

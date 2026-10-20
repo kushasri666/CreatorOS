@@ -1,0 +1,160 @@
+{
+  "source": "Mesh authenticated GET /v1/models; metadata only",
+  "checked_date": "2026-10-20",
+  "total_models": 1286,
+  "models": [
+    {
+      "id": "black-forest-labs/flux.1-schnell",
+      "name": "FLUX.1 [schnell]",
+      "model_type": "image",
+      "supports_completions_api": false,
+      "supports_structured_output": false,
+      "supports_thinking": false,
+      "description": "FLUX.1 [schnell]",
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_megapixel",
+        "image_output_usd_per_image": "0.00047684",
+        "effective_date": "2026-07-01"
+      }
+    },
+    {
+      "id": "black-forest-labs/flux-dev",
+      "name": "Flux Dev",
+      "model_type": "image",
+      "supports_completions_api": false,
+      "supports_structured_output": false,
+      "supports_thinking": false,
+      "description": "Flux-dev text to image model, 12 billion parameter rectified flow transformer.",
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_image",
+        "image_output_usd_per_image": "0.01200000",
+        "effective_date": "2026-07-12"
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "name": "Deepseek V4.1 Flash",
+      "model_type": "text",
+      "supports_completions_api": true,
+      "supports_structured_output": true,
+      "supports_thinking": true,
+      "description": null,
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "0.30000000",
+        "completion_usd_per_1m": "1.20000000",
+        "input_usd_per_unit": "0.3000000000",
+        "output_usd_per_unit": "1.2000000000",
+        "cache_read_input_usd_per_1m": "0.00600000",
+        "effective_date": "2026-09-10"
+      }
+    },
+    {
+      "id": "google/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "model_type": "text",
+      "supports_completions_api": true,
+      "supports_structured_output": true,
+      "supports_thinking": false,
+      "description": null,
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "0.10000000",
+        "completion_usd_per_1m": "0.40000000",
+        "input_usd_per_unit": "0.1000000000",
+        "output_usd_per_unit": "0.4000000000",
+        "cache_read_input_usd_per_1m": "0.01000000",
+        "cache_read_audio_input_usd_per_1m": "0.03000000",
+        "effective_date": "2026-04-09"
+      }
+    },
+    {
+      "id": "openai/gpt-4.1-mini",
+      "name": "GPT-4.1 Mini",
+      "model_type": "text",
+      "supports_completions_api": true,
+      "supports_structured_output": true,
+      "supports_thinking": false,
+      "description": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost. It retains a 1 million token context window and scores 45.1% on hard...",
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "0.40000000",
+        "completion_usd_per_1m": "1.60000000",
+        "input_usd_per_unit": "0.4000000000",
+        "output_usd_per_unit": "1.6000000000",
+        "cache_read_input_usd_per_1m": "0.10000000",
+        "batch_input_usd_per_1m": "0.20000000",
+        "batch_output_usd_per_1m": "0.80000000",
+        "effective_date": "2026-04-14"
+      }
+    },
+    {
+      "id": "openai/gpt-4o-mini",
+      "name": "GPT-4o-mini",
+      "model_type": "text",
+      "supports_completions_api": true,
+      "supports_structured_output": true,
+      "supports_thinking": false,
+      "description": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs. As their most advanced small model, it is many multiples more affordable...",
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "0.15000000",
+        "completion_usd_per_1m": "0.60000000",
+        "input_usd_per_unit": "0.1500000000",
+        "output_usd_per_unit": "0.6000000000",
+        "cache_read_input_usd_per_1m": "0.07500000",
+        "effective_date": "2026-04-14"
+      }
+    },
+    {
+      "id": "openai/gpt-image-1-mini",
+      "name": "GPT Image 1 Mini",
+      "model_type": "image",
+      "supports_completions_api": false,
+      "supports_structured_output": true,
+      "supports_thinking": false,
+      "description": null,
+      "image_operations": [
+        "edit",
+        "inpaint",
+        "mix",
+        "remove_background"
+      ],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "2.00000000",
+        "completion_usd_per_1m": "0E-8",
+        "input_usd_per_unit": "2.0000000000",
+        "output_usd_per_unit": "0E-10",
+        "image_output_usd_per_image": "8.00000000",
+        "cache_read_input_usd_per_1m": "0.25000000",
+        "image_input_usd_per_image": "2.50000000",
+        "effective_date": "2026-05-04"
+      }
+    },
+    {
+      "id": "typesafe/jev-1.13",
+      "name": "TypeSafe: Jev 1.13",
+      "model_type": "evaluation",
+      "supports_completions_api": false,
+      "supports_structured_output": false,
+      "supports_thinking": false,
+      "description": "Structured decision model from TypeSafe, the first of its System One class. Returns a typed answer with a calibrated probability \u2014 a choice with a probability per option, a score against an ordered scale, or a single probability \u2014 instead of prose to parse. Served via POST /v1/evaluate.",
+      "image_operations": [],
+      "pricing": {
+        "pricing_unit": "per_1m_tokens",
+        "prompt_usd_per_1m": "0.04200000",
+        "completion_usd_per_1m": "0E-8",
+        "input_usd_per_unit": "0.0420000000",
+        "output_usd_per_unit": "0E-10",
+        "effective_date": "2026-09-21"
+      }
+    }
+  ]
+}

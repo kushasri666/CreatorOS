@@ -107,7 +107,7 @@ class SocialTests(unittest.TestCase):
         from offline import OfflineGateway
         with patch("main.gateway", return_value=OfflineGateway()):
             response = self.client.post("/generate", json={"brand_id": self.brand["id"],
-                "platform": "instagram", "topic": "Useful coffee habits",
+                "platform": "instagram", "topic": "Useful coffee habits", "product_name": "Test coffee",
                 "connection_id": connection["id"]})
         self.assertEqual(response.status_code, 200, response.text)
         self.assertIn(learning["id"], response.json()["used_learning_ids"])

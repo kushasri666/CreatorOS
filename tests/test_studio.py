@@ -14,6 +14,7 @@ from workflow import Mesh, CRITERIA
 
 
 class ScriptedMesh:
+    mode = "offline_fixture"  # Contract fixtures do not claim to execute live source verification.
     calls = []
     unchanged = False
     invalid = False
@@ -88,6 +89,16 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(storage.tick(), 1)
         self.assertEqual(storage.tick(), 0)
 
+    def test_recorded_grounding_evaluation_endpoint_is_labeled_and_uses_no_ai(self):
+        response=self.client.get("/evaluation/grounding")
+        self.assertEqual(response.status_code,200,response.text)
+        report=response.json()
+        self.assertEqual(report["question_count"],24)
+        self.assertTrue(report["prediction_origin"]["not_model_generated"])
+        self.assertTrue(report["artifact_matches_current_code"])
+        self.assertEqual(report["ai_calls"],0)
+        self.assertEqual(ScriptedMesh.calls,[])
+
     def test_full_loop_and_brand_isolation(self):
         brand = self.brand()
         post = self.generate(brand).json()
@@ -155,7 +166,7 @@ class StudioTests(unittest.TestCase):
             return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content=text))])
         with patch.dict(os.environ, {"MESH_API_KEY": "test-only", "MESH_ENABLE_PAID": "1", "MESH_FORMAT_RETRIES": "1"}), patch("workflow.OpenAI") as client:
             client.return_value.chat.completions.create.side_effect = [
-                response('{"post": "wrong field"}'), response('{"text": "corrected schema"}')]
+                response('{"post": "wrong field"}'), response('{"text": "corrected schema", "citations": []}')]
             result = Mesh().ask("Writer: return text.", {"brief": "AI safety"})
             self.assertEqual(result["text"], "corrected schema")
             self.assertEqual(client.call_args.kwargs["base_url"], "https://api.meshapi.ai/v1")

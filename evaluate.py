@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 from workflow import Mesh, learn_voice, run_pipeline
+from model_policy import routes
 
 
 def score(text):
@@ -107,14 +108,14 @@ def evaluate(live=False, approve_paid=False, cases=2, images=False):
                 rows.append(dict(brand=brand, platform=platform, learned=learned,
                     before=before, after=after, initial=result["drafts"][0], final=result["text"],
                     strategy=result["strategy"], reviews=result["reviews"], voice=voice,
-                    visual_prompt=result["visual"]["prompt"], image_generated=bool(result["image"])))
+                    visual_prompt=(result["visual"] or {}).get("prompt"), image_generated=bool(result["image"])))
                 print(f"Completed {len(rows)}/8: {brand}, {platform}, learned={learned}", flush=True)
                 if live:
                     Path("docs/evaluation-live-progress.json").write_text(
                         json.dumps(dict(mode="live_mesh_partial", rows=rows), indent=2), encoding="utf-8")
     n = len(rows)
     result = dict(mode="live_mesh" if live else "deterministic_test_double", n=n,
-        text_model=os.getenv("MESH_TEXT_MODEL", "openai/gpt-4o") if live else "scripted_fixture",
+        text_model=routes() if live else "scripted_fixture",
         image_model=(os.getenv("MESH_IMAGE_MODEL", "openai/gpt-image-1") if images else "skipped") if live else "scripted_fixture",
         measured_at=datetime.now(timezone.utc).isoformat(),
         rubric="Five binary checks; platform_length uses strict 280-char limit for comparability",

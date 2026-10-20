@@ -58,6 +58,8 @@ def begin(connection):
         "verifier": verifier, "cookie_hash": hashlib.sha256(nonce.encode()).hexdigest(),
         "expires": (datetime.now(timezone.utc)+timedelta(minutes=10)).isoformat()}, key)
     scope = SPECS[provider]["scopes"]
+    if provider == "instagram" and os.getenv("INSTAGRAM_ENABLE_PUBLISHING", "0") == "1":
+        scope += " instagram_business_content_publish"
     params = {"client_id": client_id, "redirect_uri": redirect, "response_type": "code", "state": state,
               "scope": scope.replace(" ", ",") if provider in ("instagram", "threads") else scope}
     if provider in ("x", "youtube"):

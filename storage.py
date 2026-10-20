@@ -70,6 +70,14 @@ def audit(post_id, agent, detail):
     return save("audit", dict(post_id=post_id, agent=agent, detail=detail, at=now()))
 
 
+def records_for_run(kind, post_id):
+    """Return persisted run records in insertion order, including equal timestamps."""
+    with connection() as db:
+        rows = db.execute("SELECT body FROM records WHERE kind=? AND json_extract(body, '$.post_id')=? ORDER BY rowid",
+                          (kind, post_id)).fetchall()
+    return [json.loads(row[0]) for row in rows]
+
+
 def queue(post_id, due):
     with connection() as db:
         db.execute("BEGIN IMMEDIATE")

@@ -1,0 +1,3052 @@
+{
+  "cap_usd": "0.75",
+  "started_at": "2026-10-20T06:46:00.678444+00:00",
+  "prices": {
+    "deepseek/deepseek-v4.1-flash": {
+      "input": "0.30000000",
+      "output": "1.20000000"
+    },
+    "google/gemini-2.5-flash-lite": {
+      "input": "0.10000000",
+      "output": "0.40000000"
+    },
+    "openai/gpt-4.1-mini": {
+      "input": "0.40000000",
+      "output": "1.60000000"
+    }
+  },
+  "calls": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "brand",
+      "reserved_usd": "0.01428800",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YKXK0RGAFYP02YRN22NZ",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 234,
+        "completion_tokens": 79,
+        "total_tokens": 313,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"tone\": \"Warm, playful, practical\",\n  \"vocabulary\": [\"silky\", \"ritual\", \"fresh\"],\n  \"structure\": \"Short, clear steps\",\n  \"cta_habits\": \"Invite saving or one simple question\",\n  \"avoid\": [\n    \"Invented statistics\",\n    \"Guaranteed results\",\n    \"Expensive equipment requirements\"\n  ]\n}",
+      "result": {
+        "tone": "Warm, playful, practical",
+        "vocabulary": [
+          "silky",
+          "ritual",
+          "fresh"
+        ],
+        "structure": "Short, clear steps",
+        "cta_habits": "Invite saving or one simple question",
+        "avoid": [
+          "Invented statistics",
+          "Guaranteed results",
+          "Expensive equipment requirements"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 1.515,
+      "billing": {
+        "request_id": "req_01M5C0YKXK0RGAFYP02YRN22NZ",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00022000",
+        "prompt_tokens": 234,
+        "completion_tokens": 79,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-557e-7390-8175-a1c10e2160c4",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00022000",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "strategy",
+      "reserved_usd": "0.01386560",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YNG72EKD210NFP7FP1P4",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 238,
+        "completion_tokens": 177,
+        "total_tokens": 415,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"angle\": \"Practical and accessible guide to brewing cafe-style coffee at home using simple, affordable methods\",\n  \"hook\": \"No fancy machine? No problem! Discover five easy ways to craft silky, fresh coffee right in your kitchen.\",\n  \"audience\": \"Coffee lovers and home brewers looking for approachable tips to upgrade their daily ritual without spending a fortune\",\n  \"format\": \"Instagram carousel or short video with clear, playful step-by-step instructions and warm, inviting captions\",\n  \"cta\": \"Save this post to try your favourite trick this weekend or share your own home brewing ritual in the comments!\",\n  \"reason\": \"The brief emphasizes a warm, playful, practical tone with short steps and avoids promoting expensive equipment or unverified claims. A direct, friendly approach with simple, authentic tips aligns perfectly with Instagram’s visual and engaging content style.\"\n}",
+      "result": {
+        "angle": "Practical and accessible guide to brewing cafe-style coffee at home using simple, affordable methods",
+        "hook": "No fancy machine? No problem! Discover five easy ways to craft silky, fresh coffee right in your kitchen.",
+        "audience": "Coffee lovers and home brewers looking for approachable tips to upgrade their daily ritual without spending a fortune",
+        "format": "Instagram carousel or short video with clear, playful step-by-step instructions and warm, inviting captions",
+        "cta": "Save this post to try your favourite trick this weekend or share your own home brewing ritual in the comments!",
+        "reason": "The brief emphasizes a warm, playful, practical tone with short steps and avoids promoting expensive equipment or unverified claims. A direct, friendly approach with simple, authentic tips aligns perfectly with Instagram’s visual and engaging content style."
+      },
+      "schema_valid": true,
+      "seconds": 2.281,
+      "billing": {
+        "request_id": "req_01M5C0YNG72EKD210NFP7FP1P4",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00037840",
+        "prompt_tokens": 238,
+        "completion_tokens": 177,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-5eb3-7343-b254-ae9f46910e6a",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00037840",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "writer",
+      "reserved_usd": "0.01741520",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YQSPKHB55NW1H2BH4N3J",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 254,
+        "completion_tokens": 371,
+        "total_tokens": 625,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"caption\": \"Craving that silky, cafe-style coffee but don’t want to splurge on a fancy machine? ☕ Let’s bring that cozy ritual right into your kitchen with simple, fresh ways to elevate your brew without breaking the bank. Ready to turn your daily cup into a moment of joy?\\n\\n1️⃣ Start with fresh beans: Grind just before brewing to lock in those vibrant flavors.\\n\\n2️⃣ Heat your water to just under boiling (around 200°F/93°C) for the perfect extraction.\\n\\n3️⃣ Warm your mug beforehand; a hot cup keeps your coffee silky longer.\\n\\n4️⃣ Try the pour-over method with a simple cone dripper for control over strength and clarity.\\n\\n5️⃣ Froth milk by shaking heated milk in a jar or whisking vigorously for that creamy touch.\\n\\nCherry on top? Experiment with your own little rituals to make each cup uniquely yours. What’s your favorite way to savor coffee at home? Share below or save this post for your next coffee moment! ☕✨\",\n  \"slides\": [\n    \"No fancy machine? No problem! Make cafe-style coffee at home with these easy tips ☕\",\n    \"1️⃣ Use fresh beans and grind right before brewing for the freshest flavour.\",\n    \"2️⃣ Heat water to just below boiling to bring out silky smooth coffee.\",\n    \"3️⃣ Warm your mug so your coffee stays cozy and rich longer.\",\n    \"4️⃣ Brew with a simple pour-over cone to control your perfect cup.\",\n    \"5️⃣ Froth milk easily by shaking heated milk in a jar or whisking by hand.\",\n    \"Save or share your favorite ritual and make every cup a little moment of joy!\",\n    \"How do you make your coffee feel special at home? Tell us below!\"\n  ]\n}",
+      "result": {
+        "caption": "Craving that silky, cafe-style coffee but don’t want to splurge on a fancy machine? ☕ Let’s bring that cozy ritual right into your kitchen with simple, fresh ways to elevate your brew without breaking the bank. Ready to turn your daily cup into a moment of joy?\n\n1️⃣ Start with fresh beans: Grind just before brewing to lock in those vibrant flavors.\n\n2️⃣ Heat your water to just under boiling (around 200°F/93°C) for the perfect extraction.\n\n3️⃣ Warm your mug beforehand; a hot cup keeps your coffee silky longer.\n\n4️⃣ Try the pour-over method with a simple cone dripper for control over strength and clarity.\n\n5️⃣ Froth milk by shaking heated milk in a jar or whisking vigorously for that creamy touch.\n\nCherry on top? Experiment with your own little rituals to make each cup uniquely yours. What’s your favorite way to savor coffee at home? Share below or save this post for your next coffee moment! ☕✨",
+        "slides": [
+          "No fancy machine? No problem! Make cafe-style coffee at home with these easy tips ☕",
+          "1️⃣ Use fresh beans and grind right before brewing for the freshest flavour.",
+          "2️⃣ Heat water to just below boiling to bring out silky smooth coffee.",
+          "3️⃣ Warm your mug so your coffee stays cozy and rich longer.",
+          "4️⃣ Brew with a simple pour-over cone to control your perfect cup.",
+          "5️⃣ Froth milk easily by shaking heated milk in a jar or whisking by hand.",
+          "Save or share your favorite ritual and make every cup a little moment of joy!",
+          "How do you make your coffee feel special at home? Tell us below!"
+        ]
+      },
+      "schema_valid": false,
+      "seconds": 3.218,
+      "billing": {
+        "request_id": "req_01M5C0YQSPKHB55NW1H2BH4N3J",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00069520",
+        "prompt_tokens": 254,
+        "completion_tokens": 371,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-6ba4-76c1-87ae-e6859c3b54f0",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00069520",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "visual",
+      "reserved_usd": "0.01100960",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YV0PC1FBHK7T9NGP6D7T",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 237,
+        "completion_tokens": 162,
+        "total_tokens": 399,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"prompt\": \"A warm, inviting coffee scene featuring a simple homemade brewing setup: a clear glass mug filled with richly colored coffee emitting gentle steam, placed on a rustic wooden table with soft natural morning light illuminating the scene. Nearby, fresh coffee beans and a small manual grinder add a tactile, practical feel. The atmosphere should evoke a cozy, playful morning ritual without any modern or expensive machines visible, emphasizing simplicity and warmth.\",\n  \"reason\": \"This image aligns with the brief's warm and playful tone, focusing on practical, simple coffee-making methods at home without fancy equipment. The natural light and rustic elements enhance the inviting and silky feel, matching the desired vocabulary and supporting the theme of a daily coffee ritual. It is free of logos or rendered text, suitable for Instagram's editorial style.\"\n}",
+      "result": {
+        "prompt": "A warm, inviting coffee scene featuring a simple homemade brewing setup: a clear glass mug filled with richly colored coffee emitting gentle steam, placed on a rustic wooden table with soft natural morning light illuminating the scene. Nearby, fresh coffee beans and a small manual grinder add a tactile, practical feel. The atmosphere should evoke a cozy, playful morning ritual without any modern or expensive machines visible, emphasizing simplicity and warmth.",
+        "reason": "This image aligns with the brief's warm and playful tone, focusing on practical, simple coffee-making methods at home without fancy equipment. The natural light and rustic elements enhance the inviting and silky feel, matching the desired vocabulary and supporting the theme of a daily coffee ritual. It is free of logos or rendered text, suitable for Instagram's editorial style."
+      },
+      "schema_valid": true,
+      "seconds": 1.766,
+      "billing": {
+        "request_id": "req_01M5C0YV0PC1FBHK7T9NGP6D7T",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00035400",
+        "prompt_tokens": 237,
+        "completion_tokens": 162,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-72ce-7494-acc3-600c38040043",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00035400",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "learner",
+      "reserved_usd": "0.01150640",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YWTB5ZE1ADXNXVWYMSMF",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 236,
+        "completion_tokens": 225,
+        "total_tokens": 461,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"rule\": \"Create an Instagram post titled 'Five ways to make cafe-style coffee at home without an expensive machine' using a warm, playful, and practical tone with short, clear steps. Use vocabulary such as 'silky', 'ritual', and 'fresh'. Avoid invented statistics, guaranteed results, and expensive equipment requirements. Include a call to action inviting the audience to save the post or answer a simple question.\",\n  \"reason\": \"The engagement evidence from a small observational sample shows that similar posts using a warm, practical tone with short steps and inviting CTAs on Instagram can achieve mean engagement rates of around 6.55%. Avoiding claims of guaranteed results or expensive equipment aligns with user preferences and platform norms noted in prior posts.\",\n  \"tentative_experiment\": \"Test two Instagram posts: one following the recommended tone, vocabulary, structure, and CTA as outlined, and another with a more formal tone or longer paragraphs without a direct CTA. Measure engagement rates such as likes, saves, and comments over a week to observe any differences. Note this is observational and cannot confirm causality.\"\n}",
+      "result": {
+        "rule": "Create an Instagram post titled 'Five ways to make cafe-style coffee at home without an expensive machine' using a warm, playful, and practical tone with short, clear steps. Use vocabulary such as 'silky', 'ritual', and 'fresh'. Avoid invented statistics, guaranteed results, and expensive equipment requirements. Include a call to action inviting the audience to save the post or answer a simple question.",
+        "reason": "The engagement evidence from a small observational sample shows that similar posts using a warm, practical tone with short steps and inviting CTAs on Instagram can achieve mean engagement rates of around 6.55%. Avoiding claims of guaranteed results or expensive equipment aligns with user preferences and platform norms noted in prior posts.",
+        "tentative_experiment": "Test two Instagram posts: one following the recommended tone, vocabulary, structure, and CTA as outlined, and another with a more formal tone or longer paragraphs without a direct CTA. Measure engagement rates such as likes, saves, and comments over a week to observe any differences. Note this is observational and cannot confirm causality."
+      },
+      "schema_valid": true,
+      "seconds": 2.156,
+      "billing": {
+        "request_id": "req_01M5C0YWTB5ZE1ADXNXVWYMSMF",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00045440",
+        "prompt_tokens": 236,
+        "completion_tokens": 225,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-7b8f-74d7-97f6-1946939d7a5f",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00045440",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "brand",
+      "reserved_usd": "0.00507740",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0YZ0MME1Z1ZKK31WKDRA7",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 224,
+        "completion_tokens": 97,
+        "total_tokens": 321,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"tone\": \"Warm, playful, practical\",\n  \"vocabulary\": [\n    \"silky\",\n    \"ritual\",\n    \"fresh\"\n  ],\n  \"structure\": \"Short, clear steps\",\n  \"cta_habits\": \"Invite saving or one simple question\",\n  \"avoid\": [\n    \"Invented statistics\",\n    \"Guaranteed results\",\n    \"Expensive equipment requirements\"\n  ]\n}",
+      "result": {
+        "tone": "Warm, playful, practical",
+        "vocabulary": [
+          "silky",
+          "ritual",
+          "fresh"
+        ],
+        "structure": "Short, clear steps",
+        "cta_habits": "Invite saving or one simple question",
+        "avoid": [
+          "Invented statistics",
+          "Guaranteed results",
+          "Expensive equipment requirements"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 0.906,
+      "billing": {
+        "request_id": "req_01M5C0YZ0MME1Z1ZKK31WKDRA7",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00006120",
+        "prompt_tokens": 224,
+        "completion_tokens": 97,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-7f71-7681-af3a-346c54d39911",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00006120",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "strategy",
+      "reserved_usd": "0.005",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0Z094H2441D8BAN0KA30G",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 228,
+        "completion_tokens": 200,
+        "total_tokens": 428,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"angle\": \"Transform your morning coffee into a cafe-style experience without breaking the bank.\",\n  \"hook\": \"Craving cafe-quality coffee at home? Ditch the expensive machines!\",\n  \"audience\": \"Home coffee lovers who enjoy a good brew but are budget-conscious or prefer simpler methods.\",\n  \"format\": \"Carousel post with 5 distinct slides, each detailing one method.\",\n  \"cta\": \"Which of these brewing tips will you try first? Let us know below! 👇\",\n  \"reason\": \"The brief focuses on achieving cafe-style coffee at home with simple, inexpensive methods, aligning with the 'warm, playful, practical' voice. The 'silky' and 'fresh' vocabulary can be incorporated into the content. The carousel format is well-suited for 'short, clear steps' and the CTA encourages engagement by asking a simple question, fitting the 'invite saving or one simple question' habit.\"\n}",
+      "result": {
+        "angle": "Transform your morning coffee into a cafe-style experience without breaking the bank.",
+        "hook": "Craving cafe-quality coffee at home? Ditch the expensive machines!",
+        "audience": "Home coffee lovers who enjoy a good brew but are budget-conscious or prefer simpler methods.",
+        "format": "Carousel post with 5 distinct slides, each detailing one method.",
+        "cta": "Which of these brewing tips will you try first? Let us know below! 👇",
+        "reason": "The brief focuses on achieving cafe-style coffee at home with simple, inexpensive methods, aligning with the 'warm, playful, practical' voice. The 'silky' and 'fresh' vocabulary can be incorporated into the content. The carousel format is well-suited for 'short, clear steps' and the CTA encourages engagement by asking a simple question, fitting the 'invite saving or one simple question' habit."
+      },
+      "schema_valid": true,
+      "seconds": 1.563,
+      "billing": {
+        "request_id": "req_01M5C0Z094H2441D8BAN0KA30G",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00010280",
+        "prompt_tokens": 228,
+        "completion_tokens": 200,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-8706-774d-9d4d-0ee9085fee40",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00010280",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "writer",
+      "reserved_usd": "0.00585920",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0Z1VYJNBCY8KWX35V8THW",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 245,
+        "completion_tokens": 545,
+        "total_tokens": 790,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"caption\": \"Dreaming of cafe-quality coffee but don't have a fancy espresso machine? ☕️ You can absolutely achieve that silky, smooth brew right in your own kitchen! It's all about a few simple tweaks to your coffee ritual. Ready to elevate your morning cup? Here are five practical ways to make cafe-style coffee at home:\\n\\n1. **Grind Fresh Beans:** The biggest game-changer is grinding your coffee beans *just* before you brew. This preserves the fresh aromas and flavors that stale, pre-ground coffee loses.\\n\\n2. **Use Good Water:** Coffee is mostly water! Filtered or spring water can make a noticeable difference compared to tap water, especially if your tap water has a strong taste.\\n\\n3. **Master Your Ratio:** Experiment with the coffee-to-water ratio. A good starting point is around 1:15 or 1:17 (e.g., 1 gram of coffee to 15-17 grams of water). Weighing your coffee and water is key here!\\n\\n4. **Control Water Temperature:** Aim for water that's just off the boil, around 195-205°F (90-96°C). Water that's too hot can scald the coffee, while water that's too cool won't extract enough flavor.\\n\\n5. **Pre-infuse (Bloom):** For pour-over or French press, pour just enough hot water to saturate the grounds and let it sit for about 30 seconds. This releases CO2 and leads to a more even extraction and richer taste.\\n\\nWhich tip will you try first this week to upgrade your coffee ritual? Let us know in the comments! 👇 #CoffeeAtHome #CafeCoffee #HomeBarista #CoffeeTips #MorningRitual #BrewBetterCoffee #CoffeeLover\",\n  \"slides\": [\n    \"Cafe-Style Coffee at Home? Yes, You Can! ✨\",\n    \"Grind Fresh Beans for Maximum Flavor ☕️\",\n    \"Water Quality Matters: Use Filtered or Spring Water 💧\",\n    \"Perfect Your Coffee-to-Water Ratio (Weighing is Key!) ⚖️\",\n    \"Water Temp Just Right: 195-205°F (90-96°C) 🔥\",\n    \"Bloom Your Coffee for a Smoother Brew 🌸\",\n    \"Which tip are you trying first? Save this post for later! 👇\"\n  ]\n}",
+      "result": {
+        "caption": "Dreaming of cafe-quality coffee but don't have a fancy espresso machine? ☕️ You can absolutely achieve that silky, smooth brew right in your own kitchen! It's all about a few simple tweaks to your coffee ritual. Ready to elevate your morning cup? Here are five practical ways to make cafe-style coffee at home:\n\n1. **Grind Fresh Beans:** The biggest game-changer is grinding your coffee beans *just* before you brew. This preserves the fresh aromas and flavors that stale, pre-ground coffee loses.\n\n2. **Use Good Water:** Coffee is mostly water! Filtered or spring water can make a noticeable difference compared to tap water, especially if your tap water has a strong taste.\n\n3. **Master Your Ratio:** Experiment with the coffee-to-water ratio. A good starting point is around 1:15 or 1:17 (e.g., 1 gram of coffee to 15-17 grams of water). Weighing your coffee and water is key here!\n\n4. **Control Water Temperature:** Aim for water that's just off the boil, around 195-205°F (90-96°C). Water that's too hot can scald the coffee, while water that's too cool won't extract enough flavor.\n\n5. **Pre-infuse (Bloom):** For pour-over or French press, pour just enough hot water to saturate the grounds and let it sit for about 30 seconds. This releases CO2 and leads to a more even extraction and richer taste.\n\nWhich tip will you try first this week to upgrade your coffee ritual? Let us know in the comments! 👇 #CoffeeAtHome #CafeCoffee #HomeBarista #CoffeeTips #MorningRitual #BrewBetterCoffee #CoffeeLover",
+        "slides": [
+          "Cafe-Style Coffee at Home? Yes, You Can! ✨",
+          "Grind Fresh Beans for Maximum Flavor ☕️",
+          "Water Quality Matters: Use Filtered or Spring Water 💧",
+          "Perfect Your Coffee-to-Water Ratio (Weighing is Key!) ⚖️",
+          "Water Temp Just Right: 195-205°F (90-96°C) 🔥",
+          "Bloom Your Coffee for a Smoother Brew 🌸",
+          "Which tip are you trying first? Save this post for later! 👇"
+        ]
+      },
+      "schema_valid": false,
+      "seconds": 2.5,
+      "billing": {
+        "request_id": "req_01M5C0Z1VYJNBCY8KWX35V8THW",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00024250",
+        "prompt_tokens": 245,
+        "completion_tokens": 545,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-9110-765b-b333-9f25505abce6",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00024250",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "visual",
+      "reserved_usd": "0.005",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0Z4CPWBBW289DG2KZ7K0H",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 227,
+        "completion_tokens": 201,
+        "total_tokens": 428,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"prompt\": \"A warm, editorial shot of a person's hands gently pouring hot water over coffee grounds in a pour-over coffee maker. The scene is set on a rustic wooden table, with soft, natural morning light illuminating the steam rising from the coffee. A simple ceramic mug is nearby, perhaps with a small plant or a book as background elements to evoke a cozy, homey atmosphere. The focus is on the tactile, ritualistic aspect of making coffee, emphasizing freshness and simplicity.\",\n  \"reason\": \"The prompt aims to capture the essence of 'cafe-style coffee at home without an expensive machine' by focusing on a manual brewing method (pour-over) in a warm, inviting setting. It highlights the 'ritual' and 'fresh' aspects through the visual of the brewing process and natural light, aligning with the specified tone and vocabulary. The scene is designed to be aspirational yet accessible, avoiding any depiction of expensive equipment or guaranteed results.\"\n}",
+      "result": {
+        "prompt": "A warm, editorial shot of a person's hands gently pouring hot water over coffee grounds in a pour-over coffee maker. The scene is set on a rustic wooden table, with soft, natural morning light illuminating the steam rising from the coffee. A simple ceramic mug is nearby, perhaps with a small plant or a book as background elements to evoke a cozy, homey atmosphere. The focus is on the tactile, ritualistic aspect of making coffee, emphasizing freshness and simplicity.",
+        "reason": "The prompt aims to capture the essence of 'cafe-style coffee at home without an expensive machine' by focusing on a manual brewing method (pour-over) in a warm, inviting setting. It highlights the 'ritual' and 'fresh' aspects through the visual of the brewing process and natural light, aligning with the specified tone and vocabulary. The scene is designed to be aspirational yet accessible, avoiding any depiction of expensive equipment or guaranteed results."
+      },
+      "schema_valid": true,
+      "seconds": 1.578,
+      "billing": {
+        "request_id": "req_01M5C0Z4CPWBBW289DG2KZ7K0H",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00010310",
+        "prompt_tokens": 227,
+        "completion_tokens": 201,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-979a-7389-8a4e-e07a8e04aa24",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00010310",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "learner",
+      "reserved_usd": "0.005",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0Z60HDJ7VNY2F4W8TXJW3",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 226,
+        "completion_tokens": 334,
+        "total_tokens": 560,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"rule\": \"When discussing methods or tips, focus on accessible, everyday actions that a user can implement with minimal friction. Emphasize the enjoyment and personal aspect of the activity rather than technical performance or strict outcomes.\",\n  \"reason\": \"The provided samples and brief highlight a desire for simple, approachable ways to achieve cafe-style coffee at home without requiring expensive equipment. The voice guidelines (warm, playful, practical) and avoidance of 'expensive equipment requirements' and 'guaranteed results' further support this. The 'cta_habits' suggest encouraging simple saving or questions, aligning with low-friction engagement. The evidence, though from a 'simulated benchmark fixture' and 'small observational sample', points to a higher engagement rate (0.0655) for posts that likely embody these principles compared to a 'checklist' format (0.03).\",\n  \"experiment\": {\n    \"description\": \"Test variations of a post about making cafe-style coffee at home. One version will focus on a specific, simple technique (e.g., bloom the coffee grounds) with emphasis on the sensory experience ('silky,' 'aroma'). The other version will list multiple techniques with a more direct, instructive tone. Both will use warm, playful language and avoid mentioning expensive equipment or guaranteed results. We will measure engagement rate (likes, comments, shares) to see which approach resonates more.\",\n    \"hypothesis\": \"A post focusing on a single, sensory-rich technique, framed with a warm and playful tone, may lead to higher engagement than a post listing multiple techniques.\"\n  }\n}",
+      "result": {
+        "rule": "When discussing methods or tips, focus on accessible, everyday actions that a user can implement with minimal friction. Emphasize the enjoyment and personal aspect of the activity rather than technical performance or strict outcomes.",
+        "reason": "The provided samples and brief highlight a desire for simple, approachable ways to achieve cafe-style coffee at home without requiring expensive equipment. The voice guidelines (warm, playful, practical) and avoidance of 'expensive equipment requirements' and 'guaranteed results' further support this. The 'cta_habits' suggest encouraging simple saving or questions, aligning with low-friction engagement. The evidence, though from a 'simulated benchmark fixture' and 'small observational sample', points to a higher engagement rate (0.0655) for posts that likely embody these principles compared to a 'checklist' format (0.03).",
+        "experiment": {
+          "description": "Test variations of a post about making cafe-style coffee at home. One version will focus on a specific, simple technique (e.g., bloom the coffee grounds) with emphasis on the sensory experience ('silky,' 'aroma'). The other version will list multiple techniques with a more direct, instructive tone. Both will use warm, playful language and avoid mentioning expensive equipment or guaranteed results. We will measure engagement rate (likes, comments, shares) to see which approach resonates more.",
+          "hypothesis": "A post focusing on a single, sensory-rich technique, framed with a warm and playful tone, may lead to higher engagement than a post listing multiple techniques."
+        }
+      },
+      "schema_valid": true,
+      "seconds": 2.032,
+      "billing": {
+        "request_id": "req_01M5C0Z60HDJ7VNY2F4W8TXJW3",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00015620",
+        "prompt_tokens": 226,
+        "completion_tokens": 334,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-9fde-764a-a7f9-21fac97558ea",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00015620",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "task": "brand",
+      "reserved_usd": "0.01129340",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0Z829JB5J9T61X9EWQ3YK",
+      "http_status": 200,
+      "returned_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 291,
+        "completion_tokens": 700,
+        "total_tokens": 991,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 700,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "length",
+      "raw_output": "",
+      "result": null,
+      "schema_valid": false,
+      "seconds": 4.281,
+      "billing": {
+        "request_id": "req_01M5C0Z829JB5J9T61X9EWQ3YK",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "provider": "deepseek",
+        "cost_usd": "0.00092730",
+        "prompt_tokens": 291,
+        "completion_tokens": 700,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-b0d8-730e-9e09-2937edd842b2",
+            "model": "deepseek/deepseek-v4.1-flash",
+            "cost_usd": "0.00092730",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "task": "strategy",
+      "reserved_usd": "0.01097660",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0ZCAW33R4HCQAKT2P1R54",
+      "http_status": 200,
+      "returned_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 294,
+        "completion_tokens": 592,
+        "total_tokens": 886,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 417,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 294
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"angle\":\"Cafe-style coffee at home as a small, achievable daily ritual using five low-equipment techniques rather than expensive gear.\",\"hook\":\"No fancy machine? Five simple ways to make your home cup feel cafe-silky.\",\"audience\":\"Home coffee drinkers who want a better daily cup without buying expensive equipment.\",\"format\":\"Instagram carousel with five short, clear step slides, plus a simple cover and saveable recap slide.\",\"cta\":\"Save this for your next slow morning — or tell me which step you’ll try first.\",\"reason\":\"The angle and step format match the warm, playful, practical voice and the brief’s five-way structure. The supplied evidence is a small simulated observational sample, not causal proof, so it is not used to make performance claims; the carousel prioritises clarity and saveability.\"}",
+      "result": {
+        "angle": "Cafe-style coffee at home as a small, achievable daily ritual using five low-equipment techniques rather than expensive gear.",
+        "hook": "No fancy machine? Five simple ways to make your home cup feel cafe-silky.",
+        "audience": "Home coffee drinkers who want a better daily cup without buying expensive equipment.",
+        "format": "Instagram carousel with five short, clear step slides, plus a simple cover and saveable recap slide.",
+        "cta": "Save this for your next slow morning — or tell me which step you’ll try first.",
+        "reason": "The angle and step format match the warm, playful, practical voice and the brief’s five-way structure. The supplied evidence is a small simulated observational sample, not causal proof, so it is not used to make performance claims; the carousel prioritises clarity and saveability."
+      },
+      "schema_valid": true,
+      "seconds": 4.453,
+      "billing": {
+        "request_id": "req_01M5C0ZCAW33R4HCQAKT2P1R54",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "provider": "deepseek",
+        "cost_usd": "0.00079860",
+        "prompt_tokens": 294,
+        "completion_tokens": 592,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-c288-7277-b0f0-4d1678b33e77",
+            "model": "deepseek/deepseek-v4.1-flash",
+            "cost_usd": "0.00079860",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "task": "writer",
+      "reserved_usd": "0.01363880",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0ZGR07A8AB45K6R29FA17",
+      "http_status": 200,
+      "returned_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 313,
+        "completion_tokens": 1000,
+        "total_tokens": 1313,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1000,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 313
+      },
+      "finish_reason": "length",
+      "raw_output": "",
+      "result": null,
+      "schema_valid": false,
+      "seconds": 7.094,
+      "billing": {
+        "request_id": "req_01M5C0ZGR07A8AB45K6R29FA17",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "provider": "deepseek",
+        "cost_usd": "0.00129390",
+        "prompt_tokens": 313,
+        "completion_tokens": 1000,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-de88-73ef-9b71-9ed66617946e",
+            "model": "deepseek/deepseek-v4.1-flash",
+            "cost_usd": "0.00129390",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "task": "visual",
+      "reserved_usd": "0.00883460",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0ZQRHME24XCHA5F7D5D75",
+      "http_status": 200,
+      "returned_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 293,
+        "completion_tokens": 350,
+        "total_tokens": 643,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 350,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 293
+      },
+      "finish_reason": "length",
+      "raw_output": "",
+      "result": null,
+      "schema_valid": false,
+      "seconds": 3.016,
+      "billing": {
+        "request_id": "req_01M5C0ZQRHME24XCHA5F7D5D75",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "provider": "deepseek",
+        "cost_usd": "0.00050790",
+        "prompt_tokens": 293,
+        "completion_tokens": 350,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-ea9c-7070-8dba-f1c9f5609d4c",
+            "model": "deepseek/deepseek-v4.1-flash",
+            "cost_usd": "0.00050790",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "task": "learner",
+      "reserved_usd": "0.00920720",
+      "status": "invalid_schema",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C0ZTRT42Z9X7G7TCD0EXSE",
+      "http_status": 200,
+      "returned_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 400,
+        "total_tokens": 692,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 400,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "length",
+      "raw_output": "",
+      "result": null,
+      "schema_valid": false,
+      "seconds": 3.172,
+      "billing": {
+        "request_id": "req_01M5C0ZTRT42Z9X7G7TCD0EXSE",
+        "model": "deepseek/deepseek-v4.1-flash",
+        "provider": "deepseek",
+        "cost_usd": "0.00056760",
+        "prompt_tokens": 292,
+        "completion_tokens": 400,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a1580f-f75d-711d-9851-df255fa299b9",
+            "model": "deepseek/deepseek-v4.1-flash",
+            "cost_usd": "0.00056760",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_brand",
+      "reserved_usd": "0.01476560",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C11VB3SESMEHV7GW0KM5PJ",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 280,
+        "completion_tokens": 73,
+        "total_tokens": 353,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"tone\":\"Warm and playful with a practical touch\",\"vocabulary\":[\"fresh\",\"silky\",\"ritual\",\"brew\",\"sip\"],\"structure\":\"Short and clear step-by-step instructions\",\"cta_habits\":\"Encourage saving the post or asking a simple question to engage readers\",\"avoid\":[\"Invented statistics\",\"Promising guaranteed results\",\"Mentioning expensive equipment\"]}",
+      "result": {
+        "tone": "Warm and playful with a practical touch",
+        "vocabulary": [
+          "fresh",
+          "silky",
+          "ritual",
+          "brew",
+          "sip"
+        ],
+        "structure": "Short and clear step-by-step instructions",
+        "cta_habits": "Encourage saving the post or asking a simple question to engage readers",
+        "avoid": [
+          "Invented statistics",
+          "Promising guaranteed results",
+          "Mentioning expensive equipment"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 1.297,
+      "billing": {
+        "request_id": "req_01M5C11VB3SESMEHV7GW0KM5PJ",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00022880",
+        "prompt_tokens": 280,
+        "completion_tokens": 73,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15810-f23d-716c-97e6-8e702c86458f",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00022880",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_strategy",
+      "reserved_usd": "0.01436240",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C11WQ36TBM46BK7PEZHAHH",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 286,
+        "completion_tokens": 156,
+        "total_tokens": 442,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"angle\": \"How to create a cozy cafe-style coffee experience at home with simple, affordable methods\",\n  \"hook\": \"No fancy machine? No problem! Discover five easy ways to make silky, fresh coffee right in your own kitchen.\",\n  \"audience\": \"Coffee lovers who want to enjoy cafe-quality coffee without expensive equipment\",\n  \"format\": \"Instagram carousel post with short, clear steps and warm, playful captions\",\n  \"cta\": \"Save this post to try your favorite method this weekend! Which one will you try first?\",\n  \"reason\": \"The brief emphasizes practical, affordable coffee-making tips without relying on expensive machines, using a warm and playful tone with simple steps, which fits well with an Instagram carousel that encourages saving and engagement.\"\n}",
+      "result": {
+        "angle": "How to create a cozy cafe-style coffee experience at home with simple, affordable methods",
+        "hook": "No fancy machine? No problem! Discover five easy ways to make silky, fresh coffee right in your own kitchen.",
+        "audience": "Coffee lovers who want to enjoy cafe-quality coffee without expensive equipment",
+        "format": "Instagram carousel post with short, clear steps and warm, playful captions",
+        "cta": "Save this post to try your favorite method this weekend! Which one will you try first?",
+        "reason": "The brief emphasizes practical, affordable coffee-making tips without relying on expensive machines, using a warm and playful tone with simple steps, which fits well with an Instagram carousel that encourages saving and engagement."
+      },
+      "schema_valid": true,
+      "seconds": 1.797,
+      "billing": {
+        "request_id": "req_01M5C11WQ36TBM46BK7PEZHAHH",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00036400",
+        "prompt_tokens": 286,
+        "completion_tokens": 156,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15810-f9ad-72aa-9459-3b5cb7c0f110",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00036400",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_writer",
+      "reserved_usd": "0.01786400",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C11YJG4ED4K8TQW3XFVBPT",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 307,
+        "completion_tokens": 392,
+        "total_tokens": 699,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"text\": \"Craving that silky cafe-style coffee but don’t have a fancy machine? No worries! Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\\n\\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\\n\\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\\n\\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\\n\\n4. Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.\\n\\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\\n\\nSave this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!\",\n  \"slides\": [\n    \"Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!\",\n    \"Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.\",\n    \"Tip 2: Warm Your Mug. Pour hot water in your cup, then empty before brewing for a silky, cozy experience.\",\n    \"Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.\",\n    \"Tip 4: Perfect Your Water. Heat filtered water to just under boiling (around 200°F) to unlock coffee’s best notes.\",\n    \"Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.\",\n    \"Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!\"\n  ]\n}",
+      "result": {
+        "text": "Craving that silky cafe-style coffee but don’t have a fancy machine? No worries! Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\n\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\n\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\n\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\n\n4. Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.\n\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\n\nSave this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!",
+        "slides": [
+          "Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!",
+          "Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.",
+          "Tip 2: Warm Your Mug. Pour hot water in your cup, then empty before brewing for a silky, cozy experience.",
+          "Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.",
+          "Tip 4: Perfect Your Water. Heat filtered water to just under boiling (around 200°F) to unlock coffee’s best notes.",
+          "Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.",
+          "Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 3.047,
+      "billing": {
+        "request_id": "req_01M5C11YJG4ED4K8TQW3XFVBPT",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00075000",
+        "prompt_tokens": 307,
+        "completion_tokens": 392,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-0607-72ce-bee4-2d04d1ed967f",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00075000",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_editor",
+      "reserved_usd": "0.01925120",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "draft": {
+          "text": "Craving that silky cafe-style coffee but don’t have a fancy machine? No worries! Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\n\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\n\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\n\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\n\n4. Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.\n\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\n\nSave this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!",
+          "slides": [
+            "Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!",
+            "Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.",
+            "Tip 2: Warm Your Mug. Pour hot water in your cup, then empty before brewing for a silky, cozy experience.",
+            "Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.",
+            "Tip 4: Perfect Your Water. Heat filtered water to just under boiling (around 200°F) to unlock coffee’s best notes.",
+            "Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.",
+            "Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!"
+          ]
+        }
+      },
+      "request_id": "req_01M5C121N33GHZ3R1T6REF5GWP",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 694,
+        "completion_tokens": 324,
+        "total_tokens": 1018,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"scores\": {\n    \"hook\": 9,\n    \"clarity\": 9,\n    \"voice\": 9,\n    \"platform\": 9,\n    \"cta\": 8\n  },\n  \"edits\": [\n    \"Change 'No worries!' to 'No worries ☕' to increase warmth and emoji use early.\",\n    \"Rephrase 'Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.' as 'Use filtered water heated just off boiling (about 200°F) to unlock coffee's silky sweetness.' for smoother flow.\",\n    \"In the CTA, replace 'Save this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!' with 'Save this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!' to better align with warm, playful voice and invite engagement.\"\n  ],\n  \"reason\": \"The draft effectively delivers five distinct and practical tips that align with the brief's warm, playful, and practical voice. The clarity and structure are appropriate for Instagram, with concise step-by-step guidance and visually separated tips in the carousel format. The hook is engaging and invites readers in without requiring a fancy machine, appealing to the target audience. The call to action is generally good but can be slightly more inviting to encourage sharing and saving, which is important for Instagram engagement. No unsupported claims or repeated tips are present, and the language matches the suggested vocabulary closely. Minor wording changes can enhance warmth, flow, and platform alignment further.\"\n}",
+      "result": {
+        "scores": {
+          "hook": 9,
+          "clarity": 9,
+          "voice": 9,
+          "platform": 9,
+          "cta": 8
+        },
+        "edits": [
+          "Change 'No worries!' to 'No worries ☕' to increase warmth and emoji use early.",
+          "Rephrase 'Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.' as 'Use filtered water heated just off boiling (about 200°F) to unlock coffee's silky sweetness.' for smoother flow.",
+          "In the CTA, replace 'Save this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!' with 'Save this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!' to better align with warm, playful voice and invite engagement."
+        ],
+        "reason": "The draft effectively delivers five distinct and practical tips that align with the brief's warm, playful, and practical voice. The clarity and structure are appropriate for Instagram, with concise step-by-step guidance and visually separated tips in the carousel format. The hook is engaging and invites readers in without requiring a fancy machine, appealing to the target audience. The call to action is generally good but can be slightly more inviting to encourage sharing and saving, which is important for Instagram engagement. No unsupported claims or repeated tips are present, and the language matches the suggested vocabulary closely. Minor wording changes can enhance warmth, flow, and platform alignment further."
+      },
+      "schema_valid": true,
+      "seconds": 2.75,
+      "billing": {
+        "request_id": "req_01M5C121N33GHZ3R1T6REF5GWP",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00079600",
+        "prompt_tokens": 694,
+        "completion_tokens": 324,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-112d-759b-9d84-242aa1467dc4",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00079600",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_visual",
+      "reserved_usd": "0.01128560",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C124DJ8S6JT1M848959EXW",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 260,
+        "completion_tokens": 118,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"prompt\":\"A warm and cozy editorial image featuring a rustic wooden table with fresh coffee beans scattered around, a steaming cup of freshly brewed coffee in a simple ceramic mug, a small manual coffee grinder, and soft natural morning light gently illuminating the scene. The composition highlights a relaxed, inviting atmosphere perfect for a comforting coffee ritual at home.\",\"reason\":\"This image matches the brief by visually conveying a warm, practical, and playful vibe ideal for the Instagram platform. It avoids any text or logos and emphasizes fresh, simple coffee-making elements without expensive machinery, fitting the described tone and vocabulary perfectly.\"}",
+      "result": {
+        "prompt": "A warm and cozy editorial image featuring a rustic wooden table with fresh coffee beans scattered around, a steaming cup of freshly brewed coffee in a simple ceramic mug, a small manual coffee grinder, and soft natural morning light gently illuminating the scene. The composition highlights a relaxed, inviting atmosphere perfect for a comforting coffee ritual at home.",
+        "reason": "This image matches the brief by visually conveying a warm, practical, and playful vibe ideal for the Instagram platform. It avoids any text or logos and emphasizes fresh, simple coffee-making elements without expensive machinery, fitting the described tone and vocabulary perfectly."
+      },
+      "schema_valid": true,
+      "seconds": 1.563,
+      "billing": {
+        "request_id": "req_01M5C124DJ8S6JT1M848959EXW",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00029280",
+        "prompt_tokens": 260,
+        "completion_tokens": 118,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-1796-74e3-930b-06efee838cb6",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00029280",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_learner",
+      "reserved_usd": "0.01177760",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12618HM3PAHXQAAS770P8",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 259,
+        "completion_tokens": 180,
+        "total_tokens": 439,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"rule\":\"Share simple, practical steps for making café-style coffee at home using fresh ingredients and minimal equipment, with a warm and playful tone inviting engagement such as saving the post or reflecting via a question.\",\"reason\":\"The provided benchmark data from similar posts shows moderate engagement (mean rates of 0.0655 and 0.03) when content is structured as short, clear steps with a warm tone and includes calls to action like inviting saves or posing simple questions. Avoiding claims about expensive equipment or guaranteed results fits the desired tone and engagement style while respecting caution about observational data limits.\",\"tentative_experiment\":\"Post a series of five short, playful steps for making coffee using fresh beans and no fancy machines, ending with a question like 'Which step will you try this weekend?' Measure engagement rates (likes, saves, comments) comparing posts with and without the CTA to evaluate its impact.\"}",
+      "result": {
+        "rule": "Share simple, practical steps for making café-style coffee at home using fresh ingredients and minimal equipment, with a warm and playful tone inviting engagement such as saving the post or reflecting via a question.",
+        "reason": "The provided benchmark data from similar posts shows moderate engagement (mean rates of 0.0655 and 0.03) when content is structured as short, clear steps with a warm tone and includes calls to action like inviting saves or posing simple questions. Avoiding claims about expensive equipment or guaranteed results fits the desired tone and engagement style while respecting caution about observational data limits.",
+        "tentative_experiment": "Post a series of five short, playful steps for making coffee using fresh beans and no fancy machines, ending with a question like 'Which step will you try this weekend?' Measure engagement rates (likes, saves, comments) comparing posts with and without the CTA to evaluate its impact."
+      },
+      "schema_valid": true,
+      "seconds": 1.937,
+      "billing": {
+        "request_id": "req_01M5C12618HM3PAHXQAAS770P8",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00039160",
+        "prompt_tokens": 259,
+        "completion_tokens": 180,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-1f80-7569-98a1-f97a8e56d573",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00039160",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_revision",
+      "reserved_usd": "0.02592800",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "previous_draft": {
+          "text": "Craving that silky cafe-style coffee but don’t have a fancy machine? No worries! Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\n\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\n\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\n\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\n\n4. Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.\n\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\n\nSave this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!",
+          "slides": [
+            "Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!",
+            "Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.",
+            "Tip 2: Warm Your Mug. Pour hot water in your cup, then empty before brewing for a silky, cozy experience.",
+            "Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.",
+            "Tip 4: Perfect Your Water. Heat filtered water to just under boiling (around 200°F) to unlock coffee’s best notes.",
+            "Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.",
+            "Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!"
+          ]
+        },
+        "editor_feedback": {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 8
+          },
+          "edits": [
+            "Change 'No worries!' to 'No worries ☕' to increase warmth and emoji use early.",
+            "Rephrase 'Use filtered water heated to about 200°F—just off boiling—to extract that silky sweetness.' as 'Use filtered water heated just off boiling (about 200°F) to unlock coffee's silky sweetness.' for smoother flow.",
+            "In the CTA, replace 'Save this post if you love turning everyday coffee moments into a comforting ritual, and share your favorite homemade brew tip below!' with 'Save this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!' to better align with warm, playful voice and invite engagement."
+          ],
+          "reason": "The draft effectively delivers five distinct and practical tips that align with the brief's warm, playful, and practical voice. The clarity and structure are appropriate for Instagram, with concise step-by-step guidance and visually separated tips in the carousel format. The hook is engaging and invites readers in without requiring a fancy machine, appealing to the target audience. The call to action is generally good but can be slightly more inviting to encourage sharing and saving, which is important for Instagram engagement. No unsupported claims or repeated tips are present, and the language matches the suggested vocabulary closely. Minor wording changes can enhance warmth, flow, and platform alignment further."
+        }
+      },
+      "request_id": "req_01M5C1282AMXM244GBEH85RVY7",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 994,
+        "completion_tokens": 374,
+        "total_tokens": 1368,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"text\":\"Craving that silky cafe-style coffee but don’t have a fancy machine? No worries ☕ Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\\n\\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\\n\\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\\n\\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\\n\\n4. Use filtered water heated just off boiling (about 200°F) to unlock coffee’s silky sweetness.\\n\\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\\n\\nSave this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!\",\"slides\":[\"Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!\",\"Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.\",\"Tip 2: Warm Your Mug. Pour hot water into your cup, then empty it before brewing for a silky, cozy experience.\",\"Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.\",\"Tip 4: Perfect Your Water. Heat filtered water just off boiling (around 200°F) to unlock coffee’s silky sweetness.\",\"Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.\",\"Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!\"]}",
+      "result": {
+        "text": "Craving that silky cafe-style coffee but don’t have a fancy machine? No worries ☕ Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\n\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\n\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\n\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\n\n4. Use filtered water heated just off boiling (about 200°F) to unlock coffee’s silky sweetness.\n\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\n\nSave this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!",
+        "slides": [
+          "Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!",
+          "Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.",
+          "Tip 2: Warm Your Mug. Pour hot water into your cup, then empty it before brewing for a silky, cozy experience.",
+          "Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.",
+          "Tip 4: Perfect Your Water. Heat filtered water just off boiling (around 200°F) to unlock coffee’s silky sweetness.",
+          "Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.",
+          "Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 3.25,
+      "billing": {
+        "request_id": "req_01M5C1282AMXM244GBEH85RVY7",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00099600",
+        "prompt_tokens": 994,
+        "completion_tokens": 374,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-2cc2-7459-aedc-a7626dc10582",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00099600",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "task": "main_editor_final",
+      "reserved_usd": "0.01917200",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "draft": {
+          "text": "Craving that silky cafe-style coffee but don’t have a fancy machine? No worries ☕ Your kitchen is already full of tools to brew delightful coffee with just a few tweaks. Let’s turn your daily coffee ritual into something special with fresh, simple methods you can try today. ☕\n\n1. Start fresh! Grind your beans just before brewing to unlock vibrant flavors.\n\n2. Warm your mug with hot water before pouring coffee to keep each sip cozy and smooth.\n\n3. Experiment with steep times in a French press; a little extra patience can turn up the richness.\n\n4. Use filtered water heated just off boiling (about 200°F) to unlock coffee’s silky sweetness.\n\n5. Try a gentle swirl or stir halfway through brewing to enhance aroma and balance.\n\nSave this post to keep your daily coffee ritual silky smooth, and share your favorite homemade brew tip with us below!",
+          "slides": [
+            "Want cafe-style coffee at home without splurging on gear? Let’s make it happen—with simple tweaks you can try today!",
+            "Tip 1: Grind Beans Fresh! Grinding just before brewing means maximum flavor and aroma in every cup.",
+            "Tip 2: Warm Your Mug. Pour hot water into your cup, then empty it before brewing for a silky, cozy experience.",
+            "Tip 3: Master the French Press! Let your coffee steep a bit longer to deepen the taste—patience is delicious.",
+            "Tip 4: Perfect Your Water. Heat filtered water just off boiling (around 200°F) to unlock coffee’s silky sweetness.",
+            "Tip 5: Stir Mid-Brew! A gentle swirl or stir halfway through brewing helps balance flavors and boost aroma.",
+            "Which tip will you try first? Save this carousel as a go-to guide for turning your coffee into a daily silky ritual!"
+          ]
+        }
+      },
+      "request_id": "req_01M5C12BA88QG4QN0ETJ63PRGW",
+      "http_status": 200,
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "usage": {
+        "prompt_tokens": 690,
+        "completion_tokens": 229,
+        "total_tokens": 919,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"scores\":{\"hook\":9,\"clarity\":9,\"voice\":9,\"platform\":9,\"cta\":8},\"edits\":[\"Change 'warm your mug with hot water before pouring coffee' to 'warm your mug by rinsing with hot water before brewing' for smoother flow\",\"Replace 'a little extra patience can turn up the richness' with 'a bit more steeping time deepens the rich flavors' to clarify\",\"Alter 'Try a gentle swirl or stir halfway through brewing to enhance aroma and balance' to 'Gently swirl or stir your coffee halfway through brewing for balanced aroma and flavor' for active tone\"],\"reason\":\"The draft aligns very well with the brief's warm, playful, and practical voice, using vocabulary like 'silky' and 'ritual' and clear short steps. The hook is inviting and relatable, fitting Instagram style. The call to action is good but could be slightly stronger by encouraging engagement beyond just saving or sharing tips. The five tips are distinct, well-supported by common coffee-making knowledge, and avoid unsupported health or machine claims. Minor phrasing adjustments can improve clarity and voice flow further.\"}",
+      "result": {
+        "scores": {
+          "hook": 9,
+          "clarity": 9,
+          "voice": 9,
+          "platform": 9,
+          "cta": 8
+        },
+        "edits": [
+          "Change 'warm your mug with hot water before pouring coffee' to 'warm your mug by rinsing with hot water before brewing' for smoother flow",
+          "Replace 'a little extra patience can turn up the richness' with 'a bit more steeping time deepens the rich flavors' to clarify",
+          "Alter 'Try a gentle swirl or stir halfway through brewing to enhance aroma and balance' to 'Gently swirl or stir your coffee halfway through brewing for balanced aroma and flavor' for active tone"
+        ],
+        "reason": "The draft aligns very well with the brief's warm, playful, and practical voice, using vocabulary like 'silky' and 'ritual' and clear short steps. The hook is inviting and relatable, fitting Instagram style. The call to action is good but could be slightly stronger by encouraging engagement beyond just saving or sharing tips. The five tips are distinct, well-supported by common coffee-making knowledge, and avoid unsupported health or machine claims. Minor phrasing adjustments can improve clarity and voice flow further."
+      },
+      "schema_valid": true,
+      "seconds": 2.203,
+      "billing": {
+        "request_id": "req_01M5C12BA88QG4QN0ETJ63PRGW",
+        "model": "openai/gpt-4.1-mini",
+        "provider": "openai",
+        "cost_usd": "0.00064240",
+        "prompt_tokens": 690,
+        "completion_tokens": 229,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-35ba-766f-a477-94e25e654c07",
+            "model": "openai/gpt-4.1-mini",
+            "cost_usd": "0.00064240",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_brand",
+      "reserved_usd": "0.00519680",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12DJYBHZN4KY2P7PW3KYS",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 269,
+        "completion_tokens": 97,
+        "total_tokens": 366,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"tone\": \"Warm, playful, practical\",\n  \"vocabulary\": [\n    \"silky\",\n    \"ritual\",\n    \"fresh\"\n  ],\n  \"structure\": \"Short, clear steps\",\n  \"cta_habits\": \"Invite saving or one simple question\",\n  \"avoid\": [\n    \"Invented statistics\",\n    \"Guaranteed results\",\n    \"Expensive equipment requirements\"\n  ]\n}",
+      "result": {
+        "tone": "Warm, playful, practical",
+        "vocabulary": [
+          "silky",
+          "ritual",
+          "fresh"
+        ],
+        "structure": "Short, clear steps",
+        "cta_habits": "Invite saving or one simple question",
+        "avoid": [
+          "Invented statistics",
+          "Guaranteed results",
+          "Expensive equipment requirements"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 0.937,
+      "billing": {
+        "request_id": "req_01M5C12DJYBHZN4KY2P7PW3KYS",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00006570",
+        "prompt_tokens": 269,
+        "completion_tokens": 97,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-39d9-771f-bd64-ffea2fcb5ea3",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00006570",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_strategy",
+      "reserved_usd": "0.00509600",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12EJRSS89WAR26T65QNSY",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 276,
+        "completion_tokens": 192,
+        "total_tokens": 468,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"angle\": \"Brewing cafe-quality coffee at home is achievable with simple techniques, not expensive machines.\",\n  \"hook\": \"Craving that silky, cafe-style coffee ritual without the hefty price tag? ✨\",\n  \"audience\": \"Home coffee drinkers who enjoy a good cup but want to save money or avoid complex equipment.\",\n  \"format\": \"Instagram carousel post with 5 distinct tips, each on a separate slide with a photo/short video.\",\n  \"cta\": \"Which brewing tip will you try this weekend? Let us know below! 👇 #HomeBarista #CoffeeHacks\",\n  \"reason\": \"The user wants to provide practical, accessible advice for making good coffee at home, aligning with the 'warm, playful, practical' tone and avoiding expensive equipment requirements, as per the brief and samples. The Instagram platform suggests a visual, step-by-step format.\"\n}",
+      "result": {
+        "angle": "Brewing cafe-quality coffee at home is achievable with simple techniques, not expensive machines.",
+        "hook": "Craving that silky, cafe-style coffee ritual without the hefty price tag? ✨",
+        "audience": "Home coffee drinkers who enjoy a good cup but want to save money or avoid complex equipment.",
+        "format": "Instagram carousel post with 5 distinct tips, each on a separate slide with a photo/short video.",
+        "cta": "Which brewing tip will you try this weekend? Let us know below! 👇 #HomeBarista #CoffeeHacks",
+        "reason": "The user wants to provide practical, accessible advice for making good coffee at home, aligning with the 'warm, playful, practical' tone and avoiding expensive equipment requirements, as per the brief and samples. The Instagram platform suggests a visual, step-by-step format."
+      },
+      "schema_valid": true,
+      "seconds": 1.671,
+      "billing": {
+        "request_id": "req_01M5C12EJRSS89WAR26T65QNSY",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00010440",
+        "prompt_tokens": 276,
+        "completion_tokens": 192,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-40ac-738b-9039-4c38bebb1a70",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00010440",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_writer",
+      "reserved_usd": "0.00597140",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12G9YRD8W8P1Q785WV2PX",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 240,
+        "total_tokens": 538,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"text\":\"Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee\",\"slides\":[\"Your morning coffee ritual just got an upgrade! ☕\",\"Start with fresh, quality beans. Grinding them just before brewing makes a world of difference for that fresh flavour.\",\"Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.\",\"Master the pour-over. A simple pour-over cone allows for great control and a clean, silky cup.\",\"Experiment with water temperature. Aim for just off the boil (around 200°F/93°C) for optimal extraction.\",\"Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases.\",\"What's your favourite at-home coffee trick? Share below! 👇\"]}",
+      "result": {
+        "text": "Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee",
+        "slides": [
+          "Your morning coffee ritual just got an upgrade! ☕",
+          "Start with fresh, quality beans. Grinding them just before brewing makes a world of difference for that fresh flavour.",
+          "Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.",
+          "Master the pour-over. A simple pour-over cone allows for great control and a clean, silky cup.",
+          "Experiment with water temperature. Aim for just off the boil (around 200°F/93°C) for optimal extraction.",
+          "Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases.",
+          "What's your favourite at-home coffee trick? Share below! 👇"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 1.906,
+      "billing": {
+        "request_id": "req_01M5C12G9YRD8W8P1Q785WV2PX",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00012580",
+        "prompt_tokens": 298,
+        "completion_tokens": 240,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-4881-76a5-874c-8e83d7541057",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00012580",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_editor",
+      "reserved_usd": "0.00589220",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "draft": {
+          "text": "Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee",
+          "slides": [
+            "Your morning coffee ritual just got an upgrade! ☕",
+            "Start with fresh, quality beans. Grinding them just before brewing makes a world of difference for that fresh flavour.",
+            "Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.",
+            "Master the pour-over. A simple pour-over cone allows for great control and a clean, silky cup.",
+            "Experiment with water temperature. Aim for just off the boil (around 200°F/93°C) for optimal extraction.",
+            "Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases.",
+            "What's your favourite at-home coffee trick? Share below! 👇"
+          ]
+        }
+      },
+      "request_id": "req_01M5C12J8SDEMR317ZFXA69PCX",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 553,
+        "completion_tokens": 277,
+        "total_tokens": 830,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"scores\": {\"hook\": 9, \"clarity\": 10, \"voice\": 8, \"platform\": 7, \"cta\": 8}, \"edits\": [\"Consider adding a brief mention of why grinding beans fresh is important (e.g., preserving volatile aromas).\", \"Instead of 'Master the pour-over', which might imply a steep learning curve, perhaps rephrase to 'Try a pour-over for controlled brewing' to align with the 'no expensive machine' ethos.\", \"The phrase 'just off the boil' could be slightly more precise, e.g., 'around 200°F (93°C) - just off the boil'.\"], \"reason\": \"The hook is strong, immediately addressing a common desire and pain point. The clarity is excellent, with each slide offering a distinct, actionable tip. The voice is mostly warm and practical, though 'Master the pour-over' could be softened. The platform suitability is good for Instagram, with visually appealing points. The CTA is present and encourages engagement. The edits suggested aim to further refine clarity and ensure consistency with the 'easy and accessible' theme. The claim about 'preserving volatile aromas' is a common, supported fact in coffee brewing, and 'optimal extraction' is a standard term. No invented statistics or guaranteed results are present.\"}",
+      "result": {
+        "scores": {
+          "hook": 9,
+          "clarity": 10,
+          "voice": 8,
+          "platform": 7,
+          "cta": 8
+        },
+        "edits": [
+          "Consider adding a brief mention of why grinding beans fresh is important (e.g., preserving volatile aromas).",
+          "Instead of 'Master the pour-over', which might imply a steep learning curve, perhaps rephrase to 'Try a pour-over for controlled brewing' to align with the 'no expensive machine' ethos.",
+          "The phrase 'just off the boil' could be slightly more precise, e.g., 'around 200°F (93°C) - just off the boil'."
+        ],
+        "reason": "The hook is strong, immediately addressing a common desire and pain point. The clarity is excellent, with each slide offering a distinct, actionable tip. The voice is mostly warm and practical, though 'Master the pour-over' could be softened. The platform suitability is good for Instagram, with visually appealing points. The CTA is present and encourages engagement. The edits suggested aim to further refine clarity and ensure consistency with the 'easy and accessible' theme. The claim about 'preserving volatile aromas' is a common, supported fact in coffee brewing, and 'optimal extraction' is a standard term. No invented statistics or guaranteed results are present."
+      },
+      "schema_valid": true,
+      "seconds": 1.812,
+      "billing": {
+        "request_id": "req_01M5C12J8SDEMR317ZFXA69PCX",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00016610",
+        "prompt_tokens": 553,
+        "completion_tokens": 277,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-5002-7208-8754-980fd61898d9",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00016610",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_visual",
+      "reserved_usd": "0.005",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12M4S5C3J6KH6QCNQMA90",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 251,
+        "completion_tokens": 190,
+        "total_tokens": 441,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"prompt\": \"A warm, inviting shot of a person making coffee at home. The focus is on the simple, enjoyable ritual of brewing, with close-ups of hands gently pouring hot water over coffee grounds in a pour-over cone, steam rising from a mug. The lighting is soft and natural, highlighting the rich color of the coffee. No expensive equipment is visible, emphasizing the accessibility of the process.\", \"reason\": \"This prompt aligns with the user's request for a warm, playful, and practical editorial image for an Instagram post about making cafe-style coffee at home without expensive machines. It emphasizes the 'ritual' and 'fresh' aspects, suggests a 'silky' texture through visual cues like steam and rich color, and avoids any indication of expensive equipment or complex processes. The focus on hands and the pouring action visually communicates the 'short, clear steps' and the idea of a simple, accessible brewing method.\"}",
+      "result": {
+        "prompt": "A warm, inviting shot of a person making coffee at home. The focus is on the simple, enjoyable ritual of brewing, with close-ups of hands gently pouring hot water over coffee grounds in a pour-over cone, steam rising from a mug. The lighting is soft and natural, highlighting the rich color of the coffee. No expensive equipment is visible, emphasizing the accessibility of the process.",
+        "reason": "This prompt aligns with the user's request for a warm, playful, and practical editorial image for an Instagram post about making cafe-style coffee at home without expensive machines. It emphasizes the 'ritual' and 'fresh' aspects, suggests a 'silky' texture through visual cues like steam and rich color, and avoids any indication of expensive equipment or complex processes. The focus on hands and the pouring action visually communicates the 'short, clear steps' and the idea of a simple, accessible brewing method."
+      },
+      "schema_valid": true,
+      "seconds": 1.313,
+      "billing": {
+        "request_id": "req_01M5C12M4S5C3J6KH6QCNQMA90",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00010110",
+        "prompt_tokens": 251,
+        "completion_tokens": 190,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-5579-7580-846e-1e0eb43908b3",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00010110",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_learner",
+      "reserved_usd": "0.005",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        }
+      },
+      "request_id": "req_01M5C12NFQ795A5ZR9ET76BH3G",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 250,
+        "completion_tokens": 216,
+        "total_tokens": 466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"rule\": \"To generate engaging content, focus on practical, accessible tips using warm and playful language, emphasizing the enjoyment of the coffee-making process as a personal ritual.\", \"reason\": \"The provided evidence indicates that content focusing on accessible methods ('No fancy machine? No problem.') and personal enjoyment ('make it your own', 'enjoy the first sip') with appealing descriptive language ('silky', 'fresh') resonates well, achieving a higher mean engagement rate (0.0655) on the platform compared to more generic content (0.03). The cautionary note highlights the need to avoid definitive claims and stick to observational data.\", \"experiment\": \"Test a post with the title 'Elevate Your Morning Brew: 3 Simple Steps to Cafe-Quality Coffee at Home (No Fancy Gear Needed!)'. The post will detail one accessible brewing method (e.g., pour-over) with a focus on sensory details ('aroma', 'smoothness') and a playful tone, ending with a question about the user's favorite morning coffee ritual.\"}",
+      "result": {
+        "rule": "To generate engaging content, focus on practical, accessible tips using warm and playful language, emphasizing the enjoyment of the coffee-making process as a personal ritual.",
+        "reason": "The provided evidence indicates that content focusing on accessible methods ('No fancy machine? No problem.') and personal enjoyment ('make it your own', 'enjoy the first sip') with appealing descriptive language ('silky', 'fresh') resonates well, achieving a higher mean engagement rate (0.0655) on the platform compared to more generic content (0.03). The cautionary note highlights the need to avoid definitive claims and stick to observational data.",
+        "experiment": "Test a post with the title 'Elevate Your Morning Brew: 3 Simple Steps to Cafe-Quality Coffee at Home (No Fancy Gear Needed!)'. The post will detail one accessible brewing method (e.g., pour-over) with a focus on sensory details ('aroma', 'smoothness') and a playful tone, ending with a question about the user's favorite morning coffee ritual."
+      },
+      "schema_valid": true,
+      "seconds": 1.781,
+      "billing": {
+        "request_id": "req_01M5C12NFQ795A5ZR9ET76BH3G",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00011140",
+        "prompt_tokens": 250,
+        "completion_tokens": 216,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-5cb6-74df-8c9b-567f83f8f50c",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00011140",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_revision",
+      "reserved_usd": "0.00738620",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "previous_draft": {
+          "text": "Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee",
+          "slides": [
+            "Your morning coffee ritual just got an upgrade! ☕",
+            "Start with fresh, quality beans. Grinding them just before brewing makes a world of difference for that fresh flavour.",
+            "Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.",
+            "Master the pour-over. A simple pour-over cone allows for great control and a clean, silky cup.",
+            "Experiment with water temperature. Aim for just off the boil (around 200°F/93°C) for optimal extraction.",
+            "Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases.",
+            "What's your favourite at-home coffee trick? Share below! 👇"
+          ]
+        },
+        "editor_feedback": {
+          "scores": {
+            "hook": 9,
+            "clarity": 10,
+            "voice": 8,
+            "platform": 7,
+            "cta": 8
+          },
+          "edits": [
+            "Consider adding a brief mention of why grinding beans fresh is important (e.g., preserving volatile aromas).",
+            "Instead of 'Master the pour-over', which might imply a steep learning curve, perhaps rephrase to 'Try a pour-over for controlled brewing' to align with the 'no expensive machine' ethos.",
+            "The phrase 'just off the boil' could be slightly more precise, e.g., 'around 200°F (93°C) - just off the boil'."
+          ],
+          "reason": "The hook is strong, immediately addressing a common desire and pain point. The clarity is excellent, with each slide offering a distinct, actionable tip. The voice is mostly warm and practical, though 'Master the pour-over' could be softened. The platform suitability is good for Instagram, with visually appealing points. The CTA is present and encourages engagement. The edits suggested aim to further refine clarity and ensure consistency with the 'easy and accessible' theme. The claim about 'preserving volatile aromas' is a common, supported fact in coffee brewing, and 'optimal extraction' is a standard term. No invented statistics or guaranteed results are present."
+        }
+      },
+      "request_id": "req_01M5C12QAHV0XJX74NQHJ6TRMC",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 825,
+        "completion_tokens": 267,
+        "total_tokens": 1092,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\"text\":\"Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Grinding your beans just before brewing preserves those fresh, volatile aromas for a richer flavour. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee\",\"slides\":[\"Your morning coffee ritual just got an upgrade! ☕\",\"Start with fresh, quality beans. Grinding them just before brewing preserves those fresh, volatile aromas for a richer flavour.\",\"Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.\",\"Try a pour-over for controlled brewing. A simple pour-over cone allows for great control and a clean, silky cup.\",\"Experiment with water temperature. Aim for around 200°F (93°C) - just off the boil - for optimal extraction.\",\"Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases, leading to a smoother taste.\",\"What's your favourite simple coffee tweak? Share below! 👇\"]}",
+      "result": {
+        "text": "Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Grinding your beans just before brewing preserves those fresh, volatile aromas for a richer flavour. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee",
+        "slides": [
+          "Your morning coffee ritual just got an upgrade! ☕",
+          "Start with fresh, quality beans. Grinding them just before brewing preserves those fresh, volatile aromas for a richer flavour.",
+          "Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.",
+          "Try a pour-over for controlled brewing. A simple pour-over cone allows for great control and a clean, silky cup.",
+          "Experiment with water temperature. Aim for around 200°F (93°C) - just off the boil - for optimal extraction.",
+          "Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases, leading to a smoother taste.",
+          "What's your favourite simple coffee tweak? Share below! 👇"
+        ]
+      },
+      "schema_valid": true,
+      "seconds": 1.297,
+      "billing": {
+        "request_id": "req_01M5C12QAHV0XJX74NQHJ6TRMC",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00018930",
+        "prompt_tokens": 825,
+        "completion_tokens": 267,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-6224-7193-8c1e-32b5c1395c21",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00018930",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "task": "main_editor_final",
+      "reserved_usd": "0.00597260",
+      "status": "success",
+      "input": {
+        "brief": "Five ways to make cafe-style coffee at home without an expensive machine",
+        "platform": "instagram",
+        "voice": {
+          "tone": "Warm, playful, practical",
+          "vocabulary": [
+            "silky",
+            "ritual",
+            "fresh"
+          ],
+          "structure": "Short, clear steps",
+          "cta_habits": "Invite saving or one simple question",
+          "avoid": [
+            "Invented statistics",
+            "Guaranteed results",
+            "Expensive equipment requirements"
+          ]
+        },
+        "samples": [
+          "Coffee is a small daily ritual. Start with fresh beans, then make it your own. ☕",
+          "A silky cup starts with a little care. Warm the mug and enjoy the first sip.",
+          "No fancy machine? No problem. Try one small brewing change this weekend. Save your favourite."
+        ],
+        "evidence": {
+          "source": "simulated benchmark fixture",
+          "story": {
+            "posts": 2,
+            "mean_rate": 0.0655
+          },
+          "checklist": {
+            "posts": 2,
+            "mean_rate": 0.03
+          },
+          "caution": "Small observational sample, not causal evidence"
+        },
+        "draft": {
+          "text": "Love that silky cafe-style coffee but don't have a fancy machine? You can absolutely recreate that delicious ritual at home! ☕✨ It all starts with a few simple tweaks that make a big difference. Grinding your beans just before brewing preserves those fresh, volatile aromas for a richer flavour. Ready to level up your morning brew? Let's get started! #CoffeeAtHome #HomeBarista #CoffeeLover #MorningRitual #CafeStyle #DIYCoffee",
+          "slides": [
+            "Your morning coffee ritual just got an upgrade! ☕",
+            "Start with fresh, quality beans. Grinding them just before brewing preserves those fresh, volatile aromas for a richer flavour.",
+            "Pre-heat your mug! A warm mug keeps your coffee hotter for longer, enhancing the whole experience.",
+            "Try a pour-over for controlled brewing. A simple pour-over cone allows for great control and a clean, silky cup.",
+            "Experiment with water temperature. Aim for around 200°F (93°C) - just off the boil - for optimal extraction.",
+            "Don't forget the bloom! Let your grounds 'bloom' for 30 seconds after the first pour to release gases, leading to a smoother taste.",
+            "What's your favourite simple coffee tweak? Share below! 👇"
+          ]
+        }
+      },
+      "request_id": "req_01M5C12RQ12Z4JCK3DW2KN4TJB",
+      "http_status": 200,
+      "returned_model": "gemini-2.5-flash-lite",
+      "usage": {
+        "prompt_tokens": 574,
+        "completion_tokens": 230,
+        "total_tokens": 804,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_1h_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "byok_used": false,
+        "fallback_triggered": false
+      },
+      "finish_reason": "stop",
+      "raw_output": "{\n  \"scores\": {\n    \"hook\": 8,\n    \"clarity\": 9,\n    \"voice\": 7,\n    \"platform\": 8,\n    \"cta\": 8\n  },\n  \"edits\": [\n    \"The draft text could more explicitly state the five ways promised in the brief, rather than just hinting at them.\",\n    \"The slides offer concrete tips, but the introductory text should align more directly with these points.\",\n    \"Consider adding a more direct encouragement to try one of the tips mentioned in the slides.\"\n  ],\n  \"reason\": \"The hook is strong and engaging, directly addressing the user's desire for cafe-style coffee. The clarity is good, with a generally easy-to-understand flow. The voice is warm and playful, fitting the brief, though it could be more consistently practical in the main text. The platform suitability is high, with Instagram-friendly elements like emojis and hashtags. The CTA is present, inviting engagement, but could be strengthened by tying it back to the specific tips offered.\"\n}",
+      "result": {
+        "scores": {
+          "hook": 8,
+          "clarity": 9,
+          "voice": 7,
+          "platform": 8,
+          "cta": 8
+        },
+        "edits": [
+          "The draft text could more explicitly state the five ways promised in the brief, rather than just hinting at them.",
+          "The slides offer concrete tips, but the introductory text should align more directly with these points.",
+          "Consider adding a more direct encouragement to try one of the tips mentioned in the slides."
+        ],
+        "reason": "The hook is strong and engaging, directly addressing the user's desire for cafe-style coffee. The clarity is good, with a generally easy-to-understand flow. The voice is warm and playful, fitting the brief, though it could be more consistently practical in the main text. The platform suitability is high, with Instagram-friendly elements like emojis and hashtags. The CTA is present, inviting engagement, but could be strengthened by tying it back to the specific tips offered."
+      },
+      "schema_valid": true,
+      "seconds": 1.328,
+      "billing": {
+        "request_id": "req_01M5C12RQ12Z4JCK3DW2KN4TJB",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider": "vertex",
+        "cost_usd": "0.00014940",
+        "prompt_tokens": 574,
+        "completion_tokens": 230,
+        "status": "success",
+        "attempts": [
+          {
+            "id": "01a15811-67c2-7620-a077-3d067f1c044b",
+            "model": "google/gemini-2.5-flash-lite",
+            "cost_usd": "0.00014940",
+            "status": "success"
+          }
+        ]
+      }
+    }
+  ],
+  "complete": true,
+  "balance_delta_usd": "0.0123379",
+  "reserved_total_usd": "0.32789360",
+  "limitations": "One fictional Instagram brief per role/model. Self-editor scores are not independent quality evidence. Balance change may include concurrent account use. No images/video/audio or publication. No retries. No engagement uplift measured.",
+  "main_round_note": "Exact production-like schema follow-up after ambiguous pilot prompt. DeepSeek excluded because thinking-disabled was ineffective and four tasks exhausted reasoning caps. Pilot costs retained.",
+  "main_round_complete": true,
+  "reconciled_request_cost_usd": "0.01233790"
+}

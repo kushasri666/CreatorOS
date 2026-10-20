@@ -230,21 +230,25 @@ def dashboard(brand_id, platform):
 
 
 def learn_from_observations(brand_id, platform):
+    import memory
+    active=set()
     for comparison in dashboard(brand_id, platform)["comparisons"]:
         insight = comparison["learning"]
         if not insight or insight["source"] != "api":
             continue
         key = "social_learning:" + hashlib.sha256(json.dumps([brand_id, platform, comparison["source"], comparison["window"], comparison["age_bucket"], comparison["formula"], comparison["connection_id"]]).encode()).hexdigest()
-        previous = storage.get(key)
-        if previous and previous.get("evidence_ids") == insight["evidence_ids"] and previous.get("reason") == insight["reason"]:
-            continue
-        item = storage.save("learning", dict(insight, brand_id=brand_id, platform=platform,
+        active.add(key)
+        item,changed = memory.write_learning(dict(insight, brand_id=brand_id, platform=platform,
             connection_id=comparison["connection_id"],
             evidence_id=insight["evidence_ids"][0], confidence="tentative", method="deterministic_observation",
-            window=comparison["window"], age_bucket=comparison["age_bucket"], updated_at=storage.now()), key)
+            window=comparison["window"], age_bucket=comparison["age_bucket"], formula=comparison["formula"], updated_at=storage.now()), key)
+        if not changed:continue
         for id in insight["evidence_ids"]:
             evidence = storage.get(id)
             storage.audit(evidence["post_id"], "learner", {"reason": item["reason"], "rule": item["rule"], "learning_id": item["id"], "evidence_ids": insight["evidence_ids"]})
+    for old in storage.listing("learning"):
+        if old.get("brand_id")==brand_id and old.get("platform")==platform and old.get("method")=="deterministic_observation" and old['id'] not in active:
+            memory.invalidate(old['id'],"Current comparable observations no longer support this experiment")
 
 
 def sync(connection_id, client=None):
@@ -417,4 +421,5 @@ def expire_youtube_data():
                 db.execute("UPDATE records SET body=? WHERE id=?", (json.dumps(value), id))
         for id, kind, value in records:
             if kind == "learning" and any(e in removed for e in value.get("evidence_ids", [])):
-                db.execute("DELETE FROM records WHERE id=?", (id,))
+                value.update(rule="Expired YouTube memory; refresh required",reason="Source data expired under retention policy")
+                db.execute("UPDATE records SET body=? WHERE id=?",(json.dumps(value),id))

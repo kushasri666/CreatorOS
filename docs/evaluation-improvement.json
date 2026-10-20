@@ -1,0 +1,77 @@
+{
+  "mode": "scripted_contract_fixtures",
+  "paid_calls": 0,
+  "cases": [
+    {
+      "case": "normal_revision",
+      "scripted_scores": [
+        8,
+        9
+      ],
+      "approved": true,
+      "actions": [
+        "refine",
+        "accept"
+      ],
+      "calls": 7,
+      "strategy_restarts": 0,
+      "selected_version": 2,
+      "image_generated": true
+    },
+    {
+      "case": "recoverable_regression",
+      "scripted_scores": [
+        6,
+        5,
+        9
+      ],
+      "approved": true,
+      "actions": [
+        "refine",
+        "restart",
+        "accept"
+      ],
+      "calls": 10,
+      "strategy_restarts": 1,
+      "selected_version": 3,
+      "image_generated": true
+    },
+    {
+      "case": "unrecoverable",
+      "scripted_scores": [
+        5,
+        5,
+        4
+      ],
+      "approved": false,
+      "actions": [
+        "refine",
+        "restart",
+        "needs_review"
+      ],
+      "calls": 8,
+      "strategy_restarts": 1,
+      "selected_version": 2,
+      "image_generated": false
+    },
+    {
+      "case": "improving_but_insufficient",
+      "scripted_scores": [
+        5,
+        6,
+        7
+      ],
+      "approved": false,
+      "actions": [
+        "refine",
+        "refine",
+        "needs_review"
+      ],
+      "calls": 7,
+      "strategy_restarts": 0,
+      "selected_version": 3,
+      "image_generated": false
+    }
+  ],
+  "limitations": "Measures routing and call bounds only. No live model quality, calibrated confidence, factual verification or engagement uplift measured."
+}

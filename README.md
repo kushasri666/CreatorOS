@@ -1,9 +1,61 @@
 # CreatorOS
 
+Optional [Instagram single-photo publishing](docs/INSTAGRAM_PUBLISHING.md) is now
+implemented behind explicit authorization, a disabled-by-default publishing flag
+and per-post confirmation. It is mock-tested, not yet verified on a live account;
+other platforms and queued handoffs still require manual publishing.
+
 A brand-agnostic, multi-agent content studio with two improvement loops: editor
 critique changes the current draft, and performance evidence changes the next brief.
 **All live AI calls route through Mesh API** at `https://api.meshapi.ai/v1`.
 Brew Lab Coffee is one optional fictional scenario, alongside AI and education examples.
+
+The [bounded self-improvement controller](docs/SELF_IMPROVEMENT.md) now records
+accept/refine/restart decisions, revisits a stalled strategy at most once, preserves
+the strongest revised candidate, and withholds images for unapproved content.
+Its rubric confidence is explicitly uncalibrated; it is not an engagement forecast.
+
+[Self-correcting evidence memory](docs/SELF_CORRECTING_MEMORY.md) checks source
+metrics, content and brand versions before reusing lessons. Stale lessons are
+withheld, supported API comparisons can be corrected locally, and previous
+versions remain auditable. Evidence consistency does not establish causal truth.
+
+[Source-linked evidence](docs/RESEARCH_EVIDENCE.md) includes uploaded brand documents,
+product facts, and real performance observations collected from authorized social APIs.
+The strategist and writer receive provenance-linked excerpts through Mesh; simulated
+and user-entered data stay separate from provider observations.
+
+[The verification loop](docs/VERIFICATION_LOOP.md) checks draft claims against cited sources,
+retries retrieval once for thin evidence, and holds unsupported content for review.
+
+[Grounded output](docs/GROUNDED_OUTPUT.md) adds a structured claim-to-source report
+with verbatim evidence quotations, source provenance and excerpt hashes. Invented
+quotations or missing evidence block approval. Inspect it in Final post or fetch
+`GET /posts/{id}/evidence-report`; this export makes no AI or network calls.
+
+[The run audit trail](docs/RUN_AUDIT.md) records product-specific evidence
+questions, actual retrieval attempts and every verification verdict with its
+reason. Select **Run audit** or use `GET /posts/{id}/audit-trail` to inspect the
+chronological history, including failed retrievals and claims rejected before
+correction. Viewing/exporting it uses no Mesh credits.
+
+[Brand attachments](docs/BRAND_ATTACHMENTS.md) support text, audio and video
+uploads with local playback/download and editable user-supplied transcripts or
+notes. Uploading uses no AI credits; only supplied text is used as cited evidence.
+
+[Structured research, source review, exports and follow-ups](docs/STRUCTURED_RESEARCH.md)
+are integrated into the live pipeline. An executable custom state graph routes
+verification failures back to research once. Provenance weights and quoted source
+disagreements are visible in the app. Saved posts have standalone HTML report
+downloads and conversations that reuse their source snapshots; evidence browsing
+is free and optional Mesh answers are capped at two calls per question.
+
+[Per-agent economical model routing](docs/AGENT_MODELS.md) selects GPT-4.1 mini for
+voice/writing/editing, Gemini Flash-Lite for short planning/interpretation/prompting,
+and GPT Image Mini for images. A [small live text comparison](docs/MODEL_COMPARISON_075.md)
+cost $0.0123379 in total under a combined $0.75 cap; results are provisional and
+media quality remains untested. Role environment variables override the optional
+global `MESH_TEXT_MODEL` setting.
 
 ## Run the real studio with spending locked
 
@@ -151,12 +203,31 @@ See [the screenshot alignment matrix](docs/ARCHITECTURE_ALIGNMENT.md) for a capa
 
 ## Verification and self-evaluation
 
+The current [grounding and completeness evaluation](docs/SELF_EVALUATION.md)
+contains **16 product scenarios, 24 questions and 18 required facts**, with
+separate reference annotations and authored adversarial responses. It measures
+the production evidence-receipt filter, using no model calls. Recorded results:
+grounded claims **10/22 (45.5%) → 10/16 (62.5%)**; citation integrity
+**17/22 (77.3%) → 16/16 (100%)**; required-fact completeness **10/18 (55.6%)**.
+Five unsupported fixture assertions remain: genuine quotes alone do not prove
+support. These are stress-fixture results, **not live model accuracy**.
+
+Open **Self-evaluation** in the studio for the results, per-case failures and
+missing facts. [Full JSON](docs/evaluation-grounding.json),
+[readable results](docs/evaluation-grounding.md) and
+[the reference dataset](evals/grounding/questions.json) are included in the repository.
+The dedicated no-AI CI workflow checks arithmetic, anti-gaming behavior and
+exact reproduction of the recorded numbers and source/code fingerprints.
+
 ```powershell
+python scripts/evaluate_grounding.py
+python scripts/evaluate_grounding.py --check-recorded
+python -m unittest tests.test_self_evaluation -v
 python -m unittest discover -s tests -v
 python evaluate.py
 ```
 
-Fourteen offline API/contract tests currently pass, covering changed revisions, malformed
+The original fourteen offline API/contract cases cover changed revisions, malformed
 reviews, bounded low-quality routing, scheduling, feedback-to-next-strategy behavior,
 brand/source isolation, metadata-only and paid-call locks, call budgets, schema retry
 opt-in, optional scenarios, and scheduler evidence. Temporary databases and test

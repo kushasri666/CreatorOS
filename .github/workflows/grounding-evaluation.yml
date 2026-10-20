@@ -1,0 +1,16 @@
+name: Grounding evaluation (no AI calls)
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check evaluation math and anti-gaming behavior
+        run: python -m unittest tests.test_self_evaluation -v
+      - name: Reproduce recorded scores and fingerprints
+        run: python scripts/evaluate_grounding.py --check-recorded
