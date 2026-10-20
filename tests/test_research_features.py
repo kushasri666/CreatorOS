@@ -29,7 +29,7 @@ class ResearchGraphTests(unittest.TestCase):
                     self.writers+=1
                     claim="Brew has 8 modes." if self.writers<3 else "The primary specification lists 12 modes."
                     return dict(text=claim+(" Save this." if self.writers==2 else ""),citations=[dict(claim=claim,source_ids=["S1" if self.writers<3 else "S2"])])
-                if role.startswith("Editor"):return dict(scores=dict.fromkeys(("hook","clarity","voice","platform","cta"),9),edits=[],reason="Clear product copy")
+                if role.startswith("Editor"):return dict(scores=dict.fromkeys(("hook","clarity","voice","platform","cta"),9.2),edits=[],reason="Scripted passing live-policy score")
                 if role.startswith("Verifier"):
                     before="Brew has 8 modes." in data["draft"]
                     return dict(checks=[dict(claim="Brew has 8 modes." if before else "The primary specification lists 12 modes.",source_ids=["S1" if before else "S2"],

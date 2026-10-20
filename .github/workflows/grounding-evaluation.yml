@@ -14,3 +14,7 @@ jobs:
         run: python -m unittest tests.test_self_evaluation -v
       - name: Reproduce recorded scores and fingerprints
         run: python scripts/evaluate_grounding.py --check-recorded
+      - name: Check platform editorial evaluation (no AI)
+        run: python -m unittest tests.test_content_quality -v
+      - name: Reproduce platform editorial scores and fingerprints
+        run: python scripts/evaluate_content.py --check-recorded

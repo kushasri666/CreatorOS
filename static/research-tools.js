@@ -1,7 +1,23 @@
 'use strict';
 const followupDrafts=new Map(),followupPending=new Set();
+const adaptationTargets=new Map(),adaptationPending=new Set();
+function adaptationTools(box,p){
+ if(['generating','failed'].includes(p.status))return;
+ const section=el('section',undefined,'comparison');section.append(el('h3','Adapt this idea to another platform'),el('p','Keep this brief and brand. Create fresh native wording with its own editor, evidence checks and saved trace. One selected platform per run; no automatic publishing.'));
+ const target=el('select');target.setAttribute('aria-label','Adaptation target platform');
+ for(const platform of ['linkedin','instagram','youtube','telegram','threads','x']){if(platform===p.platform)continue;const option=el('option',platform==='x'?'X':platform);option.value=platform;target.append(option)}
+ target.value=adaptationTargets.get(p.id)||target.options[0].value;target.onchange=()=>adaptationTargets.set(p.id,target.value);
+ const preview=el('button','View format plan · free'),start=el('button','Create adapted post'),status=el('p');status.setAttribute('role','status');
+ const locked=state.mode!=='offline'&&!state.paid_enabled;start.disabled=locked||adaptationPending.has(p.id);
+ if(locked)section.append(el('small','Generation is locked. Viewing the format plan uses no Mesh credits.'));
+ else section.append(el('small',state.mode==='offline'?'Offline fixture mode: scripted output only.':'Starting uses one normal Mesh generation budget, up to 10 calls including any image.'));
+ const plan=el('div');preview.onclick=()=>busy(section,async()=>{const data=await request('/posts/'+encodeURIComponent(p.id)+'/adaptation-plan');plan.replaceChildren();details(plan,'Native format plan',data.platforms[target.value]);status.textContent='Format plan loaded. No AI calls.'});
+ start.onclick=()=>{if(adaptationPending.has(p.id))return;if(state.post.some(v=>v.brand_id===p.brand_id&&v.status==='generating')){status.textContent='A run for this brand is already in progress.';return}adaptationPending.add(p.id);start.disabled=true;status.textContent='Starting one adapted post…';busy(section,async()=>{try{const saved=await request('/posts/'+encodeURIComponent(p.id)+'/adapt',{platform:target.value,use_learnings:p.learning_enabled!==false});active=saved.id;cursor=-1;notice('Adaptation started. Follow its saved agent trace.');await refresh(true)}catch(error){status.textContent=error.message;throw error}finally{adaptationPending.delete(p.id);start.disabled=locked}})};
+ section.append(target,preview,start,status,plan);box.append(section)
+}
 function researchTools(box,p){
  if(state.preview){box.append(el('p','Report exports and follow-ups are available for saved workspace posts. This is a fictional preview.'));return}
+ adaptationTools(box,p);
  const review=p.evidence_review||p.grounded_report?.evidence_review;
  if(review){const d=el('details');d.open=review.conflicts.length>0;d.append(el('summary','Source quality & disagreements · '+review.conflicts.length+' unresolved'));
   for(const source of review.sources)d.append(el('p','['+source.source_id+'] · '+source.tier+' · '+source.score),el('small',source.reason));

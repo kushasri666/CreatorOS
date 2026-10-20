@@ -21,6 +21,7 @@ import self_evaluation
 import followups
 from reports import render_report
 from agent_graph import definition as workflow_definition
+from platform_formats import format_contract
 from grounding import build_report
 from run_audit import build_trail
 
@@ -107,6 +108,12 @@ class BriefRequest(BaseModel):
 class ResearchDocumentRequest(BaseModel):
     filename: str = Field(min_length=1, max_length=120)
     text: str = Field(min_length=1, max_length=12000)
+
+
+class AdaptRequest(BaseModel):
+    platform: Literal["linkedin", "x", "instagram", "youtube", "telegram", "threads"]
+    connection_id: str | None = None
+    use_learnings: bool = True
 
 
 class MediaTranscriptRequest(BaseModel):
@@ -469,6 +476,34 @@ def start_run(req: BriefRequest, tasks: BackgroundTasks):
 def performance(brand_id: str, platform: str):
     require(brand_id, "brand")
     return analytics(brand_id, platform)
+
+
+@api.get("/posts/{id}/adaptation-plan")
+def adaptation_plan(id: str):
+    post=require(id,"post")
+    return dict(source_post_id=id,brand_id=post["brand_id"],idea=post["brief"],ai_calls=0,
+        platforms={p:format_contract(p) for p in ("linkedin","x","instagram","youtube","telegram","threads")},
+        note="Plan only. Starting one adaptation runs its own Mesh pipeline and budget; no publishing is triggered.")
+
+
+@api.post("/posts/{id}/adapt",status_code=202)
+def adapt_post(id: str,req: AdaptRequest,tasks: BackgroundTasks):
+    source=require(id,"post")
+    if source.get("status") in ("generating","failed"):
+        raise HTTPException(409,"Finish or review the source run before adapting its idea")
+    if req.platform==source["platform"]:
+        raise HTTPException(422,"Choose a different target platform for this adaptation")
+    product=source.get("product",{})
+    brief=BriefRequest(brand_id=source["brand_id"],topic=source["brief"],platform=req.platform,
+        use_learnings=req.use_learnings,connection_id=req.connection_id,use_research=source.get("use_research",True),
+        document_ids=source.get("document_ids",[]),product_name=product.get("name",""),
+        product_url=product.get("url",""),product_details=product.get("details",""))
+    post=start_run(brief,tasks)
+    post=store.save("post",dict(post,adaptation_of=id,source_platform=source["platform"],
+        adaptation_policy="Same brief and brand; fresh native format, evidence retrieval and independent checks"),post["id"])
+    store.audit(post["id"],"adaptation",dict(source_post_id=id,source_platform=source["platform"],
+        target_platform=req.platform,reason="Adapt the idea with native formatting; source post copy is not treated as factual evidence."))
+    return post
 
 
 @api.get("/posts/{id}/slot")

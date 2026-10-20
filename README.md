@@ -167,10 +167,22 @@ scheduler and learner. The brand analyst prepares an additional profile. The wri
 also performs rewriting; every revision receives the previous draft and critique.
 The editor scores hook, clarity, voice, platform and CTA from 0–10. At least one
 changed revision is required, with at most three drafts. Approval requires an average
-of at least 8 and a valid platform length. Invalid or unchanged output fails visibly.
+of at least **9.1/10 in live mode**, no criterion below **8/10**, and valid platform
+structure. Local checks feed targeted revisions and block concrete defects or new
+style regressions. A third editorial draft can use remaining capacity while
+reserving independent verification, within the existing ten-call cap. These are
+approval targets, not measured independent benchmark scores. Offline demonstrations
+retain explicitly scripted 8/10 routing fixtures. Invalid or unchanged output fails visibly.
 The scheduler performs evidence analysis and timezone arithmetic in ordinary code.
 
 See [the screenshot alignment matrix](docs/ARCHITECTURE_ALIGNMENT.md) for a capability-by-capability mapping.
+
+See [capability implementation and validation boundaries](docs/FEATURE_COMPLETENESS.md)
+for the executable graph, six native format contracts, linked one-idea adaptations,
+Instagram publishing/read-back and performance-to-next-draft tests. Saved posts
+offer **Adapt this idea to another platform**: preview the format for free, then
+explicitly start one target run. Read connectors for six platforms do not mean
+publishing exists for all six; only Instagram single-image publication is implemented.
 
 ## Learning, storage and design decisions
 
@@ -202,6 +214,16 @@ See [the screenshot alignment matrix](docs/ARCHITECTURE_ALIGNMENT.md) for a capa
   Live failures never silently switch to fixtures.
 
 ## Verification and self-evaluation
+
+The [platform-specific content evaluation](docs/CONTENT_EVALUATION.md) scores
+historical real Mesh drafts separately from authored scorer regression cases.
+Ten recorded pairs across X, LinkedIn and Instagram score **76.667 → 75.000 /100**:
+one improves, seven tie and two regress. All ten revisions change. This exposes
+remaining quality problems rather than equating rewriting with improvement.
+Twelve separate authored cases cover all six platforms; they are not model-quality
+evidence. Run `python scripts/evaluate_content.py --check-recorded` without an API
+key. The v1 results are preserved; the new rubric includes per-platform length,
+readability, hook, lexical brief coverage, CTA and optional voice/format cues.
 
 The current [grounding and completeness evaluation](docs/SELF_EVALUATION.md)
 contains **16 product scenarios, 24 questions and 18 required facts**, with

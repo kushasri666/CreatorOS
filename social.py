@@ -224,7 +224,11 @@ def dashboard(brand_id, platform):
             if best["mean_rate"] > worst["mean_rate"]:
                 learning = dict(rule=f"Test another {best['format']} post; compare it with {worst['format']}.",
                     reason=f"Observed mean interaction rate {best['mean_rate']:.2%} vs {worst['mean_rate']:.2%}; {best['n']} and {worst['n']} posts. Association, not causation.",
-                    evidence_ids=best["evidence_ids"] + worst["evidence_ids"], source=cohort[0])
+                    evidence_ids=best["evidence_ids"] + worst["evidence_ids"], source=cohort[0],
+                    experiment=dict(preferred_format=best["format"],comparison_format=worst["format"],
+                        preferred_mean_rate=best["mean_rate"],comparison_mean_rate=worst["mean_rate"],
+                        preferred_posts=best["n"],comparison_posts=worst["n"],
+                        interpretation="Tentative observational format test; not causal uplift"))
         comparisons.append(dict(source=cohort[0], window=cohort[1], age_bucket=cohort[2], formula=cohort[3], connection_id=cohort[4], formats=entries, learning=learning))
     return dict(rows=rows, comparisons=comparisons, note="Compare within a platform, source, window, age bucket and formula. Missing values are unavailable, not zero. No cross-platform leaderboard.")
 

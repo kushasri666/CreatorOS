@@ -7,6 +7,14 @@ YouTube, LinkedIn, Telegram, Threads and X. Source snapshots are deliberately
 synthetic product documents and account observations; none are labeled real
 customer analytics or live web retrievals.
 
+## Content editing quality is measured separately
+
+See [the platform-specific editorial evaluation](CONTENT_EVALUATION.md) for ten
+historical Mesh draft/revision pairs, before/after scores, four matched memory
+comparisons, and twelve separately labeled authored scorer cases across six
+platforms. It reports one improvement, seven ties and two regressions; the
+grounding fixture results below must not be presented as editor quality gains.
+
 ## What is measured
 
 | Measure | Definition |

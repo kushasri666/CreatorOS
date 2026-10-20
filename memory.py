@@ -51,7 +51,9 @@ def proof(item):
 
 
 def claim_hash(item):
-    return digest({k:item.get(k) for k in ("rule","reason","source","method","confidence","direction","rate","baseline","evidence_ids","evidence_id","brand_id","platform","connection_id","window","age_bucket","formula")})
+    body={k:item.get(k) for k in ("rule","reason","source","method","confidence","direction","rate","baseline","evidence_ids","evidence_id","brand_id","platform","connection_id","window","age_bucket","formula")}
+    if "experiment" in item:body["experiment"]=item["experiment"]
+    return digest(body)
 
 
 def anchor(item,version=1):

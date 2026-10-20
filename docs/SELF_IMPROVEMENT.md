@@ -10,8 +10,10 @@ The coordinator then chooses:
 
 - **REFINE:** apply editor feedback to the actual draft and slides. Even a strong
   first draft must undergo a changed revision.
-- **ACCEPT:** a revised draft averages at least 8/10, has no criterion below 6/10,
-  and meets the platform's deterministic character limit.
+- **ACCEPT:** in live mode a revised draft averages at least 9.1/10, has no criterion
+  below 8/10, meets concrete platform checks, and introduces no new local-check
+  regression. Independent source verification still must pass. Scripted offline
+  routing demonstrations preserve their historical 8/10 and 6/10 fixture thresholds.
 - **RESTART:** if the second draft stalls or regresses and has not passed, revisit
   the strategy once. The strategist receives the original brief, voice, evidence,
   last draft and critique. This consumes the remaining third draft slot; it never
@@ -24,9 +26,12 @@ average divided by ten and is explicitly uncalibrated. It does not measure truth
 real audience response or probability of success. Content still needs human review.
 There is no extra LLM confidence judge or automated broad research/citation fetching.
 
-Normal success uses the existing seven calls including an image. A recovery path
-uses at most ten logical generation calls: two strategist, three writer, three
-editor, one visual director, one image. Mesh's existing global call cap still
+The current live success path includes an independent verifier in addition to
+strategy, two writers, two editors, visual prompt and optional image: up to eight
+calls. A third targeted editorial draft is permitted when capacity remains, with
+one verifier call reserved. A restart or evidence retry can use that remaining
+capacity instead; it does not create another budget. Images may be skipped and
+unsupported drafts held if capacity runs out. The existing ten-call cap still
 applies, including optional format repair calls. No paid validation was performed.
 
 The agent log exposes every `improvement` decision. Self-check scores shows the

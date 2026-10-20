@@ -2,7 +2,7 @@
 import copy
 import json
 
-VERSION = "lean-v2-memory"
+VERSION = "lean-v4-native-formats"
 
 
 def compact_data(role, data):
@@ -11,6 +11,8 @@ def compact_data(role, data):
         # One canonical source packet, with exact excerpts intact. Voice, prior
         # chat and copied research findings are not additional factual evidence.
         result.pop("voice",None);result.pop("learnings",None);result.pop("history",None);result.pop("limits",None)
+        result.pop("editorial_contract",None);result.pop("local_checks",None)
+        result.pop("format_contract",None)
         if isinstance(result.get("research"),dict):result["research"].pop("findings",None)
         result["sources"]=[{k:s[k] for k in ("source_id","source_ids","excerpt","claim","title","source_type","quality","url","account_id","window","collected_at") if k in s} for s in result["sources"]]
     if role.startswith("Brand analyst"):
@@ -19,7 +21,7 @@ def compact_data(role, data):
         result["voice"] = {k: v for k, v in result["voice"].items()
                            if k in ("tone", "vocabulary", "structure", "cta_habits", "avoid")}
     if "learnings" in result:
-        result["learnings"] = [{k: item[k] for k in ("id", "rule", "reason", "source", "confidence", "memory") if k in item}
+        result["learnings"] = [{k: item[k] for k in ("id", "rule", "reason", "source", "confidence", "memory", "experiment") if k in item}
                                for item in result["learnings"]]
         for item in result["learnings"]:
             if "memory" in item:
@@ -30,6 +32,8 @@ def compact_data(role, data):
         result.pop("learnings", None)  # Strategist already selected the hypothesis.
     if role.startswith("Visual director"):
         result.pop("limits", None)
+        result.pop("editorial_contract", None)
+        result.pop("format_contract", None)
     return result
 
 

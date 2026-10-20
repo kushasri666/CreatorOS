@@ -16,7 +16,8 @@ class LiveFake:
             claim = "Our brew uses small-batch roasted beans."
             return {"text":claim, "citations":[{"claim":claim,"source_ids":["S2"]}]}
         if role.startswith("Editor"):
-            return {"scores":dict.fromkeys(CRITERIA,9),"edits":[],"reason":"Clear and on voice"}
+            # Scripted passing score for the live policy (not measured model quality).
+            return {"scores":dict.fromkeys(CRITERIA,9.2),"edits":[],"reason":"Clear and on voice"}
         if role.startswith("Verifier"):
             self.verifier += 1
             if self.verifier == 1:

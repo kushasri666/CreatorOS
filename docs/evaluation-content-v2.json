@@ -1,0 +1,1740 @@
+{
+  "rubric": "platform-editorial-v2",
+  "ai_calls": 0,
+  "validation_cost_usd": 0,
+  "policies": {
+    "x": [
+      280,
+      45,
+      35
+    ],
+    "threads": [
+      500,
+      70,
+      40
+    ],
+    "linkedin": [
+      3000,
+      90,
+      40
+    ],
+    "instagram": [
+      2200,
+      90,
+      40
+    ],
+    "telegram": [
+      4096,
+      90,
+      40
+    ],
+    "youtube": [
+      5000,
+      90,
+      40
+    ]
+  },
+  "fingerprints": {
+    "content_quality.py": "52e3c19befd163fc9736f2b94577fcdc9f363dd3875a2580009b1021c6c773db",
+    "scripts/evaluate_content.py": "fb75c6e7924f441cb8b64fd34ccf0f30d4e87e4ac46b0e2b4a9bcb915ece0a1d",
+    "evals/content/cases.json": "9294ca5fe4124aaa941b305e4de8c29a2ec66599b199ae1799c1929adedb03fe",
+    "docs/evaluation-live.json": "7fb771ccb175f479430778646e9b55a3ba19e8bc7f04c6f3a4a1020c5d1f22f4",
+    "docs/model-comparison-075.json": "4ff6909bd9a5f8d7d7e7971cabb05b45d11a0c7488cfc8e24f8dfcb51d525ee4"
+  },
+  "cohorts": {
+    "authored_regression": {
+      "overall": {
+        "n": 12,
+        "mean_before": 63.293,
+        "mean_after": 71.825,
+        "improved": 6,
+        "unchanged": 0,
+        "regressed": 6,
+        "changed": 12
+      },
+      "by_platform": {
+        "x": {
+          "n": 2,
+          "mean_before": 58.333,
+          "mean_after": 50.0,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        },
+        "threads": {
+          "n": 2,
+          "mean_before": 66.666,
+          "mean_after": 83.334,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        },
+        "linkedin": {
+          "n": 2,
+          "mean_before": 66.666,
+          "mean_after": 83.334,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        },
+        "instagram": {
+          "n": 2,
+          "mean_before": 64.285,
+          "mean_after": 85.715,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        },
+        "telegram": {
+          "n": 2,
+          "mean_before": 66.666,
+          "mean_after": 50.0,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        },
+        "youtube": {
+          "n": 2,
+          "mean_before": 57.142,
+          "mean_after": 78.572,
+          "improved": 1,
+          "unchanged": 0,
+          "regressed": 1,
+          "changed": 2
+        }
+      }
+    },
+    "recorded_mesh": {
+      "overall": {
+        "n": 10,
+        "mean_before": 76.667,
+        "mean_after": 75.0,
+        "improved": 1,
+        "unchanged": 7,
+        "regressed": 2,
+        "changed": 10
+      },
+      "by_platform": {
+        "x": {
+          "n": 4,
+          "mean_before": 66.666,
+          "mean_after": 62.5,
+          "improved": 1,
+          "unchanged": 1,
+          "regressed": 2,
+          "changed": 4
+        },
+        "linkedin": {
+          "n": 4,
+          "mean_before": 75.0,
+          "mean_after": 75.0,
+          "improved": 0,
+          "unchanged": 4,
+          "regressed": 0,
+          "changed": 4
+        },
+        "instagram": {
+          "n": 2,
+          "mean_before": 100.0,
+          "mean_after": 100.0,
+          "improved": 0,
+          "unchanged": 2,
+          "regressed": 0,
+          "changed": 2
+        }
+      }
+    }
+  },
+  "memory_pairs": [
+    {
+      "pair": "Brew/linkedin",
+      "delta": 33.333
+    },
+    {
+      "pair": "Brew/x",
+      "delta": 0.0
+    },
+    {
+      "pair": "Lab/linkedin",
+      "delta": 0.0
+    },
+    {
+      "pair": "Lab/x",
+      "delta": -16.667
+    }
+  ],
+  "rows": [
+    {
+      "id": "historical-0",
+      "origin": "recorded_mesh",
+      "platform": "x",
+      "before": {
+        "passed": 5,
+        "total": 6,
+        "score_100": 83.333,
+        "checks": {
+          "length": {
+            "passed": false,
+            "reason": "779 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 12 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": false,
+            "reason": "435 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 11 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -16.666,
+      "changed": true
+    },
+    {
+      "id": "historical-1",
+      "origin": "recorded_mesh",
+      "platform": "x",
+      "before": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "271 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 45 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "256 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 44 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "historical-2",
+      "origin": "recorded_mesh",
+      "platform": "linkedin",
+      "before": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1266 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 43 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1269 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 43 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "historical-3",
+      "origin": "recorded_mesh",
+      "platform": "linkedin",
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1005 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 29 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "904 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 25 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "historical-4",
+      "origin": "recorded_mesh",
+      "platform": "x",
+      "before": {
+        "passed": 5,
+        "total": 6,
+        "score_100": 83.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "261 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 30 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "205 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 24 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -16.666,
+      "changed": true
+    },
+    {
+      "id": "historical-5",
+      "origin": "recorded_mesh",
+      "platform": "x",
+      "before": {
+        "passed": 2,
+        "total": 6,
+        "score_100": 33.333,
+        "checks": {
+          "length": {
+            "passed": false,
+            "reason": "299 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 39 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 3,
+        "total": 6,
+        "score_100": 50.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "262 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 31 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "2/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 16.667,
+      "changed": true
+    },
+    {
+      "id": "historical-6",
+      "origin": "recorded_mesh",
+      "platform": "linkedin",
+      "before": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1886 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 42 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1976 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 55 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "historical-7",
+      "origin": "recorded_mesh",
+      "platform": "linkedin",
+      "before": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1834 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 45 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "1795 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 43 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "carousel-google/gemini-2.5-flash-lite",
+      "origin": "recorded_mesh",
+      "platform": "instagram",
+      "before": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "327 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 7 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "after": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "428 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 7 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "carousel-openai/gpt-4.1-mini",
+      "origin": "recorded_mesh",
+      "platform": "instagram",
+      "before": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "861 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 21 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 7 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "after": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "849 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 21 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 7 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "delta": 0.0,
+      "changed": true
+    },
+    {
+      "id": "x-polish",
+      "origin": "authored_regression",
+      "platform": "x",
+      "before": {
+        "passed": 2,
+        "total": 6,
+        "score_100": 33.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 5,
+        "total": 6,
+        "score_100": 83.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "124 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 21 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 50.0,
+      "changed": true
+    },
+    {
+      "id": "x-adversarial",
+      "origin": "authored_regression",
+      "platform": "x",
+      "before": {
+        "passed": 5,
+        "total": 6,
+        "score_100": 83.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "124 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 21 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 1,
+        "total": 6,
+        "score_100": 16.667,
+        "checks": {
+          "length": {
+            "passed": false,
+            "reason": "774 characters; editorial budget 280"
+          },
+          "readability": {
+            "passed": false,
+            "reason": "Paragraph budget 45 words; sentence budget 35 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 121 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -66.666,
+      "changed": true
+    },
+    {
+      "id": "linkedin-polish",
+      "origin": "authored_regression",
+      "platform": "linkedin",
+      "before": {
+        "passed": 2,
+        "total": 6,
+        "score_100": 33.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "236 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 9 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 66.667,
+      "changed": true
+    },
+    {
+      "id": "linkedin-adversarial",
+      "origin": "authored_regression",
+      "platform": "linkedin",
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "236 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 9 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "45 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -33.333,
+      "changed": true
+    },
+    {
+      "id": "instagram-polish",
+      "origin": "authored_regression",
+      "platform": "instagram",
+      "before": {
+        "passed": 2,
+        "total": 7,
+        "score_100": 28.571,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": false,
+            "reason": "Exactly 4 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "after": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "121 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 6 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 4 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "delta": 71.429,
+      "changed": true
+    },
+    {
+      "id": "instagram-adversarial",
+      "origin": "authored_regression",
+      "platform": "instagram",
+      "before": {
+        "passed": 7,
+        "total": 7,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "121 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 6 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": true,
+            "reason": "Exactly 4 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "after": {
+        "passed": 5,
+        "total": 7,
+        "score_100": 71.429,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "121 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "carousel_structure": {
+            "passed": false,
+            "reason": "Exactly 4 distinct nonempty slides, each <=35 words; semantic duplication not detected"
+          }
+        }
+      },
+      "delta": -28.571,
+      "changed": true
+    },
+    {
+      "id": "youtube-polish",
+      "origin": "authored_regression",
+      "platform": "youtube",
+      "before": {
+        "passed": 2,
+        "total": 7,
+        "score_100": 28.571,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 5000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "script_format": {
+            "passed": false,
+            "reason": "Short-script editorial target 40\u2013160 spoken/cue words and explicit visual direction; not measured duration"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 7,
+        "score_100": 85.714,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "298 characters; editorial budget 5000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 51 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "script_format": {
+            "passed": true,
+            "reason": "Short-script editorial target 40\u2013160 spoken/cue words and explicit visual direction; not measured duration"
+          }
+        }
+      },
+      "delta": 57.143,
+      "changed": true
+    },
+    {
+      "id": "youtube-adversarial",
+      "origin": "authored_regression",
+      "platform": "youtube",
+      "before": {
+        "passed": 6,
+        "total": 7,
+        "score_100": 85.714,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "298 characters; editorial budget 5000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 51 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "script_format": {
+            "passed": true,
+            "reason": "Short-script editorial target 40\u2013160 spoken/cue words and explicit visual direction; not measured duration"
+          }
+        }
+      },
+      "after": {
+        "passed": 5,
+        "total": 7,
+        "score_100": 71.429,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "23 characters; editorial budget 5000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 4 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          },
+          "script_format": {
+            "passed": false,
+            "reason": "Short-script editorial target 40\u2013160 spoken/cue words and explicit visual direction; not measured duration"
+          }
+        }
+      },
+      "delta": -14.285,
+      "changed": true
+    },
+    {
+      "id": "telegram-polish",
+      "origin": "authored_regression",
+      "platform": "telegram",
+      "before": {
+        "passed": 2,
+        "total": 6,
+        "score_100": 33.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 4096"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "192 characters; editorial budget 4096"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 6 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 66.667,
+      "changed": true
+    },
+    {
+      "id": "telegram-adversarial",
+      "origin": "authored_regression",
+      "platform": "telegram",
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "192 characters; editorial budget 4096"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 6 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 0,
+        "total": 6,
+        "score_100": 0.0,
+        "checks": {
+          "length": {
+            "passed": false,
+            "reason": "0 characters; editorial budget 4096"
+          },
+          "readability": {
+            "passed": false,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 0 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -100.0,
+      "changed": true
+    },
+    {
+      "id": "threads-polish",
+      "origin": "authored_regression",
+      "platform": "threads",
+      "before": {
+        "passed": 2,
+        "total": 6,
+        "score_100": 33.333,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "18 characters; editorial budget 500"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 70 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": false,
+            "reason": "Opening has 3 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": false,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "137 characters; editorial budget 500"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 70 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 23 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": 66.667,
+      "changed": true
+    },
+    {
+      "id": "threads-adversarial",
+      "origin": "authored_regression",
+      "platform": "threads",
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "137 characters; editorial budget 500"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 70 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 23 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "3/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 4,
+        "total": 6,
+        "score_100": 66.667,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "45 characters; editorial budget 500"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 70 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4\u201330"
+          },
+          "brief_coverage": {
+            "passed": false,
+            "reason": "0/3 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": false,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "delta": -33.333,
+      "changed": true
+    }
+  ],
+  "limitations": "Historical Mesh outputs only, not validation of newer pipeline changes. Authored fixtures are scorer regressions, not model quality. Equal-weight editorial proxies; lexical coverage and voice cues do not establish meaning, truth or brand fidelity. No engagement uplift, representative population, independent human rating or statistical significance claimed. Source verification is measured separately."
+}

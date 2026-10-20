@@ -53,6 +53,9 @@ class InstagramPublishTests(unittest.TestCase):
             if req.url.path.endswith('/media'):return httpx.Response(200,json={'id':'456'})
             if req.url.path.endswith('/456'):return httpx.Response(200,json={'status_code':'FINISHED'})
             if req.url.path.endswith('/media_publish'):return httpx.Response(200,json={'id':'789'})
+            if req.url.path.endswith('/789'):return httpx.Response(200,json={'id':'789','like_count':12,'comments_count':2,'media_type':'IMAGE'})
+            if req.url.path.endswith('/789/insights'):return httpx.Response(200,json={'data':[
+                {'name':k,'values':[{'value':v}]} for k,v in dict(reach=100,saved=4,shares=1,views=150).items()]})
             raise AssertionError(str(req.url))
         with httpx.Client(transport=httpx.MockTransport(handler)) as client:
             job=ig.stage(self.job()['id'],client)
@@ -65,6 +68,14 @@ class InstagramPublishTests(unittest.TestCase):
             count=len(requests)
             self.assertEqual(ig.publish(job['id'],'reviewed_account',True,client)['external_id'],'789')
             self.assertEqual(len(requests),count)
+            # Exercise the actual collector after the publishing adapter links
+            # the returned media ID. Only the HTTP transport is mocked.
+            storage.save('social_connection',dict(self.conn,enabled=True),self.conn['id'])
+            self.assertEqual(social.sync(self.conn['id'],client)['status'],'verified')
+            observations=storage.listing('social_metric')
+            self.assertEqual(len(observations),1)
+            self.assertEqual(observations[0]['external_id'],'789')
+            self.assertEqual(observations[0]['counts']['likes'],12)
         self.assertEqual(sum(r.method=='POST' for r in requests),2)
         self.assertEqual(storage.get(self.post['id'])['status'],'published')
         self.assertEqual(len(storage.listing('social_track')),1)

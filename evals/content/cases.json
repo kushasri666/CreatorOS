@@ -1,0 +1,423 @@
+{
+  "origin_note": "Authored editorial counterexamples, not generated model outputs. Fixed before/after pairs deliberately include regressions. No human panel validation.",
+  "cases": [
+    {
+      "id": "x-polish",
+      "origin": "authored_regression",
+      "platform": "x",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "Your coffee routine can start with fresher beans. Grind before brewing, then warm your mug. Which small change will you try?"
+      }
+    },
+    {
+      "id": "x-adversarial",
+      "origin": "authored_regression",
+      "platform": "x",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Your coffee routine can start with fresher beans. Grind before brewing, then warm your mug. Which small change will you try?"
+      },
+      "after": {
+        "text": "Your coffee routine can start with fresher beans. Grind before brewing, then warm your mug. Which small change will you try? Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words. Extra words."
+      }
+    },
+    {
+      "id": "linkedin-polish",
+      "origin": "authored_regression",
+      "platform": "linkedin",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "A better coffee routine starts with one small habit.\n\nGrind fresh beans before brewing. Warm your mug while the water heats. Compare one change at a time and record what you notice.\n\nWhich habit would you try first? Share your approach."
+      }
+    },
+    {
+      "id": "linkedin-adversarial",
+      "origin": "authored_regression",
+      "platform": "linkedin",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "A better coffee routine starts with one small habit.\n\nGrind fresh beans before brewing. Warm your mug while the water heats. Compare one change at a time and record what you notice.\n\nWhich habit would you try first? Share your approach."
+      },
+      "after": {
+        "text": "Our new service is incredible. Save this now!"
+      }
+    },
+    {
+      "id": "instagram-polish",
+      "origin": "authored_regression",
+      "platform": "instagram",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ],
+        "slide_count": 4
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "Fresh coffee starts with simple habits. Grind your beans before brewing and warm your mug. Save these steps for tomorrow.",
+        "slides": [
+          "Your next coffee ritual starts here",
+          "Grind fresh beans before brewing",
+          "Warm your mug before pouring",
+          "Save this coffee guide for tomorrow"
+        ]
+      }
+    },
+    {
+      "id": "instagram-adversarial",
+      "origin": "authored_regression",
+      "platform": "instagram",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ],
+        "slide_count": 4
+      },
+      "before": {
+        "text": "Fresh coffee starts with simple habits. Grind your beans before brewing and warm your mug. Save these steps for tomorrow.",
+        "slides": [
+          "Your next coffee ritual starts here",
+          "Grind fresh beans before brewing",
+          "Warm your mug before pouring",
+          "Save this coffee guide for tomorrow"
+        ]
+      },
+      "after": {
+        "text": "Fresh coffee starts with simple habits. Grind your beans before brewing and warm your mug. Save these steps for tomorrow.",
+        "slides": [
+          "Same coffee slide",
+          "Same coffee slide",
+          "Same coffee slide",
+          "Same coffee slide"
+        ]
+      }
+    },
+    {
+      "id": "youtube-polish",
+      "origin": "authored_regression",
+      "platform": "youtube",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ],
+        "format": "short_script"
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "[Visual: beans beside a mug] Your coffee routine can start with one small change. Grind fresh beans just before brewing. [Shot: warm mug] Warm your mug while your water heats. Compare one change at a time instead of replacing all your equipment. Which habit would you try tomorrow? Save this guide."
+      }
+    },
+    {
+      "id": "youtube-adversarial",
+      "origin": "authored_regression",
+      "platform": "youtube",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ],
+        "format": "short_script"
+      },
+      "before": {
+        "text": "[Visual: beans beside a mug] Your coffee routine can start with one small change. Grind fresh beans just before brewing. [Shot: warm mug] Warm your mug while your water heats. Compare one change at a time instead of replacing all your equipment. Which habit would you try tomorrow? Save this guide."
+      },
+      "after": {
+        "text": "Coffee beans mug. Save!"
+      }
+    },
+    {
+      "id": "telegram-polish",
+      "origin": "authored_regression",
+      "platform": "telegram",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "Your next coffee routine starts here.\n\nGrind fresh beans before brewing. Warm your mug while the water heats. Change one habit and record your observations.\n\nReply with the habit you will try."
+      }
+    },
+    {
+      "id": "telegram-adversarial",
+      "origin": "authored_regression",
+      "platform": "telegram",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Your next coffee routine starts here.\n\nGrind fresh beans before brewing. Warm your mug while the water heats. Change one habit and record your observations.\n\nReply with the habit you will try."
+      },
+      "after": {
+        "text": ""
+      }
+    },
+    {
+      "id": "threads-polish",
+      "origin": "authored_regression",
+      "platform": "threads",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Update. Follow us."
+      },
+      "after": {
+        "text": "Your coffee routine could use one small experiment. Grind fresh beans before brewing, then warm your mug. Which habit will you try first?"
+      }
+    },
+    {
+      "id": "threads-adversarial",
+      "origin": "authored_regression",
+      "platform": "threads",
+      "requirements": {
+        "concepts": [
+          [
+            "coffee"
+          ],
+          [
+            "beans"
+          ],
+          [
+            "mug"
+          ]
+        ],
+        "cta_terms": [
+          "?",
+          "save",
+          "reply",
+          "share"
+        ],
+        "voice_terms": [
+          "fresh"
+        ]
+      },
+      "before": {
+        "text": "Your coffee routine could use one small experiment. Grind fresh beans before brewing, then warm your mug. Which habit will you try first?"
+      },
+      "after": {
+        "text": "Our new service is incredible. Save this now!"
+      }
+    }
+  ]
+}
