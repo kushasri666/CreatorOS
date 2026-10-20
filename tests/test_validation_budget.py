@@ -71,3 +71,11 @@ class ValidationBudgetTests(unittest.TestCase):
         self.guard.before(request);self.guard.after(httpx.Response(200,json={'data':[]}))
         with self.assertRaises(ValueError):self.guard.before(request)
         self.assertEqual(len(self.ledger['calls']),1)
+
+    def test_extended_run_preserves_shared_dollar_ceiling(self):
+        guard=Budget(self.guard.path,self.ledger,self.metadata,call_limit=110,image_limit=3)
+        self.ledger['calls']=[dict(status='failed_response',reserved_usd='.699')]
+        with self.assertRaises(ValueError):guard.before(self.request())
+        self.assertEqual(len(self.ledger['calls']),1)
+        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,call_limit=131)
+        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,image_limit=4)

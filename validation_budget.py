@@ -43,8 +43,11 @@ def liability(calls):
 
 
 class Budget:
-    def __init__(self,path,ledger,metadata):
+    def __init__(self,path,ledger,metadata,call_limit=80,image_limit=1):
+        if type(call_limit) is not int or not 1<=call_limit<=130:raise ValueError('Invalid bounded validation request limit')
+        if type(image_limit) is not int or not 1<=image_limit<=3:raise ValueError('Invalid bounded validation image limit')
         self.path,self.ledger,self.metadata=Path(path),ledger,metadata
+        self.call_limit,self.image_limit=call_limit,image_limit
         self.lock=threading.Lock();self.pending=None
 
     def before(self,request):
@@ -62,7 +65,7 @@ class Budget:
         with self.lock:
             if self.pending is not None or any(r['status']=='reserved_or_unknown' for r in self.ledger['calls']):
                 raise ValueError('An unresolved request blocks further validation spend')
-            if len(self.ledger['calls'])>=80:raise ValueError('Validation call-count ceiling reached')
+            if len(self.ledger['calls'])>=self.call_limit:raise ValueError('Validation call-count ceiling reached')
             reservation=bound(body,request.url.path,self.ledger['prices'])
             for prior in self.ledger['calls']:
                 if prior['status']!='response_received' or prior.get('billing_status')=='success' or not prior.get('request_id'):continue
@@ -88,8 +91,8 @@ class Budget:
             balance=Decimal(self.metadata.get(BASE+'/balance').raise_for_status().json()['balance_usd'])
             spent=max(Decimal(0),Decimal(self.ledger['starting_balance_usd'])-balance)
             if spent+reservation>CAP:raise ValueError('Account-balance guard stopped validation')
-            if request.url.path.endswith('/images/generations') and any(r['endpoint'].endswith('/images/generations') for r in self.ledger['calls']):
-                raise ValueError('Only one paid validation image is permitted across all phases')
+            if request.url.path.endswith('/images/generations') and sum(r['endpoint'].endswith('/images/generations') for r in self.ledger['calls'])>=self.image_limit:
+                raise ValueError('Paid validation image-count ceiling reached')
             row=dict(index=len(self.ledger['calls'])+1,model=body['model'],endpoint=request.url.path,
                 reserved_usd=str(reservation),status='reserved_or_unknown',request_sha256=hashlib.sha256(request.content).hexdigest())
             self.ledger['calls'].append(row);self.pending=row

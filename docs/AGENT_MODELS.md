@@ -57,7 +57,9 @@ All routes still use Mesh's fixed base URL and the existing paid-call lock.
 Writer/rewriter share a route. No automatic premium escalation or extra calls.
 
 Role ceilings: brand 1,400; strategy 700; writer 1,600; editor 900; visual prompt
-400; learner 500; verifier 1,000. `MESH_MAX_OUTPUT_TOKENS` can lower any ceiling; existing local
+400; learner 500; verifier 1,600. The verifier ceiling was increased after a live
+structured response truncated at 1,000 tokens; duplicate-check guidance also
+reduces unnecessary output. `MESH_MAX_OUTPUT_TOKENS` can lower any ceiling; other local
 caps are preserved. Lower ceilings bound output but can truncate difficult outputs;
 they are not proof of improved token efficiency. Invalid output fails visibly.
 

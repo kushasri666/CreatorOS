@@ -67,6 +67,13 @@ proxy scores average **92.857/100**, with X and Threads still failing some check
 Successful runs used an explicitly stronger diagnostic model profile; economical
 defaults and historical benchmark results are not silently reclassified.
 
+[Saved-brand validation](docs/SAVED_BRAND_VALIDATION_075.md) subsequently exercised
+LearnAIwithSachit and Content Tracker AI. Both primary posts passed; the learned
+second post passed for LearnAIwithSachit and was held for Content Tracker AI.
+The combined cost including the earlier validation is **$0.33967690 / $0.75**.
+The report preserves failures and a generated-visual quality issue. Raw customer
+samples and copy stay in the local, gitignored validation database.
+
 ## Run the real studio with spending locked
 
 Python 3.11+:

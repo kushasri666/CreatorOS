@@ -122,7 +122,12 @@ def scene_card(text, index, total, image_data=None, brand_name="CreatorOS"):
     draw.rounded_rectangle((60, 247, 140, 254), radius=3, fill=accent)
     for size in (66, 58, 50, 42, 34, 28):
         face = font(size, True)
-        lines = caption_lines(draw, text, face, 590)
+        try:
+            lines = caption_lines(draw, text, face, 590)
+        except ValueError:
+            # A long brand/tool name may fit at the next smaller font size.
+            # Never abort on the first size or truncate the customer's caption.
+            continue
         if len(lines) * (size + 12) <= 410:
             break
     else:

@@ -6,7 +6,7 @@ AGENTS = {
     "Strategist": ("MESH_STRATEGIST_MODEL", "google/gemini-2.5-flash-lite", 700),
     "Writer": ("MESH_WRITER_MODEL", "openai/gpt-4.1-mini", 1600),
     "Editor": ("MESH_EDITOR_MODEL", "openai/gpt-4.1-mini", 900),
-    "Verifier": ("MESH_VERIFIER_MODEL", "openai/gpt-4.1-mini", 1000),
+    "Verifier": ("MESH_VERIFIER_MODEL", "openai/gpt-4.1-mini", 1600),
     "Follow-up": ("MESH_FOLLOWUP_MODEL", "openai/gpt-4.1-mini", 1000),
     "Visual director": ("MESH_VISUAL_MODEL", "google/gemini-2.5-flash-lite", 400),
     "Learning analyst": ("MESH_LEARNER_MODEL", "google/gemini-2.5-flash-lite", 500),

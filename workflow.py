@@ -77,6 +77,7 @@ class Mesh:
             optimized['required_candidate_ids']=[k for k,v in candidates.items() if v in cited]
             optimized['required_candidate_sources']={k:next(c['source_ids'] for c in data['writer_citations'] if c.get('claim')==v) for k,v in candidates.items() if v in cited}
             role+=' Select candidate_id and receipt_id from the supplied maps; never type or paraphrase quote text. Check EVERY required_candidate_id with EXACTLY its required_candidate_sources and a supporting receipt from EACH source, even if sources duplicate one another. Then check any additional factual assertions; omit nonfactual hooks/CTAs. IDs only locate text: a real passage must actually support the claim, otherwise mark unsupported/thin. Other overlapping candidates need not repeat the same assertion.'
+            role+=' Check each distinct factual assertion once, using the smallest sufficient candidate; do not repeat overlapping whole-post, sentence and clause checks. Keep reasons brief. Pure invitations, aspirations and topic hashtags need no source verification; any embedded product capability or measurable outcome still does. A source mentioning a product does not support extra benefits or guarantees.'
         selection = route(role)
         model = selection["model"]
         cache_key = "mesh_cache:"+hashlib.sha256(encode([VERSION, selection, role, optimized, schema]).encode()).hexdigest()

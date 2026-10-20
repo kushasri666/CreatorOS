@@ -1,0 +1,208 @@
+{
+  "prior_cost_usd": "0.16066170",
+  "additional_billed_cost_usd": "0.17901520",
+  "cumulative_billed_cost_usd": "0.33967690",
+  "cumulative_balance_delta_usd": "0.3396769",
+  "budget_usd": ".75",
+  "internal_cap_usd": ".70",
+  "within_budget": true,
+  "requests": 129,
+  "additional_requests": 51,
+  "unpriced_receipt_indexes": [
+    22,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "cases": [
+    {
+      "brand": "LearnAIwithSachit",
+      "platform": "linkedin",
+      "initial_status": "feedback_recorded",
+      "approved": true,
+      "verification_passed": true,
+      "image_generated": true,
+      "profile_reused": true,
+      "sample_count": 3,
+      "learned_post_approved": true,
+      "applied_learning_ids": [
+        "learning:metric:bb43df16-a11b-4dd4-afea-51091485971e:saved-brand-validation-1"
+      ],
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "510 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4–30"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "491 characters; editorial budget 3000"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 8 words; target 4–30"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "genuine_revision": true,
+      "learned_output_changed": true,
+      "learned_post_status": "approved",
+      "media_validation": {
+        "video_status": "ready",
+        "resolution": [
+          720,
+          1280
+        ],
+        "audio_codec": "aac",
+        "duration": 6.0,
+        "bytes": 637609,
+        "audit_events": 71
+      }
+    },
+    {
+      "brand": "Content Tracker AI",
+      "platform": "instagram",
+      "initial_status": "feedback_recorded",
+      "approved": true,
+      "verification_passed": true,
+      "image_generated": true,
+      "profile_reused": true,
+      "sample_count": 3,
+      "learned_post_approved": false,
+      "applied_learning_ids": [
+        "learning:metric:45c82732-457c-4079-b7ba-21198334d6a9:saved-brand-validation-1"
+      ],
+      "before": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "354 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 5 words; target 4–30"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "after": {
+        "passed": 6,
+        "total": 6,
+        "score_100": 100.0,
+        "checks": {
+          "length": {
+            "passed": true,
+            "reason": "337 characters; editorial budget 2200"
+          },
+          "readability": {
+            "passed": true,
+            "reason": "Paragraph budget 90 words; sentence budget 40 words"
+          },
+          "hook": {
+            "passed": true,
+            "reason": "Opening has 5 words; target 4–30"
+          },
+          "brief_coverage": {
+            "passed": true,
+            "reason": "4/4 required concept groups found (lexical only)"
+          },
+          "cta": {
+            "passed": true,
+            "reason": "Configured CTA cue in closing text/slide; intent not semantically verified"
+          },
+          "voice_cues": {
+            "passed": true,
+            "reason": "At least one configured brand vocabulary cue; not a full voice judgment"
+          }
+        }
+      },
+      "genuine_revision": true,
+      "learned_output_changed": true,
+      "learned_post_status": "needs_review",
+      "media_validation": {
+        "video_status": "ready",
+        "resolution": [
+          720,
+          1280
+        ],
+        "audio_codec": "aac",
+        "duration": 8.0,
+        "bytes": 726432,
+        "audit_events": 91
+      }
+    }
+  ],
+  "limits": [
+    "Saved brand-owner samples are assertions, not independent proof of product efficacy.",
+    "Existing learned profiles reused; no paid voice relearning.",
+    "Isolated database; no public social posting or live account metrics.",
+    "Simulated feedback tests learning plumbing, not engagement uplift.",
+    "Editorial proxy is not an independent human or semantic quality measure."
+  ]
+}

@@ -9,6 +9,15 @@ import video
 
 
 class VideoTests(unittest.TestCase):
+    def test_long_brand_and_tool_names_try_smaller_sharp_font(self):
+        from PIL import ImageDraw
+        text='LearnAIwithSachit: build with Snowflake/Databricks—straightforward AI tools.'
+        canvas=video.scene_card(text,0,3,brand_name='LearnAIwithSachit')
+        self.assertEqual(canvas.size,(720,1280))
+        # This input really exercises the previous oversized-word failure.
+        with self.assertRaises(ValueError):
+            video.caption_lines(ImageDraw.Draw(canvas),text,video.font(66,True),590)
+
     def test_render_playable_video_captions_and_reuse_without_ai(self):
         import imageio_ffmpeg
         with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ,
