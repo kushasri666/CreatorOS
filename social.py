@@ -92,6 +92,14 @@ def fetch(provider, external_id, token, client, connection):
                    {"tweet.fields": "public_metrics,author_id"}).get("data", {})
         if str(data.get("id")) != external_id:
             raise ValueError("X returned no matching post")
+        account=str(connection.get('account_id') or '')
+        if not account.isdigit():
+            me=get(client,'https://api.x.com/2/users/me',token).get('data',{})
+            if not str(me.get('id','')).isdigit() or (account and account.lstrip('@').casefold()!=str(me.get('username','')).casefold()):
+                raise ValueError('Selected X account did not match the authenticated user')
+            account=str(me['id'])
+        if str(data.get('author_id',''))!=account:
+            raise ValueError('X post author did not match the selected account')
         metrics = data.get("public_metrics", {})
         mapping = {"like_count": "likes", "reply_count": "comments", "retweet_count": "reposts",
                    "quote_count": "quotes", "bookmark_count": "saves", "impression_count": "impressions"}

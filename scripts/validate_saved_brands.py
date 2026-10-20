@@ -26,6 +26,20 @@ CASES=[dict(name='LearnAIwithSachit',platform='linkedin',
     concepts=[['AI'],['engagement'],['content'],['feedback','historical']],cta=['review','content'])]
 
 
+def outcome(result):
+    """A function returning normally is not proof that its operation succeeded."""
+    if not isinstance(result,dict) or not result:return 'failed'
+    if result.get('approved') is False:return 'needs_review'
+    for key in ('status','video_status'):
+        if key in result and result[key] not in ('approved','scheduled','ready_to_publish','feedback_recorded',
+                'ready','verified','completed','published'):
+            return 'needs_review' if result[key]=='needs_review' else 'failed'
+    if 'scheduling_status' in result and result['scheduling_status'] not in ('ready_to_publish','feedback_recorded'):
+        return 'failed'
+    if result.get('video_status')=='ready' and (type(result.get('bytes')) is not int or result['bytes']<=0):return 'failed'
+    return 'passed'
+
+
 def main(execute=False,repair=False,finish=False):
     if not execute:raise SystemExit('Requires --execute; shared cumulative cap remains $0.70, below $0.75')
     from dotenv import load_dotenv
@@ -75,8 +89,7 @@ def main(execute=False,repair=False,finish=False):
                 ledger['saved_brand_steps'][key]=dict(status='in_progress');save(LEDGER,ledger)
                 print('STEP',key,flush=True)
                 try:
-                    result=fn();entry=dict(status='passed',result=result)
-                    if isinstance(result,dict) and result.get('approved') is False:entry['status']='needs_review'
+                    result=fn();entry=dict(status=outcome(result),result=result)
                 except Exception as exc:
                     entry=dict(status='failed',error_type=type(exc).__name__)
                 ledger['saved_brand_steps'][key]=entry;save(LEDGER,ledger)
@@ -175,9 +188,10 @@ def main(execute=False,repair=False,finish=False):
             learned=((ledger['saved_brand_steps'].get(('finish:' if finish else prefix)+name+':with_learning') or {}).get('result') or
                 (ledger['saved_brand_steps'].get(prefix+name+':with_learning') or {}).get('result') or {})
             requirements=dict(concepts=case['concepts'],cta_terms=case['cta'],voice_terms=core.get('voice',{}).get('vocabulary',[]))
+            saved_brand=storage.get(core.get('brand_id','')) or next((b for b in storage.listing('brand') if b['name']==name),{})
             item=dict(brand=name,platform=case['platform'],initial_status=core.get('status','not_completed'),
                 approved=core.get('approved',False),verification_passed=core.get('verification',{}).get('passed',False),
-                image_generated=bool(core.get('image')),profile_reused=True,sample_count=3,
+                image_generated=bool(core.get('image')),profile_reused=bool(saved_brand) and core.get('voice')==saved_brand.get('profile'),sample_count=len(saved_brand.get('samples',[])),
                 learned_post_approved=learned.get('approved',False),learned_post_status=learned.get('status','not_run'),
                 applied_learning_ids=learned.get('used_learning_ids',[]))
             if core.get('drafts'):

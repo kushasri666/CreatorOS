@@ -48,7 +48,7 @@ class SocialTests(unittest.TestCase):
             elif "graph.threads.net" in url:
                 data = {"data": [{"name": "views", "values": [{"value": 200}]}, {"name": "likes", "values": [{"value": 10}]}]}
             elif "api.x.com" in url:
-                data = {"data": {"id": "123", "public_metrics": {"like_count": 6, "impression_count": 300}}}
+                data = {"data": {"id": "123", "author_id":"456", "public_metrics": {"like_count": 6, "impression_count": 300}}}
             elif "youtube/v3" in url:
                 data = {"items": [{"id": "abcdefghijk", "snippet": {"channelId": "UC-test"}, "statistics": {"viewCount": "99"}}]}
             elif "youtubeanalytics" in url:
@@ -61,7 +61,7 @@ class SocialTests(unittest.TestCase):
             return httpx.Response(200, json=data)
         with httpx.Client(transport=httpx.MockTransport(handler)) as client, patch.dict(os.environ, {"SOCIAL_ENABLE_PAID_X": "1"}):
             for provider, id in (("instagram", "123"), ("threads", "123"), ("x", "123"), ("youtube", "abcdefghijk"), ("linkedin", "urn:li:share:123")):
-                values, window = social.fetch(provider, id, "test-only", client, {"allow_paid_reads": True, "account_id": "UC-test"})
+                values, window = social.fetch(provider, id, "test-only", client, {"allow_paid_reads": True, "account_id": "456" if provider=='x' else "UC-test"})
                 self.assertTrue(values)
                 self.assertNotIn("saves", values)
             self.assertTrue(window)

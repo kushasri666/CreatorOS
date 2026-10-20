@@ -66,11 +66,14 @@ class EditorialGuidanceTests(unittest.TestCase):
                 rating=score[gateway.writer-1] if isinstance(score,list) else score
                 result = dict(scores=dict.fromkeys(CRITERIA, rating), edits=["Keep a concrete opening"], reason="Scripted editor response")
             if role.startswith("Verifier"):
-                result = dict(checks=[], conflicts=[])
+                result = dict(checks=[dict(claim='Your coffee ritual starts with fresh beans.',source_ids=['S1'],
+                    verdict='supported',reason='The fixture source states this exact feature.',
+                    evidence=[dict(source_id='S1',quote='Your coffee ritual starts with fresh beans.')])], conflicts=[])
             return result
         gateway.ask = ask
         events=[]
-        result=run_pipeline(gateway,"Coffee habits","x",{},[],lambda a,d:events.append((a,d)),generate_image=False)
+        result=run_pipeline(gateway,"Coffee habits","x",{},[],lambda a,d:events.append((a,d)),generate_image=False,
+            sources=[dict(source_id='S1',source_type='user_product_facts',title='Fixture facts',excerpt='Your coffee ritual starts with fresh beans.')])
         return result, gateway, events
 
     def test_local_feedback_is_saved_and_reaches_agents_without_new_calls(self):

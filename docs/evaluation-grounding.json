@@ -6,7 +6,7 @@
     "not_model_generated": true,
     "purpose": "Stress the production receipt filter using submitted reports with deliberately imperfect verifier judgments."
   },
-  "evaluated_at": "2026-10-20T13:58:51.569029+00:00",
+  "evaluated_at": "2026-10-20T18:47:29.705855+00:00",
   "case_count": 16,
   "question_count": 24,
   "source_origin": "Authored synthetic controlled snapshots; no real provider or website observations.",
@@ -17,7 +17,7 @@
     "predictions_sha256": "1e1652a0c5a2e93f5c28be6dc7b3a6d4f673eb9569d08aea1dc8c49fa2d3c1f3",
     "evaluator_sha256": "79a220572cbb6a23a24539c85de876d96476b12690f0f4a4bd69f0cdc9b04723",
     "grounding_sha256": "63cc7031c3fa8222d8ce20f1374633aa60a257afe28c12adfe7e4b623cec7515",
-    "source_policy_sha256": "0fdb803507d7b855cb62b0f6bfffa66b730eb808f6cf2e22c4f0ec5b85bf4b5e"
+    "source_policy_sha256": "34e6e0694ed1551edfc25eec1fc6a99a620c9ff09c72f00790fc06fe153500a8"
   },
   "before": {
     "metrics": {

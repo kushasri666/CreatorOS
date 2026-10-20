@@ -106,6 +106,8 @@ def context(job,client):
     post=require(job['post_id'],'post')
     if post.get('status') not in ('approved','scheduled','ready_to_publish') or connection['provider']!='instagram' or connection['brand_id']!=post['brand_id']:
         raise ValueError('Post approval or connection no longer matches this delivery')
+    if job.get('account_id') and str(connection.get('account_id',''))!=str(job['account_id']):
+        raise ValueError('Connected Instagram account changed after staging; publishing withheld')
     if connection.get('status') in ('disconnected','not_authorized'):
         raise ValueError('Authorize the Instagram account first')
     if signature(post)!=job['fingerprint']:

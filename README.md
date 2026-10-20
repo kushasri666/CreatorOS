@@ -232,6 +232,13 @@ publishing exists for all six; only Instagram single-image publication is implem
 
 ## Verification and self-evaluation
 
+The [adversarial system evaluation](docs/TOUGH_VALIDATION.md) passes **202 tests,
+including 49 new adversarial cases**, with paid inference disabled and normal
+HTTP transports blocked. It found and fixed approval bypasses, stale scheduling,
+account ownership, malformed model/cache responses and shared-budget races.
+This is software resilience evidence; the separate content/grounding weaknesses
+remain explicitly reported. Run `python scripts/evaluate_resilience.py` to repeat.
+
 The [platform-specific content evaluation](docs/CONTENT_EVALUATION.md) scores
 historical real Mesh drafts separately from authored scorer regression cases.
 Ten recorded pairs across X, LinkedIn and Instagram score **76.667 → 75.000 /100**:
@@ -294,8 +301,8 @@ The editor-loop result is modest improvement,
 not proof of consistent quality gain or engagement uplift. That rubric's fixed
 280-character ceiling and numbered-list preference also penalize longer LinkedIn
 content and alternative valid styles. Editor opinions, voice quality and factuality
-must be assessed separately. No new paid Mesh validation was performed during the
-latest alignment pass.
+must be assessed separately. These historical results precede the later budgeted
+live validations linked above; they were not overwritten by those runs.
 
 Live evaluation is now deliberately locked. An explicitly authorized small text-only
 pair can be requested with:
@@ -323,7 +330,9 @@ The learning comparison tests response to a supplied hypothesis, not causal upli
 | `POST /demo/{scenario}` | Optional fictional fixtures, offline only |
 | `GET /state` | Current mode and saved studio records |
 
-This is a single-user local app without authentication or a real publishing API.
+This is a single-user local app without application authentication. The optional
+Instagram publishing API is implemented and mock-tested; live publication remains
+unverified and requires explicit account authorization and per-post confirmation.
 Base64 images persist in SQLite; provider-hosted asset URLs may expire. Image failures
 preserve earlier audit events but fail that run. Background generation tasks are
 in-process and are not automatically retried after restart, protecting credits.
@@ -333,8 +342,9 @@ produces tentative hypotheses, not causal findings.
 The official `.github/workflows/agent-arena-2026-checks.yml` is retained. Repository
 Actions secrets must include `MESH_API_KEY` and `SUBMISSION_TOKEN`; configure them in
 GitHub, never in committed files. `.env`, `mesh.env`, runtime data and dependencies
-are ignored. Repository secret configuration and official CI eligibility have not
-been verified here. Changes remain local; this implementation pass did not push or deploy.
+are ignored. Source changes and sanitized validation summaries are committed to
+the public repository. A successful push is separate from organizer submission
+eligibility; inspect Actions and the organizer dashboard for the current status.
 # Personal LinkedIn analytics connector
 
 **Expanded workspace:** use **Accounts & analytics** for six-platform connection
@@ -343,7 +353,9 @@ See [social setup and limitations](docs/SOCIAL_CONNECTIONS.md),
 [research and measured prompt accounting](docs/RESEARCH_AND_COSTS.md), and
 [implementation plan](docs/IMPLEMENTATION_PLAN.md). New OAuth credentials and the
 encryption key belong only in local `.env`; no live accounts are authorized yet.
-Paid Mesh media remains separately locked and has only mock-based validation.
+Paid generative audio/video remains separately locked and mock-tested. Image
+generation through Mesh and local slideshow rendering were exercised in the
+budgeted live runs; image appearance still requires visual review.
 
 ## Local slideshow videos
 

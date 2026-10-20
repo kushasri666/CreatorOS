@@ -86,7 +86,10 @@ def validate_semantic_conflicts(raw,sources):
 def blocking_conflicts(claim,source_ids,conflicts):
     # Attribution makes a statement about what a source says, rather than silently
     # declaring one disputed product value to be the established truth.
-    attributed=bool(re.search(r"\b(?:according to|reports?|states?|lists?|specifications?|sources? disagree|conflicting)\b",claim,re.I))
+    # Attribution must introduce the disputed assertion. A trailing CTA such as
+    # "save this report" cannot convert an unqualified claim into attribution.
+    referent=r"(?:\[[A-Za-z0-9_-]+\]|(?:the\s+)?(?:[A-Za-z0-9'_-]+\s+){0,5}(?:sources?|specifications?|manual|manufacturer|official page|product page))"
+    attributed=bool(re.match(r"\s*(?:According to\s+"+referent+r"\s*[,;:]|"+referent+r"\s+(?:reports?|states?|lists?|says?)\b)",claim,re.I))
     if attributed:return []
     result=[]
     for conflict in conflicts:

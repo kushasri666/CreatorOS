@@ -118,13 +118,24 @@ def tick():
     with connection() as db:
         db.execute("BEGIN IMMEDIATE")
         jobs = db.execute("SELECT post_id FROM jobs WHERE status='queued' AND due<=?", (now(),)).fetchall()
+        completed=0
         for job in jobs:
             row = db.execute("SELECT body FROM records WHERE id=?", (job[0],)).fetchone()
+            if not row:
+                db.execute("UPDATE jobs SET status='cancelled' WHERE post_id=?",(job[0],))
+                continue
             post = json.loads(row[0])
+            if post.get('status')!='scheduled' or post.get('approved') is False:
+                db.execute("UPDATE jobs SET status='cancelled' WHERE post_id=?",(job[0],))
+                event=dict(id=str(uuid4()),post_id=job[0],agent='scheduler',at=now(),
+                    detail={'reason':'Queued handoff cancelled because approval or scheduled state was revoked.'})
+                db.execute("INSERT INTO records VALUES (?, 'audit', ?)",(event['id'],json.dumps(event)))
+                continue
             post["status"] = "ready_to_publish"
+            completed+=1
             db.execute("UPDATE records SET body=? WHERE id=?", (json.dumps(post), job[0]))
             db.execute("UPDATE jobs SET status='completed' WHERE post_id=?", (job[0],))
             event = dict(id=str(uuid4()), post_id=job[0], agent="scheduler", at=now(),
                          detail={"reason": "Scheduled time reached; manual publishing handoff ready"})
             db.execute("INSERT INTO records VALUES (?, 'audit', ?)", (event["id"], json.dumps(event)))
-    return len(jobs)
+    return completed

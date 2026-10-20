@@ -3,6 +3,7 @@ import json
 import os
 import time
 import hashlib
+import re
 from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -12,6 +13,7 @@ from improvement import assess
 from model_policy import route, routes, image_model
 from grounding import evidence_receipts, build_report
 from verification_contract import packet,resolve
+from agent_output import parse as parse_agent,valid as valid_agent
 
 load_dotenv()
 CRITERIA = ("hook", "clarity", "voice", "platform", "cta")
@@ -82,7 +84,8 @@ class Mesh:
         model = selection["model"]
         cache_key = "mesh_cache:"+hashlib.sha256(encode([VERSION, selection, role, optimized, schema]).encode()).hexdigest()
         cached = storage.get(cache_key) if os.getenv("MESH_CACHE_ENABLED", "1") == "1" else None
-        if cached and cached["expires"] > storage.now():
+        if (cached and isinstance(cached.get('expires'),str) and cached['expires']>storage.now()
+                and valid_agent(role,cached.get('result'),data)):
             self.observe(dict(role=role.split(":")[0], model=model, tokens=0, seconds=0,
                               cached=True, call=self.call_count, reason="Identical validated request reused from the 24-hour local cache"))
             return cached["result"]
@@ -106,19 +109,16 @@ class Mesh:
                               seconds=round(time.monotonic()-started, 2), call=self.call_count))
             raw = response.choices[0].message.content
             try:
-                result = json.loads(raw)
-                valid = isinstance(result, dict) and set(schema).issubset(result)
-                if valid and role.startswith("Writer"):
-                    valid = isinstance(result["text"], str) and bool(result["text"].strip())
-                    if data.get("platform") == "instagram":
-                        valid = valid and isinstance(result.get("slides"), list) and 3 <= len(result["slides"]) <= 10 and all(isinstance(s, str) and s.strip() for s in result["slides"])
+                result = parse_agent(raw)
+                valid = (getattr(response.choices[0],'finish_reason',None) in (None,'stop')
+                    and valid_agent(role,result,data) and set(schema).issubset(result))
                 if valid:
                     if candidates is not None:result=resolve(result,candidates,receipts)
                     if os.getenv("MESH_CACHE_ENABLED", "1") == "1":
                         storage.save("mesh_cache", {"result": result,
                             "expires": (datetime.now(timezone.utc)+timedelta(hours=24)).isoformat()}, cache_key)
                     return result
-            except (json.JSONDecodeError, TypeError):
+            except (ValueError, TypeError):
                 pass
             messages.append({"role": "user", "content": "Invalid schema. Return the exact keys specified above."})
         raise ValueError("Mesh returned invalid structured agent output")
@@ -215,7 +215,25 @@ def _validate_verifier_result(result, text, slides, citations, sources):
         elif set(checked["source_ids"])!=set(citation["source_ids"]):
             checked["verdict"]="unsupported"
             checked["reason"]="Verifier did not inspect the exact sources cited by the writer."
-    passed=not malformed and all(c["verdict"]=="supported" for c in checks)
+    # Numeric product/performance assertions must not disappear when a verifier
+    # checks only another sentence. This is a conservative coverage guard, not
+    # semantic entailment or complete detection of nonnumeric factual claims.
+    numeric=r'(?:[$₹€£]\s*\d[\d,.]*|\b\d[\d,.]*\s*(?:%|percent\b|days?\b|hours?\b|minutes?\b|settings?\b|modes?\b|brushes\b|grams?\b|ml\b))'
+    for part in parts:
+        spans=[]
+        for check in checks:
+            if check['verdict']!='supported':continue
+            start=0
+            while (position:=part.find(check['claim'],start))>=0:
+                spans.append((position,position+len(check['claim'])));start=position+len(check['claim'])
+        for fact in re.finditer(numeric,part,re.I):
+            if any(a<=fact.start() and fact.end()<=b for a,b in spans):continue
+            sentence=next((m.group().strip() for m in re.finditer(r'[^.!?\n]+(?:[.!?]+|$)',part)
+                if m.start()<=fact.start()<m.end()),fact.group())
+            if any(c['claim']==sentence and c['verdict']!='supported' for c in checks):continue
+            checks.append(dict(claim=sentence,source_ids=[],verdict='unsupported',evidence=[],
+                reason='Numeric factual assertion was not covered by a supported exact verifier passage.'))
+    passed=not malformed and bool(checks) and all(c["verdict"]=="supported" for c in checks)
     return dict(status="complete",passed=passed,checks=checks,
         reason="All checked factual claims are supported by their cited sources." if passed else
                "Thinly supported and unsupported claims require targeted retrieval, correction, and re-check.")

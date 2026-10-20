@@ -12,5 +12,6 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python -m compileall -q main.py workflow.py storage.py evaluate.py check_mesh.py offline.py insights.py demo.py tests
-      - run: python -m unittest discover -s tests -v
+      - name: Run offline system and adversarial suite with network blocked
+        run: python scripts/evaluate_resilience.py
       - run: python evaluate.py
