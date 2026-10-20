@@ -2,7 +2,7 @@
 import copy
 import json
 
-VERSION = "lean-v4-native-formats"
+VERSION = "lean-v6-exact-receipt-ids"
 
 
 def compact_data(role, data):
@@ -30,6 +30,10 @@ def compact_data(role, data):
         result["limits"] = {result["platform"]: result["limits"][result["platform"]]}
     if role.startswith(("Editor", "Visual director")):
         result.pop("learnings", None)  # Strategist already selected the hypothesis.
+    if role.startswith("Editor") and isinstance(result.get("editorial_contract"),dict):
+        # Keep opinion scoring blind to the numeric acceptance target.
+        result["editorial_contract"].pop("target_editor_average",None)
+        result["editorial_contract"].pop("minimum_editor_criterion",None)
     if role.startswith("Visual director"):
         result.pop("limits", None)
         result.pop("editorial_contract", None)

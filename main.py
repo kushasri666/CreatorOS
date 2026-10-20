@@ -593,9 +593,12 @@ def metrics(id: str, req: MetricsRequest):
     peers = list(latest_per_post.values())
     baseline = sum(m["rate"] for m in peers) / len(peers) if peers else None
     direction = "explore" if baseline is None else ("repeat" if rate > baseline else "avoid_or_test")
-    learner = gateway()
-    learner.observe = lambda detail: store.audit(id, "mesh", detail)
-    hypothesis = learner.ask("Learning analyst: return rule and reason. Suggest a specific future "
+    learner = None
+    method="mesh_hypothesis"
+    try:
+        learner = gateway()
+        learner.observe = lambda detail: store.audit(id, "mesh", detail)
+        hypothesis = learner.ask("Learning analyst: return exactly ONE JSON object with string rule and reason, never an array of alternatives. Suggest a specific future "
         "hook/format/CTA change using the normalized engagement comparison. Never infer causation. "
         "First observation is exploratory; below-baseline output should change future approach. "
         "Simulated metrics are simulated evidence only. Do not attribute performance to tone, "
@@ -603,10 +606,21 @@ def metrics(id: str, req: MetricsRequest):
         "A baseline comparison alone does not explain why a post performed differently. "
         "Frame untested explanations only as future experiments.", dict(strategy=post["strategy"],
         text=post["text"], rate=rate, baseline=baseline, direction=direction, metrics=req.model_dump()))
+        if not all(isinstance(hypothesis.get(k),str) and hypothesis[k].strip() for k in ('rule','reason')):
+            raise ValueError('Learning hypothesis has no usable rule/reason')
+    except Exception as exc:
+        # An optional interpretation must never discard valid customer metrics.
+        # This is explicit deterministic fallback, not fabricated AI output.
+        method='deterministic_metric_fallback'
+        rule=('Collect comparable observations before selecting a winning format.' if baseline is None else
+              'Test this format against alternatives before repeating it.' if direction=='repeat' else
+              'Test a different format against this below-baseline observation.')
+        hypothesis=dict(rule=rule,reason=f'Observed weighted rate {rate:.4f}; comparable baseline {baseline}. This is a tentative experiment, not causal evidence.')
+        store.audit(id,'learning_fallback',dict(error_type=type(exc).__name__,reason='Optional Mesh interpretation failed or was locked; preserve metrics with a deterministic evidence-linked experiment. No automatic retry.'))
     learning = dict(hypothesis, kind="learning", brand_id=post["brand_id"],
         platform=post["platform"], post_id=id, evidence_id=key, source=req.source,
         confidence="tentative", direction=direction, rate=rate, baseline=baseline,
-        mode=getattr(learner, "mode", "test_double"))
+        method=method,mode='deterministic_evidence_fallback' if method=='deterministic_metric_fallback' else getattr(learner, "mode", "test_double"))
     metric = dict(kind="metric", post_id=id, brand_id=post["brand_id"],
         platform=post["platform"], input=req.model_dump(), rate=rate, baseline=baseline,
         observed_at=store.now())

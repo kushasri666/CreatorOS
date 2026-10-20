@@ -1,0 +1,115 @@
+"""Shared persistent validation reservations at the real SDK HTTP boundary."""
+from decimal import Decimal
+import hashlib
+import json
+from pathlib import Path
+import threading
+
+CAP = Decimal("0.70")  # Strictly below the user's combined $0.75 authorization.
+BASE = "https://api.meshapi.ai/v1"
+
+
+def save(path, value):
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    temp=path.with_suffix('.tmp')
+    temp.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    temp.replace(path)
+
+
+def bound(body, path, prices):
+    model=body.get('model');price=prices.get(model)
+    if not price:raise ValueError('Validation model has no approved pricing')
+    size=len(json.dumps(body,ensure_ascii=False).encode('utf-8'))+1024
+    if path=='/v1/chat/completions':
+        if price.get('pricing_unit')!='per_1m_tokens' or body.get('stream') or body.get('tools'):
+            raise ValueError('Unpriced streaming or tool calls are not permitted')
+        maximum=body.get('max_tokens')
+        if type(maximum) is not int or not 1<=maximum<=1600:raise ValueError('Missing bounded output cap')
+        cost=(Decimal(price['prompt_usd_per_1m'])*size+Decimal(price['completion_usd_per_1m'])*maximum)/Decimal(1000000)
+    elif path=='/v1/images/generations':
+        if price.get('pricing_unit')!='per_image' or body.get('n',1)!=1 or body.get('size')!='1024x1024':
+            raise ValueError('Only one fixed-price 1024px image is permitted')
+        cost=Decimal(price['image_output_usd_per_image'])
+    else:raise ValueError('Generation endpoint is outside this validation authorization')
+    # Retained even on failure: account for up to six gateway attempts plus margin.
+    return max(Decimal('.005'),cost*6+Decimal('.002'))
+
+
+def liability(calls):
+    """Only finalized successful billing may replace an upper-bound reservation."""
+    return sum((Decimal(r['settled_usd']) if r.get('billing_status')=='success' and r['status']=='response_received'
+                else Decimal(r['usage_bound_usd']) if r.get('billing_status')=='usage_bound' and r['status']=='response_received'
+                else Decimal(r['reserved_usd']) for r in calls),Decimal(0))
+
+
+class Budget:
+    def __init__(self,path,ledger,metadata):
+        self.path,self.ledger,self.metadata=Path(path),ledger,metadata
+        self.lock=threading.Lock();self.pending=None
+
+    def before(self,request):
+        try:self._before(request)
+        except ValueError as exc:
+            self.ledger.setdefault('blocked_requests',[]).append(dict(reason=str(exc),endpoint=request.url.path))
+            save(self.path,self.ledger)
+            print('Validation request blocked:',str(exc),flush=True)
+            raise
+
+    def _before(self,request):
+        if request.url.host!='api.meshapi.ai' or request.url.scheme!='https':raise ValueError('Non-Mesh inference blocked')
+        if request.method!='POST':raise ValueError('Only explicitly budgeted generation requests are permitted on this client')
+        body=json.loads(request.content)
+        with self.lock:
+            if self.pending is not None or any(r['status']=='reserved_or_unknown' for r in self.ledger['calls']):
+                raise ValueError('An unresolved request blocks further validation spend')
+            if len(self.ledger['calls'])>=80:raise ValueError('Validation call-count ceiling reached')
+            reservation=bound(body,request.url.path,self.ledger['prices'])
+            for prior in self.ledger['calls']:
+                if prior['status']!='response_received' or prior.get('billing_status')=='success' or not prior.get('request_id'):continue
+                receipt=self.metadata.get(BASE+'/usage/requests/'+prior['request_id'])
+                if not receipt.is_success:continue
+                payload=receipt.json();event=payload.get('event') or {}
+                costs=[Decimal(str(a['cost_usd'])) for a in payload.get('attempts',[]) if a.get('cost_usd') is not None]
+                if event.get('status')=='success' and event.get('cost_usd') is not None:
+                    paid=Decimal(str(event['cost_usd']))
+                    if paid.is_finite() and paid>=0:
+                        prior.update(billing_status='success',settled_usd=str(max(paid,sum(costs,Decimal(0)))))
+                elif event.get('status')=='success' and not payload.get('ambiguous') and payload.get('attempt_count')==1 and payload.get('retry_count',0)==0:
+                    # Gateway cache hits have null charges. Without a recorded
+                    # HIT header, do not assume zero: retain a conservative
+                    # catalog-price bound on the authoritative completed usage.
+                    pricing=self.ledger['prices'][prior['model']]
+                    pin,pout=event.get('prompt_tokens'),event.get('completion_tokens')
+                    if pricing.get('pricing_unit')=='per_1m_tokens' and type(pin) is int and type(pout) is int and min(pin,pout)>=0:
+                        upper=(Decimal(pricing['prompt_usd_per_1m'])*pin+Decimal(pricing['completion_usd_per_1m'])*pout)/Decimal(1000000)
+                        prior.update(billing_status='usage_bound',usage_bound_usd=str(min(Decimal(prior['reserved_usd']),upper*6+Decimal('.002'))))
+            total=liability(self.ledger['calls'])
+            if total+reservation>CAP:raise ValueError('Shared validation reservation ceiling reached')
+            balance=Decimal(self.metadata.get(BASE+'/balance').raise_for_status().json()['balance_usd'])
+            spent=max(Decimal(0),Decimal(self.ledger['starting_balance_usd'])-balance)
+            if spent+reservation>CAP:raise ValueError('Account-balance guard stopped validation')
+            if request.url.path.endswith('/images/generations') and any(r['endpoint'].endswith('/images/generations') for r in self.ledger['calls']):
+                raise ValueError('Only one paid validation image is permitted across all phases')
+            row=dict(index=len(self.ledger['calls'])+1,model=body['model'],endpoint=request.url.path,
+                reserved_usd=str(reservation),status='reserved_or_unknown',request_sha256=hashlib.sha256(request.content).hexdigest())
+            self.ledger['calls'].append(row);self.pending=row
+            self.ledger['max_liability_usd']=str(max(Decimal(self.ledger.get('max_liability_usd','0')),total+reservation))
+            save(self.path,self.ledger)
+            print('Mesh validation request',row['index'],body['model'],'reserved',str(reservation),flush=True)
+
+    def after(self,response):
+        response.read()
+        with self.lock:
+            row=self.pending
+            if row is None:raise ValueError('Received an unreserved inference response')
+            row.update(http_status=response.status_code,request_id=response.headers.get('x-request-id') or response.headers.get('x-mesh-request-id'),
+                status='response_received' if response.is_success else 'failed_response')
+            row['gateway_cache']=response.headers.get('x-cache')
+            if response.is_success and row['gateway_cache']=='HIT':row.update(billing_status='success',settled_usd='0',billing_basis='documented_gateway_cache_hit')
+            try:
+                payload=response.json();row['usage']=payload.get('usage');row['returned_model']=payload.get('model')
+                if payload.get('choices'):
+                    row['finish_reason']=payload['choices'][0].get('finish_reason')
+                    row['raw_output']=payload['choices'][0]['message'].get('content')
+            except (ValueError,KeyError,TypeError):pass
+            self.pending=None;save(self.path,self.ledger)

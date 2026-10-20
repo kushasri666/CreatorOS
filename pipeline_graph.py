@@ -7,6 +7,7 @@ from model_policy import routes,image_model
 from source_policy import review_sources,quality,validate_semantic_conflicts,blocking_conflicts
 from editorial_guidance import contract,inspect,regressions,TARGET_AVERAGE,MINIMUM_CRITERION
 from platform_formats import format_contract
+from verification_contract import canonical_claim
 
 
 def execute_pipeline(mesh,brief,platform,voice,learnings,record,generate_image=True,sources=None,
@@ -33,12 +34,20 @@ def execute_pipeline(mesh,brief,platform,voice,learnings,record,generate_image=T
         result["source_ids"]=[i for i in result.get("source_ids",[]) if isinstance(i,str) and i in ids] if isinstance(result.get("source_ids"),list) else []
         state["strategy"]=result;state["strategies"].append(dict(result))
         record("strategist",dict(result,restart=state["restarts"]))
-    def append_draft(result,prior=None):
+    def append_draft(result,prior=None,prior_slides=None):
         draft=result.get("text","").strip();slides=result.get("slides",[])
-        if not draft or draft==prior:raise ValueError("Writer failed to produce a changed revision")
+        if not draft or (draft==prior and slides==(prior_slides or [])):raise ValueError("Writer failed to produce a changed revision")
         if not isinstance(slides,list) or any(not isinstance(s,str) or not s.strip() for s in slides) or len(slides)>10 or (platform=="instagram" and len(slides)<3):
             raise ValueError("Writer returned invalid platform slides")
         citations=_valid_citations(result.get("citations",[]),{s["source_id"] for s in state["sources"]})
+        normalized=[]
+        for citation in citations:
+            claim=canonical_claim(citation['claim'],[draft,*slides])
+            if claim!=citation['claim']:
+                record('citation_normalization',dict(original=citation['claim'],claim=claim,
+                    reason='Removed terminal punctuation only to recover an exact existing draft substring; source support still requires independent verification.'))
+            normalized.append(dict(citation,claim=claim))
+        citations=normalized
         state["drafts"].append(draft);state["slides"].append(slides);state["citations"].append(citations)
         state["draft_strategies"].append(dict(state["strategy"]))
         diagnostics=inspect(draft,slides,platform)
@@ -50,8 +59,12 @@ def execute_pipeline(mesh,brief,platform,voice,learnings,record,generate_image=T
         item=mesh.ask("Editor: independently score product specificity, hook, clarity, learned voice, platform fit and CTA. "
             "Return scores for hook, clarity, voice, platform and cta (0-10), edits and reason. "
             "Check named audience/topic preservation, CTA relevance and every promised carousel tip. "
+            "Judge against the actual brief: if it asks for saving, do not demand extra share/comment actions. "
+            "Score 10 when that criterion is fully satisfied with no concrete defect, 9 for a minor optional improvement, "
+            "8 for a specific substantive improvement, and lower for material failures. Optional stylistic preferences are not new requirements. "
             "Use the editorial contract and local diagnostics to request specific repairs, not generic praise. "
-            "A high target never justifies inflated ratings. Do not treat provenance weights as proof of a claim. Critique even a strong first draft.",
+            "A high target never justifies inflated ratings. Do not treat provenance weights as proof of a claim. "
+            + ("This is the first draft: give at least one specific improvement for the mandatory real rewrite. If no material defect exists, propose one optional clarity improvement without inventing a defect. " if index==0 else "Assess the revised draft on its merits; edits may be empty when nothing material remains. "),
             dict(context,strategy=state["draft_strategies"][index],draft=state["drafts"][index],slides=state["slides"][index],
                 local_checks=state["editorial_checks"][index]))
         scores=item.get("scores",{})
@@ -119,13 +132,19 @@ def execute_pipeline(mesh,brief,platform,voice,learnings,record,generate_image=T
             select();return "verifier"
         start("writer",version=len(s["drafts"])+1)
         result=mesh.ask("Writer: write platform-specific product content in the learned voice. Return text and citations mapping exact factual claim text to supplied source_ids. "
+            f"Native {platform} format: {format_contract(platform)['structure']}. Character budget: {context['limits'][platform]}. "
+            "Place the concise hook on its own first line, before supporting detail. Keep named product features explicit instead of replacing them with vague tool references. "
             "Never invent facts, statistics or sources. Source weights guide review; they do not settle contradictions. Omit contested claims or explicitly attribute source disagreement. "
+            "Use only source-supported advice, not general background assumptions about taste, freshness or performance. "
+            "Each citation claim must be an EXACT substring of your own caption or slides, not a pasted source paragraph. "
+            "Cite the smallest sufficient source set; duplicate source excerpts do not require duplicate citations. "
+            "Keep repeated factual wording consistent between caption and slides so verification is unambiguous. "
             "Follow format_contract: write native content rather than copying another platform's caption. "
             "On revision change the previous draft to address every editor request. Instagram also requires 3-10 short slides with a hook, one idea per slide and CTA.",
             dict(context,strategy=s["strategy"],previous_draft=s["drafts"][-1] if s["drafts"] else None,
                 previous_slides=s["slides"][-1] if s["slides"] else None,editor_feedback=s["feedback"],
                 local_checks=s["editorial_checks"][-1] if s["editorial_checks"] else None))
-        append_draft(result,s["drafts"][-1] if s["drafts"] else None)
+        append_draft(result,s["drafts"][-1] if s["drafts"] else None,s["slides"][-1] if s["slides"] else None)
         return "editor"
     def editor_node(s):
         decision=review(len(s["drafts"])-1)
@@ -184,7 +203,7 @@ def execute_pipeline(mesh,brief,platform,voice,learnings,record,generate_image=T
             "Keep product focus, brand voice and platform limits. Return text, claim-to-source citations, and Instagram slides when applicable.",
             dict(context,strategy=s["draft_strategies"][index],previous_draft=s["drafts"][index],previous_slides=s["slides"][index],
                 verification=s["verification"],editor_feedback=s["feedback"],local_checks=s["editorial_checks"][index]))
-        try:append_draft(result,s["drafts"][index])
+        try:append_draft(result,s["drafts"][index],s["slides"][index])
         except ValueError:
             s["verification"].update(status="rewrite_failed",passed=False,reason="Writer did not produce a valid changed correction; claims remain flagged.")
             return "quality_gate"

@@ -11,6 +11,7 @@ from prompt_policy import compact_data, encode, VERSION
 from improvement import assess
 from model_policy import route, routes, image_model
 from grounding import evidence_receipts, build_report
+from verification_contract import packet,resolve
 
 load_dotenv()
 CRITERIA = ("hook", "clarity", "voice", "platform", "cta")
@@ -65,6 +66,17 @@ class Mesh:
         if role.startswith("Writer") and data.get("platform") == "instagram":
             schema = dict(schema, slides=["short slide text (3-10 slides)"])
         optimized = compact_data(role, data)
+        candidates=receipts=None
+        if role.startswith('Verifier'):
+            candidates,receipts=packet(optimized)
+            schema=dict(checks=[dict(candidate_id='C1',source_ids=['S1'],verdict='supported|thin|unsupported',
+                reason='why the cited source supports this exact candidate',evidence=[dict(receipt_id='R1')])],conflicts=schemas['Verifier']['conflicts'])
+            optimized['claim_candidates']=[dict(candidate_id=k,text=v) for k,v in candidates.items()]
+            optimized['source_receipts']=[dict(receipt_id=k,**v) for k,v in receipts.items()]
+            cited={c.get('claim') for c in data.get('writer_citations',[]) if isinstance(c,dict)}
+            optimized['required_candidate_ids']=[k for k,v in candidates.items() if v in cited]
+            optimized['required_candidate_sources']={k:next(c['source_ids'] for c in data['writer_citations'] if c.get('claim')==v) for k,v in candidates.items() if v in cited}
+            role+=' Select candidate_id and receipt_id from the supplied maps; never type or paraphrase quote text. Check EVERY required_candidate_id with EXACTLY its required_candidate_sources and a supporting receipt from EACH source, even if sources duplicate one another. Then check any additional factual assertions; omit nonfactual hooks/CTAs. IDs only locate text: a real passage must actually support the claim, otherwise mark unsupported/thin. Other overlapping candidates need not repeat the same assertion.'
         selection = route(role)
         model = selection["model"]
         cache_key = "mesh_cache:"+hashlib.sha256(encode([VERSION, selection, role, optimized, schema]).encode()).hexdigest()
@@ -100,6 +112,7 @@ class Mesh:
                     if data.get("platform") == "instagram":
                         valid = valid and isinstance(result.get("slides"), list) and 3 <= len(result["slides"]) <= 10 and all(isinstance(s, str) and s.strip() for s in result["slides"])
                 if valid:
+                    if candidates is not None:result=resolve(result,candidates,receipts)
                     if os.getenv("MESH_CACHE_ENABLED", "1") == "1":
                         storage.save("mesh_cache", {"result": result,
                             "expires": (datetime.now(timezone.utc)+timedelta(hours=24)).isoformat()}, cache_key)
@@ -123,6 +136,10 @@ class Mesh:
             return "data:image/png;base64," + asset.b64_json
         if not asset.url:
             raise ValueError("Mesh returned no image asset")
+        from urllib.parse import urlsplit
+        from mesh_assets import HOSTS,materialize
+        if urlsplit(asset.url).hostname in HOSTS:
+            return materialize(asset.url)
         return asset.url
 
 
@@ -173,6 +190,19 @@ def _validate_verifier_result(result, text, slides, citations, sources):
             receipts,error=evidence_receipts(raw,source_map)
             if error:verdict="unsupported";reason=error
         checks.append(dict(claim=claim,source_ids=ids if valid_ids else [],verdict=verdict,reason=reason,evidence=receipts))
+    # Models may assess two cited sources in separate checks for the exact same
+    # passage. Preserve all receipts instead of letting the last row erase one.
+    merged={}
+    for check in checks:
+        key=check['claim']
+        if key not in merged:merged[key]=check;continue
+        previous=merged[key]
+        previous['source_ids']=list(dict.fromkeys(previous['source_ids']+check['source_ids']))
+        previous['evidence'].extend(r for r in check['evidence'] if r not in previous['evidence'])
+        severity={'supported':0,'thin':1,'unsupported':2}
+        previous['verdict']=max((previous['verdict'],check['verdict']),key=lambda v:severity[v])
+        previous['reason']+=' | '+check['reason']
+    checks=list(merged.values())
     by_claim={_normalized(c["claim"]):c for c in checks}
     # A citation written by the author is never silently omitted from verification.
     for citation in citations:

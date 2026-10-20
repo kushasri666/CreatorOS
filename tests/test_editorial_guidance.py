@@ -17,6 +17,31 @@ class EditorialGuidanceTests(unittest.TestCase):
         review["scores"]["voice"] = 7
         self.assertFalse(assess(review, "Useful post", 280, 2, target_average=9.1, minimum_criterion=8)["ready"])
 
+    def test_editor_does_not_see_the_acceptance_target(self):
+        from prompt_policy import compact_data
+        compact=compact_data('Editor: score honestly',dict(platform='x',editorial_contract=contract('x'),local_checks={'issues':[]}))
+        self.assertNotIn('target_editor_average',compact['editorial_contract'])
+        self.assertNotIn('minimum_editor_criterion',compact['editorial_contract'])
+        self.assertEqual(compact['editorial_contract']['max_characters'],280)
+        self.assertEqual(compact['local_checks'],{'issues':[]})
+
+    def test_changed_slides_are_a_real_revision_even_when_caption_is_preserved(self):
+        class SlideFixture:
+            mode='offline_fixture'
+            def __init__(self):self.version=0
+            def ask(self,role,data):
+                if role.startswith('Strategist'):return dict(angle='Coffee habits',applied_learning_ids=[])
+                if role.startswith('Writer'):
+                    self.version+=1
+                    return dict(text='Make your coffee ritual simpler. Save this guide.',
+                        slides=['Make your coffee ritual simpler','Try one small brewing change',f'Save this guide version {self.version}'])
+                if role.startswith('Editor'):return dict(scores=dict.fromkeys(CRITERIA,9),edits=['Clarify the closing slide'],reason='Scripted review')
+                return dict(prompt='Coffee illustration',reason='Fixture prompt')
+        result=run_pipeline(SlideFixture(),'Coffee habits','instagram',{},[],lambda *_:None,generate_image=False)
+        self.assertTrue(result['approved'])
+        self.assertEqual(result['drafts'][0],result['drafts'][1])
+        self.assertNotEqual(result['slide_versions'][0],result['slide_versions'][1])
+
     def test_regression_detects_loss_of_a_good_hook(self):
         before = inspect("Your coffee ritual starts here. Save this guide.", [], "x")
         after = inspect("Update!", [], "x")

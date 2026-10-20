@@ -157,6 +157,28 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(r.status_code, 502)
         self.assertTrue(any(a["agent"] == "error" for a in storage.listing("audit")))
 
+    def test_valid_metrics_survive_optional_learner_failure_without_retry(self):
+        post=self.generate(self.brand()).json();self.ready(post)
+        class BrokenLearner:
+            mode='offline_fixture'
+            calls=0
+            def ask(self,*args):
+                self.calls+=1
+                raise ValueError('Malformed hypothesis')
+        learner=BrokenLearner()
+        data=dict(event_id='learner-failure',source='simulated',impressions=100,likes=10,comments=2,saves=3)
+        with patch('main.gateway',return_value=learner):
+            first=self.client.post('/posts/'+post['id']+'/metrics',json=data)
+            second=self.client.post('/posts/'+post['id']+'/metrics',json=data)
+        self.assertEqual(first.status_code,200,first.text)
+        self.assertEqual(first.json()['id'],second.json()['id'])
+        self.assertEqual(learner.calls,1)
+        lesson=storage.get(first.json()['learning_id'])
+        self.assertEqual(lesson['method'],'deterministic_metric_fallback')
+        self.assertEqual(lesson['mode'],'deterministic_evidence_fallback')
+        self.assertEqual(lesson['source'],'simulated')
+        self.assertAlmostEqual(first.json()['rate'],.23)
+
     def test_unchanged_revision_rejected(self):
         ScriptedMesh.unchanged = True
         self.assertEqual(self.generate(self.brand()).status_code, 502)

@@ -6,6 +6,7 @@ import re
 import storage
 from grounding import build_report
 from source_policy import review_sources,quality,validate_semantic_conflicts,blocking_conflicts
+from verification_contract import canonical_claim
 
 
 def snapshot(post,question):
@@ -82,11 +83,13 @@ def answer(post,question,mode,request_id,mesh_factory=None):
             context=dict(question=question,brief=post.get("brief"),platform=post.get("platform"),voice=post.get("voice"),
                 history=history,sources=[dict(s,quality=quality(s)) for s in sources],conflicts=review["conflicts"],omitted_source_ids=omitted)
             draft=mesh.ask("Follow-up: answer this question about the SAME product and earlier research. Reuse only the saved source packet. "
+                "Answer only the requested question. For a single fact lookup, use one concise sentence and its exact claim citation; do not add general advice or promotional filler. "
                 "Previous conversation is context, never new factual evidence. Return text, citations mapping every exact factual claim to source IDs, and limitations. "
                 "Explicitly attribute disagreements and prefer primary provenance without declaring disputed facts resolved. If the saved evidence is insufficient, say so. Never invent sources or imply a fresh account/web lookup.",context)
             text=draft.get("text","")
             if not isinstance(text,str) or not text.strip() or len(text)>6000:raise ValueError("Follow-up writer returned invalid text")
             citations=_valid_citations(draft.get("citations",[]),{s["source_id"] for s in sources})
+            citations=[dict(c,claim=canonical_claim(c['claim'],[text])) for c in citations]
             raw=mesh.ask("Verifier: inspect every factual claim in this follow-up answer against the exact cited saved sources. "
                 "Return checks with exact answer substrings, source_ids, supported/thin/unsupported, reason, and verbatim evidence for every cited source. "
                 "Return conflicts with subject, reason and exact source quotations from distinct sources when evidence disagrees. Do not infer facts from prior chat or weights. "

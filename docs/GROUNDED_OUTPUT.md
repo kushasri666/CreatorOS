@@ -9,6 +9,12 @@ fixtures do not silently inherit verification.
 
 ## Evidence contract
 
+The live verifier selects stable claim and receipt IDs from exact draft passages
+and stored source quotations. Application code resolves these IDs; unknown IDs
+fail closed. Separate checks for one exact claim merge validated receipts and
+retain the worst verdict. Normalization can remove terminal punctuation only
+when it recovers text already present in the draft; it cannot rewrite evidence.
+
 - The writer supplies claim-to-source mappings. The Mesh Verifier inspects factual
   assertions in the caption and slides, including uncited claims. It must assess
   the writer's exact cited sources and provide verbatim supporting quotations.
@@ -48,5 +54,7 @@ Quote matching proves that cited text exists in a retrieved snapshot. The
 Mesh Verifier still judges whether it actually supports the claim; it may miss
 claims or make entailment errors, and a retrieved source can itself be wrong.
 CreatorOS therefore does not promise that an LLM can never invent a claim. Live
-evaluation of detection/entailment accuracy remains outstanding and was not run
-because paid validation is currently deferred.
+evaluation of detection/entailment accuracy on a held-out dataset remains
+outstanding. The later [budgeted live validation](LIVE_VALIDATION_075.md) exercised
+the production verifier and grounded follow-up on one fictional product, including
+failed receipt checks and subsequent corrections; it is not an accuracy study.

@@ -54,8 +54,18 @@ is free and optional Mesh answers are capped at two calls per question.
 voice/writing/editing, Gemini Flash-Lite for short planning/interpretation/prompting,
 and GPT Image Mini for images. A [small live text comparison](docs/MODEL_COMPARISON_075.md)
 cost $0.0123379 in total under a combined $0.75 cap; results are provisional and
-media quality remains untested. Role environment variables override the optional
+that comparison did not test media quality. Role environment variables override the optional
 global `MESH_TEXT_MODEL` setting.
+
+The subsequent [budgeted end-to-end validation](docs/LIVE_VALIDATION_075.md)
+completed for **$0.16066170 total**, including failed attempts, under its $0.75
+limit. Two Instagram graph runs passed with source receipts, a Mesh-generated
+image, locally rendered video/music, scheduled storage, simulated feedback and
+learning applied to the next post. Five other platforms ran writer/editor checks;
+live social publishing/read-back was not tested. The selected final editorial
+proxy scores average **92.857/100**, with X and Threads still failing some checks.
+Successful runs used an explicitly stronger diagnostic model profile; economical
+defaults and historical benchmark results are not silently reclassified.
 
 ## Run the real studio with spending locked
 

@@ -2,7 +2,15 @@
 
 The independent `platform-editorial-v2` rubric and its historical results remain
 unchanged: **76.667 → 75.000/100**, ten recorded Mesh pairs. Nothing in this update
-establishes a new achieved benchmark score or engagement lift. No paid calls made.
+establishes an engagement lift. The original guidance update made no paid calls.
+
+Subsequent [live budgeted validation](LIVE_VALIDATION_075.md) cost $0.16066170.
+Seven selected final outputs averaged 92.857 on this unchanged proxy rubric;
+X scored 83.333 and Threads 66.667. The two complete Instagram runs scored
+100 before and after actual edits, showing no improvement on saturated checks.
+This retrospective one-product exercise used a stronger diagnostic model profile
+after cheaper defaults were held. It is not a new representative benchmark or
+proof that default routing meets the target. All failed attempts are preserved.
 
 The diagnostics show concrete weaknesses in the saved final posts:
 
@@ -34,5 +42,5 @@ not guarantee good output or justify unsupported claims.
 The evaluator's 90+ target should be validated later on a fixed set of newly saved
 outputs, reporting all cases including failed/held runs, before/after scores,
 source verification and independently reviewed brand voice. Paid validation remains
-deferred. Existing historical paired results are useful diagnostics, not validation
+needed for that broader claim. Existing historical paired results are useful diagnostics, not validation
 of these new prompts or the changed selection/routing policy.
