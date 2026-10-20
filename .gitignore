@@ -1,1 +1,12 @@
 mesh.env
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+data/
+learnings.json
+.deps/
+*.session
+*.session-journal

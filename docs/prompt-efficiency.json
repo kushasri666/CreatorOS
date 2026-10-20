@@ -1,0 +1,93 @@
+{
+  "method": "Synthetic payload serialization/context benchmark, cl100k_base; excludes system prompts and output tokens",
+  "paid_calls": 0,
+  "cases": [
+    {
+      "scenario": "coffee",
+      "role": "Strategist",
+      "before_input_tokens": 679,
+      "after_input_tokens": 233,
+      "reduction_percent": 65.68
+    },
+    {
+      "scenario": "coffee",
+      "role": "Writer",
+      "before_input_tokens": 679,
+      "after_input_tokens": 233,
+      "reduction_percent": 65.68
+    },
+    {
+      "scenario": "coffee",
+      "role": "Editor",
+      "before_input_tokens": 679,
+      "after_input_tokens": 93,
+      "reduction_percent": 86.3
+    },
+    {
+      "scenario": "coffee",
+      "role": "Visual director",
+      "before_input_tokens": 679,
+      "after_input_tokens": 86,
+      "reduction_percent": 87.33
+    },
+    {
+      "scenario": "research",
+      "role": "Strategist",
+      "before_input_tokens": 614,
+      "after_input_tokens": 227,
+      "reduction_percent": 63.03
+    },
+    {
+      "scenario": "research",
+      "role": "Writer",
+      "before_input_tokens": 614,
+      "after_input_tokens": 227,
+      "reduction_percent": 63.03
+    },
+    {
+      "scenario": "research",
+      "role": "Editor",
+      "before_input_tokens": 614,
+      "after_input_tokens": 87,
+      "reduction_percent": 85.83
+    },
+    {
+      "scenario": "research",
+      "role": "Visual director",
+      "before_input_tokens": 614,
+      "after_input_tokens": 80,
+      "reduction_percent": 86.97
+    },
+    {
+      "scenario": "education",
+      "role": "Strategist",
+      "before_input_tokens": 640,
+      "after_input_tokens": 229,
+      "reduction_percent": 64.22
+    },
+    {
+      "scenario": "education",
+      "role": "Writer",
+      "before_input_tokens": 640,
+      "after_input_tokens": 229,
+      "reduction_percent": 64.22
+    },
+    {
+      "scenario": "education",
+      "role": "Editor",
+      "before_input_tokens": 640,
+      "after_input_tokens": 89,
+      "reduction_percent": 86.09
+    },
+    {
+      "scenario": "education",
+      "role": "Visual director",
+      "before_input_tokens": 640,
+      "after_input_tokens": 82,
+      "reduction_percent": 87.19
+    }
+  ],
+  "before": 7732,
+  "after": 1895,
+  "limitations": "Not a live quality evaluation, actual provider billing measurement, or proof that content quality is unchanged."
+}

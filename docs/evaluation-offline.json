@@ -1,0 +1,557 @@
+{
+  "mode": "deterministic_test_double",
+  "n": 8,
+  "text_model": "scripted_fixture",
+  "image_model": "scripted_fixture",
+  "measured_at": "2026-10-20T01:08:48.751109+00:00",
+  "rubric": "Five binary checks; platform_length uses strict 280-char limit for comparability",
+  "limitations": "Offline outputs are scripted contract fixtures, not evidence of model quality or engagement uplift. Heuristic scores do not establish truthfulness or voice quality. Live scores are also small-sample self-evaluations.",
+  "mean_before": 1.0,
+  "mean_after": 5.0,
+  "memory_comparison": {
+    "pairs": 4,
+    "changed_strategies": 4,
+    "changed_outputs": 4,
+    "learning_quality_delta": 0.0,
+    "interpretation": "Changed output shows sensitivity to supplied memory, not engagement uplift."
+  },
+  "revision_rate": 1.0,
+  "rows": [
+    {
+      "brand": "Brew",
+      "platform": "x",
+      "learned": false,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nBrew a safer launch. Which check would your team add?",
+      "strategy": {
+        "angle": "overview",
+        "reason": "Explore initial angle",
+        "applied_learning_ids": []
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "playful",
+        "evidence": [
+          "coffee is a daily ritual. Keep it warm, playful and practical.",
+          "Brew a better day with small steps and a curious question.",
+          "Your next coffee break is a chance to learn something new."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Brew",
+      "platform": "x",
+      "learned": true,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nTry this checklist. Brew a safer launch. Which check would your team add?",
+      "strategy": {
+        "angle": "practical checklist",
+        "reason": "Testing a feedback hypothesis",
+        "applied_learning_ids": [
+          "simulated-evidence-1"
+        ]
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "playful",
+        "evidence": [
+          "coffee is a daily ritual. Keep it warm, playful and practical.",
+          "Brew a better day with small steps and a curious question.",
+          "Your next coffee break is a chance to learn something new."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Brew",
+      "platform": "linkedin",
+      "learned": false,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nBrew a safer launch. Which check would your team add?",
+      "strategy": {
+        "angle": "overview",
+        "reason": "Explore initial angle",
+        "applied_learning_ids": []
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "playful",
+        "evidence": [
+          "coffee is a daily ritual. Keep it warm, playful and practical.",
+          "Brew a better day with small steps and a curious question.",
+          "Your next coffee break is a chance to learn something new."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Brew",
+      "platform": "linkedin",
+      "learned": true,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nTry this checklist. Brew a safer launch. Which check would your team add?",
+      "strategy": {
+        "angle": "practical checklist",
+        "reason": "Testing a feedback hypothesis",
+        "applied_learning_ids": [
+          "simulated-evidence-1"
+        ]
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "playful",
+        "evidence": [
+          "coffee is a daily ritual. Keep it warm, playful and practical.",
+          "Brew a better day with small steps and a curious question.",
+          "Your next coffee break is a chance to learn something new."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Lab",
+      "platform": "x",
+      "learned": false,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nReview the evidence. Which check would your team add?",
+      "strategy": {
+        "angle": "overview",
+        "reason": "Explore initial angle",
+        "applied_learning_ids": []
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "precise",
+        "evidence": [
+          "Research requires evidence. Describe uncertainty before making claims.",
+          "Review the findings, then record the limitations with precision.",
+          "Practical safety checks require clear accountability and documentation."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Lab",
+      "platform": "x",
+      "learned": true,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nTry this checklist. Review the evidence. Which check would your team add?",
+      "strategy": {
+        "angle": "practical checklist",
+        "reason": "Testing a feedback hypothesis",
+        "applied_learning_ids": [
+          "simulated-evidence-1"
+        ]
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "precise",
+        "evidence": [
+          "Research requires evidence. Describe uncertainty before making claims.",
+          "Review the findings, then record the limitations with precision.",
+          "Practical safety checks require clear accountability and documentation."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Lab",
+      "platform": "linkedin",
+      "learned": false,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nReview the evidence. Which check would your team add?",
+      "strategy": {
+        "angle": "overview",
+        "reason": "Explore initial angle",
+        "applied_learning_ids": []
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "precise",
+        "evidence": [
+          "Research requires evidence. Describe uncertainty before making claims.",
+          "Review the findings, then record the limitations with precision.",
+          "Practical safety checks require clear accountability and documentation."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    },
+    {
+      "brand": "Lab",
+      "platform": "linkedin",
+      "learned": true,
+      "before": {
+        "specific_hook": 0,
+        "actionable_steps": 0,
+        "readable_paragraphs": 0,
+        "question_cta": 0,
+        "platform_length": 1
+      },
+      "after": {
+        "specific_hook": 1,
+        "actionable_steps": 1,
+        "readable_paragraphs": 1,
+        "question_cta": 1,
+        "platform_length": 1
+      },
+      "initial": "AI safety matters. Learn more.",
+      "final": "Your next AI release needs a safety check.\n\n1. Test failure cases.\n2. Assign a reviewer.\n3. Document a rollback.\n\nTry this checklist. Review the evidence. Which check would your team add?",
+      "strategy": {
+        "angle": "practical checklist",
+        "reason": "Testing a feedback hypothesis",
+        "applied_learning_ids": [
+          "simulated-evidence-1"
+        ]
+      },
+      "reviews": [
+        {
+          "scores": {
+            "hook": 5,
+            "clarity": 5,
+            "voice": 5,
+            "platform": 5,
+            "cta": 5
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 5.0
+        },
+        {
+          "scores": {
+            "hook": 9,
+            "clarity": 9,
+            "voice": 9,
+            "platform": 9,
+            "cta": 9
+          },
+          "edits": [
+            "Add three concrete steps and a specific audience question"
+          ],
+          "reason": "Actionability and CTA need specificity",
+          "average": 9.0
+        }
+      ],
+      "voice": {
+        "tone": "precise",
+        "evidence": [
+          "Research requires evidence. Describe uncertainty before making claims.",
+          "Review the findings, then record the limitations with precision.",
+          "Practical safety checks require clear accountability and documentation."
+        ]
+      },
+      "visual_prompt": "Editorial illustration of a team reviewing AI release safety checks",
+      "image_generated": true
+    }
+  ]
+}

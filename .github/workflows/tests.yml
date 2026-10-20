@@ -1,0 +1,16 @@
+name: CreatorOS tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m compileall -q main.py workflow.py storage.py evaluate.py check_mesh.py offline.py insights.py demo.py tests
+      - run: python -m unittest discover -s tests -v
+      - run: python evaluate.py
