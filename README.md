@@ -97,6 +97,10 @@ if (!(Test-Path .env)) { Copy-Item .env.example .env }
 ```
 
 Open [the studio](http://127.0.0.1:8000) or [API documentation](http://127.0.0.1:8000/docs).
+Use the server URL in any browser. Opening `studio.html` from disk redirects to
+the default local server; the server must be running. If you choose another port,
+open that server's URL directly. The page's styles, scripts and saved data are
+served by FastAPI and cannot operate as a standalone HTML file.
 Linux/macOS: use `.venv/bin/python` and `cp` as appropriate. Existing credentials
 should remain in a gitignored `.env`; never copy an example over an existing key.
 This checkout also has gitignored `.deps` installed using the bundled Python runtime.
