@@ -12,7 +12,8 @@ from prompt_policy import compact_data, encode, VERSION
 from improvement import assess
 from model_policy import route, routes, image_model
 from grounding import evidence_receipts, build_report
-from verification_contract import packet,resolve
+from verification_contract import packet,resolve,units,validate_coverage
+from semantic_policy import GUIDANCE
 from agent_output import parse as parse_agent,valid as valid_agent
 
 load_dotenv()
@@ -68,11 +69,16 @@ class Mesh:
         if role.startswith("Writer") and data.get("platform") == "instagram":
             schema = dict(schema, slides=["short slide text (3-10 slides)"])
         optimized = compact_data(role, data)
-        candidates=receipts=None
+        candidates=receipts=coverage_units=None
         if role.startswith('Verifier'):
             candidates,receipts=packet(optimized)
             schema=dict(checks=[dict(candidate_id='C1',source_ids=['S1'],verdict='supported|thin|unsupported',
-                reason='why the cited source supports this exact candidate',evidence=[dict(receipt_id='R1')])],conflicts=schemas['Verifier']['conflicts'])
+                reason='why the cited source supports this exact candidate',evidence=[dict(receipt_id='R1')])],conflicts=schemas['Verifier']['conflicts'],
+                coverage=[dict(unit_id='U1',kind='factual|mixed|nonfactual',candidate_ids=['C1'],reason='brief classification reason')])
+            coverage_units=units(optimized.get('draft',''),optimized.get('slides',[]))
+            for text in coverage_units.values():
+                if text not in candidates.values():candidates['C'+str(len(candidates)+1)]=text
+            optimized['coverage_units']=[dict(unit_id=k,text=v) for k,v in coverage_units.items()]
             optimized['claim_candidates']=[dict(candidate_id=k,text=v) for k,v in candidates.items()]
             optimized['source_receipts']=[dict(receipt_id=k,**v) for k,v in receipts.items()]
             cited={c.get('claim') for c in data.get('writer_citations',[]) if isinstance(c,dict)}
@@ -80,6 +86,7 @@ class Mesh:
             optimized['required_candidate_sources']={k:next(c['source_ids'] for c in data['writer_citations'] if c.get('claim')==v) for k,v in candidates.items() if v in cited}
             role+=' Select candidate_id and receipt_id from the supplied maps; never type or paraphrase quote text. Check EVERY required_candidate_id with EXACTLY its required_candidate_sources and a supporting receipt from EACH source, even if sources duplicate one another. Then check any additional factual assertions; omit nonfactual hooks/CTAs. IDs only locate text: a real passage must actually support the claim, otherwise mark unsupported/thin. Other overlapping candidates need not repeat the same assertion.'
             role+=' Check each distinct factual assertion once, using the smallest sufficient candidate; do not repeat overlapping whole-post, sentence and clause checks. Keep reasons brief. Pure invitations, aspirations and topic hashtags need no source verification; any embedded product capability or measurable outcome still does. A source mentioning a product does not support extra benefits or guarantees.'
+            role+=' '+GUIDANCE
         selection = route(role)
         model = selection["model"]
         cache_key = "mesh_cache:"+hashlib.sha256(encode([VERSION, selection, role, optimized, schema]).encode()).hexdigest()
@@ -100,6 +107,7 @@ class Mesh:
             response = self.client.chat.completions.create(
                 model=model,
                 max_tokens=selection["max_tokens"],
+                **({'temperature':0} if role.startswith('Verifier') else {}),
                 response_format={"type": "json_object"}, messages=messages)
             self.observe(dict(role=role.split(":")[0], model=getattr(response, "model", model),
                               requested_model=model, max_output_tokens=selection["max_tokens"],
@@ -113,7 +121,7 @@ class Mesh:
                 valid = (getattr(response.choices[0],'finish_reason',None) in (None,'stop')
                     and valid_agent(role,result,data) and set(schema).issubset(result))
                 if valid:
-                    if candidates is not None:result=resolve(result,candidates,receipts)
+                    if candidates is not None:result=resolve(result,candidates,receipts,coverage_units)
                     if os.getenv("MESH_CACHE_ENABLED", "1") == "1":
                         storage.save("mesh_cache", {"result": result,
                             "expires": (datetime.now(timezone.utc)+timedelta(hours=24)).isoformat()}, cache_key)
@@ -128,6 +136,7 @@ class Mesh:
         started = time.monotonic()
         model = image_model()
         options = {"quality": "medium"} if model.startswith("openai/gpt-image-") else {}
+        prompt=prompt+' Editorial illustration only. Use blank unmarked surfaces and abstract shapes. Do not render text, letters, numerals, labels, logos, watermarks, charts, user interfaces, dashboards or readable screens. Real brand text is composed separately with local fonts.'
         response = self.client.images.generate(
             model=model, prompt=prompt, size="1024x1024", **options)
         self.observe(dict(role="Image generation", model=model,
@@ -204,10 +213,10 @@ def _validate_verifier_result(result, text, slides, citations, sources):
         previous['verdict']=max((previous['verdict'],check['verdict']),key=lambda v:severity[v])
         previous['reason']+=' | '+check['reason']
     checks=list(merged.values())
-    by_claim={_normalized(c["claim"]):c for c in checks}
+    by_claim={c["claim"]:c for c in checks}
     # A citation written by the author is never silently omitted from verification.
     for citation in citations:
-        key=_normalized(citation["claim"]);checked=by_claim.get(key)
+        key=citation["claim"];checked=by_claim.get(key)
         if checked is None:
             checked=dict(claim=citation["claim"],source_ids=citation["source_ids"],
                 verdict="unsupported",reason="Verifier did not assess this writer-cited claim.")
@@ -233,10 +242,12 @@ def _validate_verifier_result(result, text, slides, citations, sources):
             if any(c['claim']==sentence and c['verdict']!='supported' for c in checks):continue
             checks.append(dict(claim=sentence,source_ids=[],verdict='unsupported',evidence=[],
                 reason='Numeric factual assertion was not covered by a supported exact verifier passage.'))
-    passed=not malformed and bool(checks) and all(c["verdict"]=="supported" for c in checks)
+    coverage_ok,coverage_reason=(validate_coverage(result,checks,text,slides) if result.get('coverage_required') else (True,'Legacy reply has no explicit coverage manifest'))
+    passed=not malformed and coverage_ok and bool(checks) and all(c["verdict"]=="supported" for c in checks)
     return dict(status="complete",passed=passed,checks=checks,
+        coverage_required=bool(result.get('coverage_required')),coverage_passed=coverage_ok,coverage=result.get('coverage',[]),
         reason="All checked factual claims are supported by their cited sources." if passed else
-               "Thinly supported and unsupported claims require targeted retrieval, correction, and re-check.")
+               coverage_reason if not coverage_ok else "Thinly supported and unsupported claims require targeted retrieval, correction, and re-check.")
 
 
 def run_pipeline(mesh, brief, platform, voice, learnings, record, generate_image=True,

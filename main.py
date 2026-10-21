@@ -126,6 +126,10 @@ class FollowupRequest(BaseModel):
     request_id: str = Field(min_length=8,max_length=80)
 
 
+class SourceRecheckRequest(BaseModel):
+    request_id: str = Field(min_length=8,max_length=80)
+
+
 class ScheduleRequest(BaseModel):
     scheduled_for: AwareDatetime
 
@@ -218,6 +222,15 @@ def audit_trail(id: str):
     post = require(id, "post")
     return build_trail(post, store.records_for_run("audit", id),
                        store.records_for_run("research_source", id))
+
+
+@api.post('/posts/{id}/reverify')
+def reverify_sources(id:str,req:SourceRecheckRequest):
+    require(id,'post')
+    from reverification import recheck
+    try:return recheck(id,req.request_id)
+    except ValueError as exc:raise HTTPException(409,str(exc)) from None
+    except Exception:raise HTTPException(502,'Source recheck failed; the prior draft and audit remain saved. Inspect the recorded failure before explicitly retrying.') from None
 
 
 @api.get('/memory/{brand_id}/{platform}')

@@ -5,8 +5,18 @@ function instagramPublishCard(box,p){
  const download=el('a','Download Instagram-ready JPEG');download.href='/posts/'+p.id+'/instagram/jpeg';panel.append(download,el('p','Meta needs a public HTTPS URL for this JPEG. Localhost and data images do not work. CreatorOS does not upload assets or expose your local server automatically.'));
  const form=el('form'),label=el('label','Instagram account connection'),select=el('select');label.append(select);form.append(label);
  const urlLabel=el('label','Public HTTPS URL of the reviewed JPEG'),url=el('input');url.type='url';url.required=true;url.placeholder='https://your-media-host.example/post.jpg';urlLabel.append(url);form.append(urlLabel,el('button','Prepare delivery · no external calls'));
- const status=el('p'),review=el('div');panel.append(form,status,review);let loaded=false;
- panel.ontoggle=async()=>{if(!panel.open||loaded)return;loaded=true;try{const data=await request('/connections');const connections=data.connections.filter(c=>c.provider==='instagram'&&c.brand_id===p.brand_id&&c.status!=='disconnected');for(const c of connections){const o=el('option',(c.account_id||'Instagram account')+' · '+c.status);o.value=c.id;select.append(o)}if(!connections.length){status.textContent='No Instagram connection for this brand. Open Accounts & analytics to create one, configure your Meta app, and authorize the account.';form.querySelector('button').disabled=true}}catch(e){status.textContent=e.message}};
+ const status=el('p'),review=el('div'),visual=el('div');panel.append(visual,form,status,review);let loaded=false,connectionsAvailable=false;
+ const prepareButton=form.querySelector('button');prepareButton.disabled=true;
+ async function visualStatus(){
+  const info=await request('/posts/'+p.id+'/visual-review');visual.replaceChildren(el('h3','Review the saved visual'),el('p',info.message));
+  prepareButton.disabled=!connectionsAvailable||!['approved','not_required'].includes(info.status);
+  if(!['approved','not_required'].includes(info.status)){
+   const f=el('form'),label=el('label',' I inspected the saved image and caption for legibility, misleading charts and product claims.'),check=el('input');check.type='checkbox';check.required=true;check.style.width='auto';label.prepend(check);
+   f.append(label,el('button','Approve this saved visual · no AI calls'));
+   f.onsubmit=e=>{e.preventDefault();busy(f,async()=>{await request('/posts/'+p.id+'/visual-review',{fingerprint:info.fingerprint,approved:true,confirm_review:check.checked});await visualStatus();notice('Visual review saved for this exact image and caption.')})};visual.append(f);
+  }
+ }
+ panel.ontoggle=async()=>{if(!panel.open||loaded)return;loaded=true;try{const data=await request('/connections');const connections=data.connections.filter(c=>c.provider==='instagram'&&c.brand_id===p.brand_id&&c.status!=='disconnected');connectionsAvailable=connections.length>0;for(const c of connections){const o=el('option',(c.account_id||'Instagram account')+' · '+c.status);o.value=c.id;select.append(o)}await visualStatus();if(!connections.length){status.textContent='No Instagram connection for this brand. Open Accounts & analytics to create one, configure your Meta app, and authorize the account.';prepareButton.disabled=true}}catch(e){status.textContent=e.message}};
  const path=(id,action)=>'/instagram/deliveries/'+encodeURIComponent(id)+(action?'/'+action:'');
  function show(job){review.replaceChildren(el('h3','Review delivery'),el('p','State: '+job.status),el('p','Account: '+(job.username?'@'+job.username:'not verified yet')),el('div',job.caption,'stagecopy'));const link=el('a','Open exact image URL for review');link.href=job.image_url;link.target='_blank';link.rel='noopener';review.append(link);details(review,'Saved delivery receipt',job);
   const operate=async(action)=>{try{const updated=await request(path(job.id,action),{});show(updated)}catch(e){status.textContent=e.message;show(await request(path(job.id)))}};

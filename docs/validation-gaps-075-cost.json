@@ -1,0 +1,26 @@
+{
+  "cumulative_billed_cost_usd": "0.48946120",
+  "cumulative_balance_delta_usd": "0.4894612",
+  "previous_cumulative_usd": "0.33967690",
+  "new_billed_cost_usd": "0.14978430",
+  "budget_usd": ".75",
+  "internal_cap_usd": "0.745",
+  "within_budget": true,
+  "requests": 204,
+  "images": 4,
+  "unpriced_receipts": [
+    22,
+    45,
+    46,
+    47,
+    48,
+    49,
+    166,
+    172,
+    185
+  ],
+  "ledger_reset": false,
+  "finalized": true,
+  "new_requests": 75,
+  "new_images": 1
+}

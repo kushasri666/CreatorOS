@@ -3,6 +3,8 @@
 The screenshots describe the target capabilities and demo interactions. Their
 example engagement, score and token numbers are not evidence about this implementation.
 Brew Lab Coffee is an optional fictional scenario; no production path depends on it.
+Updated 21 October 2026 against the current source. Current repair/validation
+outcomes are recorded in [gap validation](GAP_VALIDATION.md).
 
 | Reference capability | Implementation |
 | --- | --- |
@@ -12,13 +14,13 @@ Brew Lab Coffee is an optional fictional scenario; no production path depends on
 | Strategist: angle, hook, audience, why | Distinct strategist prompt with structured output and applied learning IDs |
 | Writer: platform draft | Distinct writer prompt; Instagram slide strings plus separate caption |
 | Editor: five criteria | Hook, clarity, voice, platform and CTA; complete scorecard and concrete edits |
-| Rewrite and rescore | Prior draft and critique passed back to writer; changed text required; at least one revision and at most three drafts |
-| Matching visual plus prompt | Distinct visual director; image through Mesh in live mode; labeled SVG placeholder offline |
-| Scheduler: best slot with analysis | Deterministic analysis of comparable 24-hour observations; one latest observation per post; real/user-entered sources kept apart from simulation; explicit heuristic if no evidence |
+| Rewrite and rescore | Prior draft/slides and critique passed back to writer; a genuine text or slide change is required; at least one revision and at most three drafts |
+| Matching visual plus prompt | Distinct visual director; Mesh illustration with exact headline/brand composed using local fonts; explicit human image/caption review before Instagram preparation; labeled placeholder offline |
+| Scheduler: best slot with analysis | Comparable API observations use actual provider publication times, account/format/window/age/formula scope, and at least two posts in each of two weekday/hour slots. Otherwise retain separately labeled manual/simulated 24-hour evidence or an explicit heuristic |
 | Queue | Atomic SQLite jobs, UTC timestamps, once-only due handoff, recovery of overdue jobs on app restart |
-| Published post | Manual publishing handoff only; app never claims a platform publication it did not perform |
-| Performance table and chart | Live persisted metrics table and normalized weighted-rate bars by format/source/window |
-| Learner | Distinct learning prompt receives source strategy, metrics and baseline; rules feed the next matching strategist and writer |
+| Published post | Optional, explicitly confirmed Instagram single-photo API flow; real provider receipt required to mark published. Other publishing remains a manual handoff |
+| Performance table and chart | Persisted manual metrics plus six-platform API adapters and comparable rate cohorts; missing values remain absent. Imported Instagram formats distinguish carousel/photo/reel rather than pooling them as FEED |
+| Learner | Distinct learning prompt for entered metrics; deterministic evidence-linked experiments for API observations. Rules feed matching strategist/writer context; optional interpretation failure preserves valid metrics |
 | Without/with learning | Explicit generation toggle; stored matching-brief outputs displayed together with score and mode labels |
 | Voice switch | Profile/sample comparison and brand selection; same brief can be run for a different brand |
 | Self-check scores | Before/after score bars, actual draft text changes, editor requests and full version history |
@@ -28,8 +30,10 @@ Brew Lab Coffee is an optional fictional scenario; no production path depends on
 
 ## Agent architecture
 
-The coordinator drives six specialist responsibilities: strategist, writer, editor,
-visual director, scheduler and learner. A separate brand analyst prepares the voice.
+The coordinator executes the custom `CreatorOS StateGraph` in `agent_graph.py` and
+`pipeline_graph.py`. Named handlers fetch/review sources, plan an angle, write,
+score, verify, retrieve again, correct and generate the visual. It also coordinates
+the deterministic scheduler and performance learner. A separate brand analyst prepares the voice.
 The writer performs rewriting; it is not a duplicate agent name hiding the same prompt.
 The scheduler uses code and recorded evidence rather than spending an LLM call on date arithmetic.
 All actual AI calls, including profiles, images and learning, use the same Mesh gateway.
@@ -43,15 +47,30 @@ Fixture mode must be selected deliberately and is not submission quality evidenc
   No AI or network generation calls. Scores, historical data and visuals are labeled.
 - `live`: actual specialist model calls through Mesh, gated by `MESH_ENABLE_PAID=1`.
   Default limits are ten calls per gateway operation, one image call per run,
-  1,200 output tokens per text response, zero automatic transport retries, and
+  role-specific text ceilings of up to 1,600 output tokens, zero automatic transport retries, and
   zero implicit schema retries. These bound calls/tokens, not currency cost.
 
 ## Remaining limits
 
-No platform publishing integration is connected. Historical scenarios are fictional,
-learning remains observational, and stored editor scores are model opinions or
-explicit offline fixtures. The existing live evaluation predates this alignment
-pass and must not be presented as a new validation of these changes. Generation
-background tasks run in the app process; interrupted generation is not automatically
-retried on restart, to avoid silently spending more Mesh credits. Durable scheduling
-is independent of generation tasks.
+Real social account authorization, provider permissions and live publishing/read-back
+remain unverified. The implemented Instagram publisher requires a separate opt-in,
+OAuth publishing permission, reviewed image/caption, public HTTPS JPEG URL and final
+per-post confirmation; it does not auto-publish scheduled jobs. Carousel, Reel and
+other-platform publication are not implemented.
+
+Historical scenarios and example analytics are fictional. Learning is observational;
+changed output and applied evidence IDs do not establish causal engagement uplift.
+Editor ratings are model opinions; lexical/structural scores are limited proxies.
+Human image review records an acknowledgement, not automated visual correctness.
+The current gap report separates live measurements from earlier results and test
+doubles; this architecture comparison does not itself make new model/platform calls.
+
+Provider timing recommendations need fresh snapshots with pinned account identity
+and provider publication-time provenance. Legacy or manually linked timestamps do
+not silently acquire that provenance. YouTube discovery retains the generic `video`
+label when Shorts/long-form classification is not verified.
+
+Generation background tasks run in the app process; interrupted generation is not
+automatically retried on restart, to avoid silently spending more Mesh credits.
+Durable scheduling is independent of generation tasks. This remains a local,
+single-user application without hosted tenancy or application authentication.

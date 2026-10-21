@@ -161,6 +161,17 @@ def validate_id(provider, id):
         raise ValueError("Use the platform's exact media/post ID (not a URL)")
 
 
+def instagram_format(media):
+    """Classify provider metadata without letting FEED hide photo/carousel type."""
+    kind = str(media.get("media_type") or "").upper()
+    product = str(media.get("media_product_type") or "").upper()
+    if product in ("REELS", "REEL"):
+        return "reel"
+    if product in ("STORY", "STORIES"):
+        return "story"
+    return {"CAROUSEL_ALBUM": "carousel", "IMAGE": "single_image", "VIDEO": "video"}.get(kind, "unknown")
+
+
 def connect(provider, brand_id, account_id, allow_paid_reads=False):
     if provider not in PLATFORMS:
         raise ValueError("Unsupported platform")
@@ -184,8 +195,12 @@ def track(connection, post, external_id, published_at, format):
     previous = storage.get(key)
     if previous and previous["post_id"] != post["id"]:
         raise ValueError("External media ID is already linked to another post")
+    publication_source = "api_metadata" if post.get("mode") == "imported_api" else (
+        "api_publication_receipt" if post.get("instagram_media_id") == external_id and post.get("status") == "published"
+        else "user_supplied")
     return storage.save("social_track", {"connection_id": connection["id"], "post_id": post["id"],
-        "external_id": external_id, "published_at": published_at, "format": format}, key)
+        "external_id": external_id, "published_at": published_at, "published_at_source": publication_source,
+        "format": format}, key)
 
 
 def save_observation(connection, tracking, counts, window="lifetime", source="api"):
@@ -203,6 +218,7 @@ def save_observation(connection, tracking, counts, window="lifetime", source="ap
     key = "social_metric:" + hashlib.sha256((tracking["id"] + at.date().isoformat() + source).encode()).hexdigest()
     return storage.save("social_metric", {"brand_id": connection["brand_id"], "platform": connection["provider"],
         "connection_id": connection["id"], "post_id": tracking["post_id"], "format": tracking["format"],
+        "account_id": connection.get("account_id"), "published_at_source": tracking.get("published_at_source", "unknown"),
         "external_id": tracking["external_id"], "counts": counts, "source": source, "window": window,
         "age_bucket": age_bucket, "published_at": tracking["published_at"], "collected_at": at.isoformat(),
         "denominator": denominator, "formula": formula, "rate": rate}, key)
@@ -344,7 +360,7 @@ def discover(connection_id, client=None):
             data = get(client, f"https://graph.instagram.com/{version}/{account}/media", token,
                 {"fields": "id,caption,timestamp,media_type,media_product_type", "limit": 10})
             rows = [dict(id=r["id"], text=r.get("caption", ""), date=r["timestamp"],
-                format=r.get("media_product_type") or r.get("media_type", "post")) for r in data.get("data", [])]
+                format=instagram_format(r)) for r in data.get("data", [])]
         elif provider == "threads":
             data = get(client, "https://graph.threads.net/v1.0/me/threads", token,
                 {"fields": "id,text,timestamp,media_type", "limit": 10})
@@ -382,8 +398,12 @@ def discover(connection_id, client=None):
             previous = storage.get(key)
             if previous:
                 previous.update(text=row["text"], brief=row["text"][:120] or "Imported media",
+                                published_at=published.isoformat(),
+                                strategy=dict(previous.get("strategy", {}), format=row["format"]),
                                 metadata_verified_at=storage.now(), metadata_expired=False)
-                imported.append(storage.save("post", previous, key))
+                post = storage.save("post", previous, key)
+                track(connection, post, str(row["id"]), published.isoformat(), row["format"])
+                imported.append(post)
                 continue
             post = storage.save("post", dict(kind="post", brand_id=connection["brand_id"], platform=provider,
                 brief=row["text"][:120] or "Imported media", text=row["text"], status="published",

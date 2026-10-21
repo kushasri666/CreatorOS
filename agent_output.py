@@ -33,7 +33,8 @@ def valid(role,result,data):
         scores=result.get('scores')
         return isinstance(scores,dict) and set(scores)=={'hook','clarity','voice','platform','cta'} and all(
             type(v) in (int,float) and math.isfinite(v) and 0<=v<=10 for v in scores.values()) and strings('edits') and texts('reason')
-    if role=='Verifier':return isinstance(result.get('checks'),list) and isinstance(result.get('conflicts'),list)
+    if role=='Verifier':return isinstance(result.get('checks'),list) and isinstance(result.get('conflicts'),list) and (
+        not result.get('coverage_required') or isinstance(result.get('coverage'),list))
     if role=='Visual director':return texts('prompt','reason')
     if role=='Learning analyst':return texts('rule','reason')
     return False

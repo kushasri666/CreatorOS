@@ -1,0 +1,443 @@
+{
+  "dataset_id": "creatoros-semantic-verifier-holdout-v1",
+  "gold_sha256": "5f182ad083eee168b4f62cf348981d261e014817365ae9779336aa150f53d448",
+  "model": "openai/gpt-4.1-mini",
+  "max_output_tokens": 1200,
+  "scope": "Untouched eight-case synthetic holdout, run once after diagnostic repairs; gold not sent to model.",
+  "results": {
+    "case_count": 8,
+    "counts": {
+      "factual_assertions": 16,
+      "supported_gold": 12,
+      "unsupported_gold": 4,
+      "true_support": 12,
+      "false_support": 0,
+      "wrong_source_support": 0,
+      "correct_withholding": 4,
+      "missed_factual_assertions": 0,
+      "supported_predictions": 12,
+      "unscored_supported_checks": 0,
+      "unscored_checks": 0,
+      "absent_claim_checks": 0,
+      "nonfactual_rejections": 0
+    },
+    "metrics": {
+      "supported_precision": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "supported_recall": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "unsupported_withholding_recall": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "factual_decision_accuracy": {
+        "numerator": 16,
+        "denominator": 16,
+        "value": 1.0
+      },
+      "factual_detection_coverage": {
+        "numerator": 16,
+        "denominator": 16,
+        "value": 1.0
+      },
+      "false_approval_rate": {
+        "numerator": 0,
+        "denominator": 4,
+        "value": 0.0
+      },
+      "case_false_approval_rate": {
+        "numerator": 0,
+        "denominator": 4,
+        "value": 0.0
+      }
+    },
+    "case_false_approvals": 0,
+    "case_false_rejections": 0,
+    "false_claim_approvals": 0,
+    "missed_factual_assertions": 0,
+    "invalid_or_missing_cases": 3,
+    "cases": [
+      {
+        "id": "tentative-journal-benefit",
+        "category": "qualified_uncertain_benefit",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 2,
+          "unsupported_gold": 0,
+          "true_support": 2,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 0,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 2,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": true,
+        "actual_pass": true,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": false,
+        "decisions": [
+          {
+            "claim": "EarlyCalm includes daily reflection prompts.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "EarlyCalm may help some participants notice existing habits.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "Imagine a quieter start to your day.",
+            "gold": "nonfactual",
+            "observed": "missing",
+            "correct": true,
+            "observed_source_ids": []
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "negated-automatic-scheduling",
+        "category": "source_negates_capability",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 1,
+          "unsupported_gold": 1,
+          "true_support": 1,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 1,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 1,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": false,
+        "actual_pass": false,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": true,
+        "decisions": [
+          {
+            "claim": "QueuePilot stores drafts.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "QueuePilot automatically schedules and publishes every post.",
+            "gold": "unsupported",
+            "observed": "unsupported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "subscription-platform-scope",
+        "category": "scope_expansion",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 1,
+          "unsupported_gold": 1,
+          "true_support": 1,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 1,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 1,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": false,
+        "actual_pass": false,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": true,
+        "decisions": [
+          {
+            "claim": "VideoScope Starter imports read-only YouTube engagement metrics.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "VideoScope Starter covers all social platforms.",
+            "gold": "unsupported",
+            "observed": "unsupported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "included-bag-not-service",
+        "category": "physical_item_vs_bundled_service",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 1,
+          "unsupported_gold": 1,
+          "true_support": 1,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 1,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 1,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": false,
+        "actual_pass": false,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": true,
+        "decisions": [
+          {
+            "claim": "A fabric carry bag comes with TrailCup.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "Every TrailCup includes a guided camping service.",
+            "gold": "unsupported",
+            "observed": "unsupported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "conditional-price-and-shipping",
+        "category": "price_with_purchase_conditions",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 2,
+          "unsupported_gold": 0,
+          "true_support": 2,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 0,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 2,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": true,
+        "actual_pass": true,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": false,
+        "decisions": [
+          {
+            "claim": "Online purchases of Mosaic Desk light in the US cost $49 before tax.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "Shipping costs extra.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "analytics-period-paraphrase",
+        "category": "reporting_window_preserved",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 2,
+          "unsupported_gold": 0,
+          "true_support": 2,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 0,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 2,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": true,
+        "actual_pass": true,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": false,
+        "decisions": [
+          {
+            "claim": "MetricNest summarizes the last 28 finished calendar days.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "Today's partial data is excluded.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "mixed-cta-and-conditional-capability",
+        "category": "mixed_copy_and_capability",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 2,
+          "unsupported_gold": 0,
+          "true_support": 2,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 0,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 2,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": true,
+        "actual_pass": true,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": false,
+        "decisions": [
+          {
+            "claim": "Save this for later:",
+            "gold": "nonfactual",
+            "observed": "missing",
+            "correct": true,
+            "observed_source_ids": []
+          },
+          {
+            "claim": "StudioPocket can store approved captions as drafts.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "Publishing requires a connected professional account.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      },
+      {
+        "id": "causal-guarantee-from-pilot",
+        "category": "causality_and_guarantee",
+        "counts": {
+          "factual_assertions": 2,
+          "supported_gold": 1,
+          "unsupported_gold": 1,
+          "true_support": 1,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 1,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 1,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "expected_pass": false,
+        "actual_pass": false,
+        "case_false_approval": false,
+        "case_false_rejection": false,
+        "invalid_or_missing": false,
+        "decisions": [
+          {
+            "claim": "FocusTiles supports eight task cards.",
+            "gold": "supported",
+            "observed": "supported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "claim": "FocusTiles guarantees higher productivity because its cards increase focus.",
+            "gold": "unsupported",
+            "observed": "unsupported",
+            "correct": true,
+            "observed_source_ids": [
+              "S1"
+            ]
+          }
+        ],
+        "unscored": []
+      }
+    ]
+  }
+}

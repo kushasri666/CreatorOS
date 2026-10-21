@@ -1,5 +1,9 @@
 # Adversarial system evaluation — 21 October 2026
 
+This is the earlier offline-only pass. The subsequent [gap validation](GAP_VALIDATION.md)
+records additional repairs, the current 271-test suite and the finalized cumulative
+Mesh cost of $0.48946120. The historical pass below spent no additional credits.
+
 **202 tests passed, including 49 new adversarial tests. Zero failures, errors or
 skips. Zero AI calls and $0 additional spending.** The historical combined live
 validation spend remains $0.33967690 of its $0.75 allowance.

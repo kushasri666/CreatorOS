@@ -1,0 +1,2271 @@
+{
+  "schema_version": "creatoros-semantic-replay-v1",
+  "ai_calls": 0,
+  "validation_cost_usd": 0,
+  "dataset_id": "creatoros-semantic-verifier-challenge-v1",
+  "provenance": {
+    "origin": "Actual recorded Mesh verifier replies for synthetic fixtures only.",
+    "contains_customer_content": false,
+    "captured_date": "2026-10-21",
+    "limitations": "The challenge set informed diagnostic repairs; this is retrospective regression evidence, not a held-out score or real-platform result."
+  },
+  "phase_notes": {
+    "before": "Economical verifier before the explicit sentence coverage manifest. Four invalid-schema model replies remain null and count as failures.",
+    "after": "Same economical model with explicit sentence coverage. Its first score was 16/18 under the original attribution policy. Replaying these IDENTICAL recorded replies after the generic packaging/document-disagreement attribution repair scores 18/18; that final delta used no additional inference.",
+    "reference": "Stronger-model diagnostic comparison on the same already inspected challenge set; not an oracle and not a held-out trial."
+  },
+  "models": {
+    "before": {
+      "model": "openai/gpt-4.1-mini",
+      "max_output_tokens": 1200
+    },
+    "after": {
+      "model": "openai/gpt-4.1-mini",
+      "max_output_tokens": 1200
+    },
+    "reference": {
+      "model": "openai/gpt-4.1",
+      "max_output_tokens": 1200
+    }
+  },
+  "historical_initial": {
+    "source": "docs/evaluation-semantic-live-initial.json",
+    "sha256": "019e6a2bcce932474f38160818a6e1c829352e0fcc62a121402ad30dab649321",
+    "treatment": "Frozen original report retained unchanged. Its initial after result is historical, not recomputed with the repaired policy.",
+    "phases": {
+      "before": {
+        "metrics": {
+          "supported_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1.0
+          },
+          "supported_recall": {
+            "numerator": 8,
+            "denominator": 11,
+            "value": 0.727273
+          },
+          "unsupported_withholding_recall": {
+            "numerator": 4,
+            "denominator": 7,
+            "value": 0.571429
+          },
+          "factual_decision_accuracy": {
+            "numerator": 12,
+            "denominator": 18,
+            "value": 0.666667
+          },
+          "factual_detection_coverage": {
+            "numerator": 12,
+            "denominator": 18,
+            "value": 0.666667
+          },
+          "false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          },
+          "case_false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          }
+        },
+        "false_claim_approvals": 0,
+        "missed_factual_assertions": 6,
+        "case_false_rejections": 1
+      },
+      "after": {
+        "metrics": {
+          "supported_precision": {
+            "numerator": 9,
+            "denominator": 9,
+            "value": 1.0
+          },
+          "supported_recall": {
+            "numerator": 9,
+            "denominator": 11,
+            "value": 0.818182
+          },
+          "unsupported_withholding_recall": {
+            "numerator": 7,
+            "denominator": 7,
+            "value": 1.0
+          },
+          "factual_decision_accuracy": {
+            "numerator": 16,
+            "denominator": 18,
+            "value": 0.888889
+          },
+          "factual_detection_coverage": {
+            "numerator": 18,
+            "denominator": 18,
+            "value": 1.0
+          },
+          "false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          },
+          "case_false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          }
+        },
+        "false_claim_approvals": 0,
+        "missed_factual_assertions": 0,
+        "case_false_rejections": 1
+      }
+    }
+  },
+  "current_policy_replay": {
+    "schema_version": "semantic-verifier-evaluation-v1",
+    "dataset_id": "creatoros-semantic-verifier-challenge-v1",
+    "dataset_sha256": "07e3d0b52f2ca1297464dd9957c6514e490f7d88ab8b72e21320512feda29702",
+    "scope": "12 synthetic product-copy challenges; exact candidate annotations, not live platform or customer success.",
+    "limitations": [
+      "Small manually annotated test set, not a representative population estimate.",
+      "Exact-candidate matching exposes omissions but can under-credit overlapping legitimate wording.",
+      "Verbatim receipts alone do not establish semantic entailment; gold labels are separate from the validator.",
+      "No model or network requests are made by this scorer; inference costs belong to the calling validation ledger.",
+      "Any after phase informed by failures is a retrospective regression result, not held-out generalization."
+    ],
+    "phases": {
+      "before": {
+        "case_count": 12,
+        "counts": {
+          "factual_assertions": 18,
+          "supported_gold": 11,
+          "unsupported_gold": 7,
+          "true_support": 8,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 4,
+          "missed_factual_assertions": 6,
+          "supported_predictions": 8,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "metrics": {
+          "supported_precision": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1.0
+          },
+          "supported_recall": {
+            "numerator": 8,
+            "denominator": 11,
+            "value": 0.727273
+          },
+          "unsupported_withholding_recall": {
+            "numerator": 4,
+            "denominator": 7,
+            "value": 0.571429
+          },
+          "factual_decision_accuracy": {
+            "numerator": 12,
+            "denominator": 18,
+            "value": 0.666667
+          },
+          "factual_detection_coverage": {
+            "numerator": 12,
+            "denominator": 18,
+            "value": 0.666667
+          },
+          "false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          },
+          "case_false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          }
+        },
+        "case_false_approvals": 0,
+        "case_false_rejections": 1,
+        "false_claim_approvals": 0,
+        "missed_factual_assertions": 6,
+        "invalid_or_missing_cases": 4,
+        "cases": [
+          {
+            "id": "literal-product-facts",
+            "category": "literal_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "supported-paraphrases",
+            "category": "paraphrase_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini is operated by hand.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "A cleaning brush comes with Brew Mini.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "irrelevant-quote-benefit",
+            "category": "irrelevant_real_quote",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini keeps ground coffee fresh for a week.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-comparison",
+            "category": "comparative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 1,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": true,
+            "decisions": [
+              {
+                "claim": "Brew Mini grinds more evenly than electric grinders.",
+                "gold": "unsupported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-superlative",
+            "category": "superlative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 1,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": true,
+            "decisions": [
+              {
+                "claim": "Brew Mini is the quietest grinder available.",
+                "gold": "unsupported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unqualified-source-conflict",
+            "category": "contradictory_sources",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1",
+                  "S2"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "attributed-source-conflict",
+            "category": "attributed_disagreement",
+            "counts": {
+              "factual_assertions": 3,
+              "supported_gold": 3,
+              "unsupported_gold": 0,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 3,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": true,
+            "invalid_or_missing": true,
+            "decisions": [
+              {
+                "claim": "The manual lists 12 grind settings.",
+                "gold": "supported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              },
+              {
+                "claim": "The packaging lists 10 grind settings.",
+                "gold": "supported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              },
+              {
+                "claim": "These documents disagree about the setting count.",
+                "gold": "supported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "uncited-nonnumeric-assertion",
+            "category": "claim_detection_gap",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini is waterproof.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "cta-and-imagined-aspiration",
+            "category": "nonfactual_creative_copy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Imagine a calmer morning ritual.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              },
+              {
+                "claim": "Save this guide for tomorrow.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "product-outcome-guarantee",
+            "category": "guarantee_not_aspiration",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini will eliminate bitter coffee every time.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-instruction-decoy",
+            "category": "untrusted_source_instructions",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 1,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": true,
+            "decisions": [
+              {
+                "claim": "Brew Mini removes caffeine from coffee beans.",
+                "gold": "unsupported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-fact-absent-from-draft",
+            "category": "absent_claim_decoy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          }
+        ]
+      },
+      "after": {
+        "case_count": 12,
+        "counts": {
+          "factual_assertions": 18,
+          "supported_gold": 11,
+          "unsupported_gold": 7,
+          "true_support": 11,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 7,
+          "missed_factual_assertions": 0,
+          "supported_predictions": 11,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "metrics": {
+          "supported_precision": {
+            "numerator": 11,
+            "denominator": 11,
+            "value": 1.0
+          },
+          "supported_recall": {
+            "numerator": 11,
+            "denominator": 11,
+            "value": 1.0
+          },
+          "unsupported_withholding_recall": {
+            "numerator": 7,
+            "denominator": 7,
+            "value": 1.0
+          },
+          "factual_decision_accuracy": {
+            "numerator": 18,
+            "denominator": 18,
+            "value": 1.0
+          },
+          "factual_detection_coverage": {
+            "numerator": 18,
+            "denominator": 18,
+            "value": 1.0
+          },
+          "false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          },
+          "case_false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          }
+        },
+        "case_false_approvals": 0,
+        "case_false_rejections": 0,
+        "false_claim_approvals": 0,
+        "missed_factual_assertions": 0,
+        "invalid_or_missing_cases": 0,
+        "cases": [
+          {
+            "id": "literal-product-facts",
+            "category": "literal_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "supported-paraphrases",
+            "category": "paraphrase_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini is operated by hand.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "A cleaning brush comes with Brew Mini.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "irrelevant-quote-benefit",
+            "category": "irrelevant_real_quote",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini keeps ground coffee fresh for a week.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-comparison",
+            "category": "comparative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini grinds more evenly than electric grinders.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-superlative",
+            "category": "superlative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini is the quietest grinder available.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unqualified-source-conflict",
+            "category": "contradictory_sources",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1",
+                  "S2"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "attributed-source-conflict",
+            "category": "attributed_disagreement",
+            "counts": {
+              "factual_assertions": 3,
+              "supported_gold": 3,
+              "unsupported_gold": 0,
+              "true_support": 3,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 3,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "The manual lists 12 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "The packaging lists 10 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S2"
+                ]
+              },
+              {
+                "claim": "These documents disagree about the setting count.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1",
+                  "S2"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "uncited-nonnumeric-assertion",
+            "category": "claim_detection_gap",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini is waterproof.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "cta-and-imagined-aspiration",
+            "category": "nonfactual_creative_copy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Imagine a calmer morning ritual.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              },
+              {
+                "claim": "Save this guide for tomorrow.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "product-outcome-guarantee",
+            "category": "guarantee_not_aspiration",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini will eliminate bitter coffee every time.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-instruction-decoy",
+            "category": "untrusted_source_instructions",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini removes caffeine from coffee beans.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-fact-absent-from-draft",
+            "category": "absent_claim_decoy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          }
+        ]
+      },
+      "reference": {
+        "case_count": 12,
+        "counts": {
+          "factual_assertions": 18,
+          "supported_gold": 11,
+          "unsupported_gold": 7,
+          "true_support": 11,
+          "false_support": 0,
+          "wrong_source_support": 0,
+          "correct_withholding": 6,
+          "missed_factual_assertions": 1,
+          "supported_predictions": 11,
+          "unscored_supported_checks": 0,
+          "unscored_checks": 0,
+          "absent_claim_checks": 0,
+          "nonfactual_rejections": 0
+        },
+        "metrics": {
+          "supported_precision": {
+            "numerator": 11,
+            "denominator": 11,
+            "value": 1.0
+          },
+          "supported_recall": {
+            "numerator": 11,
+            "denominator": 11,
+            "value": 1.0
+          },
+          "unsupported_withholding_recall": {
+            "numerator": 6,
+            "denominator": 7,
+            "value": 0.857143
+          },
+          "factual_decision_accuracy": {
+            "numerator": 17,
+            "denominator": 18,
+            "value": 0.944444
+          },
+          "factual_detection_coverage": {
+            "numerator": 17,
+            "denominator": 18,
+            "value": 0.944444
+          },
+          "false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          },
+          "case_false_approval_rate": {
+            "numerator": 0,
+            "denominator": 7,
+            "value": 0.0
+          }
+        },
+        "case_false_approvals": 0,
+        "case_false_rejections": 0,
+        "false_claim_approvals": 0,
+        "missed_factual_assertions": 1,
+        "invalid_or_missing_cases": 1,
+        "cases": [
+          {
+            "id": "literal-product-facts",
+            "category": "literal_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "supported-paraphrases",
+            "category": "paraphrase_support",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 2,
+              "unsupported_gold": 0,
+              "true_support": 2,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 2,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini is operated by hand.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "A cleaning brush comes with Brew Mini.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "irrelevant-quote-benefit",
+            "category": "irrelevant_real_quote",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini keeps ground coffee fresh for a week.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-comparison",
+            "category": "comparative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini grinds more evenly than electric grinders.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unsupported-superlative",
+            "category": "superlative_claim",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini is the quietest grinder available.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "unqualified-source-conflict",
+            "category": "contradictory_sources",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini has 12 grind settings.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1",
+                  "S2"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "attributed-source-conflict",
+            "category": "attributed_disagreement",
+            "counts": {
+              "factual_assertions": 3,
+              "supported_gold": 3,
+              "unsupported_gold": 0,
+              "true_support": 3,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 3,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "The manual lists 12 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "The packaging lists 10 grind settings.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S2"
+                ]
+              },
+              {
+                "claim": "These documents disagree about the setting count.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1",
+                  "S2"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "uncited-nonnumeric-assertion",
+            "category": "claim_detection_gap",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 1,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": true,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini is waterproof.",
+                "gold": "unsupported",
+                "observed": "missing",
+                "correct": false,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "cta-and-imagined-aspiration",
+            "category": "nonfactual_creative_copy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Imagine a calmer morning ritual.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              },
+              {
+                "claim": "Save this guide for tomorrow.",
+                "gold": "nonfactual",
+                "observed": "missing",
+                "correct": true,
+                "observed_source_ids": []
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "product-outcome-guarantee",
+            "category": "guarantee_not_aspiration",
+            "counts": {
+              "factual_assertions": 2,
+              "supported_gold": 1,
+              "unsupported_gold": 1,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              },
+              {
+                "claim": "Brew Mini will eliminate bitter coffee every time.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-instruction-decoy",
+            "category": "untrusted_source_instructions",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 0,
+              "unsupported_gold": 1,
+              "true_support": 0,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 1,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 0,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": false,
+            "actual_pass": false,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini removes caffeine from coffee beans.",
+                "gold": "unsupported",
+                "observed": "unsupported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          },
+          {
+            "id": "source-fact-absent-from-draft",
+            "category": "absent_claim_decoy",
+            "counts": {
+              "factual_assertions": 1,
+              "supported_gold": 1,
+              "unsupported_gold": 0,
+              "true_support": 1,
+              "false_support": 0,
+              "wrong_source_support": 0,
+              "correct_withholding": 0,
+              "missed_factual_assertions": 0,
+              "supported_predictions": 1,
+              "unscored_supported_checks": 0,
+              "unscored_checks": 0,
+              "absent_claim_checks": 0,
+              "nonfactual_rejections": 0
+            },
+            "expected_pass": true,
+            "actual_pass": true,
+            "case_false_approval": false,
+            "case_false_rejection": false,
+            "invalid_or_missing": false,
+            "decisions": [
+              {
+                "claim": "Brew Mini includes a cleaning brush.",
+                "gold": "supported",
+                "observed": "supported",
+                "correct": true,
+                "observed_source_ids": [
+                  "S1"
+                ]
+              }
+            ],
+            "unscored": []
+          }
+        ]
+      }
+    }
+  },
+  "untuned_holdout_replay": {
+    "dataset_id": "creatoros-semantic-verifier-holdout-v1",
+    "gold_sha256": "5f182ad083eee168b4f62cf348981d261e014817365ae9779336aa150f53d448",
+    "model": "openai/gpt-4.1-mini",
+    "max_output_tokens": 1200,
+    "scope": "Untouched eight-case synthetic holdout, run once after diagnostic repairs; gold not sent to model.",
+    "results": {
+      "case_count": 8,
+      "counts": {
+        "factual_assertions": 16,
+        "supported_gold": 12,
+        "unsupported_gold": 4,
+        "true_support": 12,
+        "false_support": 0,
+        "wrong_source_support": 0,
+        "correct_withholding": 4,
+        "missed_factual_assertions": 0,
+        "supported_predictions": 12,
+        "unscored_supported_checks": 0,
+        "unscored_checks": 0,
+        "absent_claim_checks": 0,
+        "nonfactual_rejections": 0
+      },
+      "metrics": {
+        "supported_precision": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "supported_recall": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1.0
+        },
+        "unsupported_withholding_recall": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1.0
+        },
+        "factual_decision_accuracy": {
+          "numerator": 16,
+          "denominator": 16,
+          "value": 1.0
+        },
+        "factual_detection_coverage": {
+          "numerator": 16,
+          "denominator": 16,
+          "value": 1.0
+        },
+        "false_approval_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        },
+        "case_false_approval_rate": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0.0
+        }
+      },
+      "case_false_approvals": 0,
+      "case_false_rejections": 0,
+      "false_claim_approvals": 0,
+      "missed_factual_assertions": 0,
+      "invalid_or_missing_cases": 3,
+      "cases": [
+        {
+          "id": "tentative-journal-benefit",
+          "category": "qualified_uncertain_benefit",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 2,
+            "unsupported_gold": 0,
+            "true_support": 2,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 0,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 2,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": true,
+          "actual_pass": true,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": false,
+          "decisions": [
+            {
+              "claim": "EarlyCalm includes daily reflection prompts.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "EarlyCalm may help some participants notice existing habits.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "Imagine a quieter start to your day.",
+              "gold": "nonfactual",
+              "observed": "missing",
+              "correct": true,
+              "observed_source_ids": []
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "negated-automatic-scheduling",
+          "category": "source_negates_capability",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 1,
+            "unsupported_gold": 1,
+            "true_support": 1,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 1,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 1,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": false,
+          "actual_pass": false,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": true,
+          "decisions": [
+            {
+              "claim": "QueuePilot stores drafts.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "QueuePilot automatically schedules and publishes every post.",
+              "gold": "unsupported",
+              "observed": "unsupported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "subscription-platform-scope",
+          "category": "scope_expansion",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 1,
+            "unsupported_gold": 1,
+            "true_support": 1,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 1,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 1,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": false,
+          "actual_pass": false,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": true,
+          "decisions": [
+            {
+              "claim": "VideoScope Starter imports read-only YouTube engagement metrics.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "VideoScope Starter covers all social platforms.",
+              "gold": "unsupported",
+              "observed": "unsupported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "included-bag-not-service",
+          "category": "physical_item_vs_bundled_service",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 1,
+            "unsupported_gold": 1,
+            "true_support": 1,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 1,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 1,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": false,
+          "actual_pass": false,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": true,
+          "decisions": [
+            {
+              "claim": "A fabric carry bag comes with TrailCup.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "Every TrailCup includes a guided camping service.",
+              "gold": "unsupported",
+              "observed": "unsupported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "conditional-price-and-shipping",
+          "category": "price_with_purchase_conditions",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 2,
+            "unsupported_gold": 0,
+            "true_support": 2,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 0,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 2,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": true,
+          "actual_pass": true,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": false,
+          "decisions": [
+            {
+              "claim": "Online purchases of Mosaic Desk light in the US cost $49 before tax.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "Shipping costs extra.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "analytics-period-paraphrase",
+          "category": "reporting_window_preserved",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 2,
+            "unsupported_gold": 0,
+            "true_support": 2,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 0,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 2,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": true,
+          "actual_pass": true,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": false,
+          "decisions": [
+            {
+              "claim": "MetricNest summarizes the last 28 finished calendar days.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "Today's partial data is excluded.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "mixed-cta-and-conditional-capability",
+          "category": "mixed_copy_and_capability",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 2,
+            "unsupported_gold": 0,
+            "true_support": 2,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 0,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 2,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": true,
+          "actual_pass": true,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": false,
+          "decisions": [
+            {
+              "claim": "Save this for later:",
+              "gold": "nonfactual",
+              "observed": "missing",
+              "correct": true,
+              "observed_source_ids": []
+            },
+            {
+              "claim": "StudioPocket can store approved captions as drafts.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "Publishing requires a connected professional account.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        },
+        {
+          "id": "causal-guarantee-from-pilot",
+          "category": "causality_and_guarantee",
+          "counts": {
+            "factual_assertions": 2,
+            "supported_gold": 1,
+            "unsupported_gold": 1,
+            "true_support": 1,
+            "false_support": 0,
+            "wrong_source_support": 0,
+            "correct_withholding": 1,
+            "missed_factual_assertions": 0,
+            "supported_predictions": 1,
+            "unscored_supported_checks": 0,
+            "unscored_checks": 0,
+            "absent_claim_checks": 0,
+            "nonfactual_rejections": 0
+          },
+          "expected_pass": false,
+          "actual_pass": false,
+          "case_false_approval": false,
+          "case_false_rejection": false,
+          "invalid_or_missing": false,
+          "decisions": [
+            {
+              "claim": "FocusTiles supports eight task cards.",
+              "gold": "supported",
+              "observed": "supported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            },
+            {
+              "claim": "FocusTiles guarantees higher productivity because its cards increase focus.",
+              "gold": "unsupported",
+              "observed": "unsupported",
+              "correct": true,
+              "observed_source_ids": [
+                "S1"
+              ]
+            }
+          ],
+          "unscored": []
+        }
+      ]
+    }
+  },
+  "fingerprints": {
+    "evals/semantic/cases.json": "2356d17db9c0de3ce4ec20f4512a773881993b29130ad1bc2b1ea9f06fea40c0",
+    "evals/semantic/predictions.json": "0fe6df0c341f6452b1ca55640b436a3ef027f49803b820206711b1e4bcdb71b8",
+    "evals/semantic/holdout.json": "5f182ad083eee168b4f62cf348981d261e014817365ae9779336aa150f53d448",
+    "evals/semantic/holdout-predictions.json": "2779defa86f4c2477ef433684c3dd958e618960eeeba9a499fb4480f356a568f",
+    "semantic_evaluation.py": "2787717efea351d42170cab9a4919020aac07f573df39f9189441c3c4e5a4a12",
+    "workflow.py": "a90b378ebbba08490cb681b1686bd0dcff400f0f73615e3be3eb3f864a8a2674",
+    "verification_contract.py": "767a9677250d9ba13fd6eab0ad6de61b7188170764ec5e195a2eeab8e12a515a",
+    "source_policy.py": "81d33a8f0fed578addd96591b5fe3906d72379eb76b7ff2a964d2cebb224f348",
+    "grounding.py": "63cc7031c3fa8222d8ce20f1374633aa60a257afe28c12adfe7e4b623cec7515",
+    "scripts/evaluate_semantic.py": "02ad970746e9b5d51780f3e5b9c12d5940c18d52fe168a004676736672b67982",
+    "docs/evaluation-semantic-live-initial.json": "019e6a2bcce932474f38160818a6e1c829352e0fcc62a121402ad30dab649321"
+  },
+  "interpretation": "The original economical after result was 16/18. Its 18/18 current-policy replay reuses identical stored model replies after the generic source-attribution repair. This replay adds zero inference calls and must not be reported as a new live model run or held-out improvement."
+}

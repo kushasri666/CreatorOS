@@ -74,6 +74,17 @@ The combined cost including the earlier validation is **$0.33967690 / $0.75**.
 The report preserves failures and a generated-visual quality issue. Raw customer
 samples and copy stay in the local, gitignored validation database.
 
+[Gap repair and live semantic validation](docs/GAP_VALIDATION.md) finalized the
+same combined budget at **$0.48946120 / $0.75**, including every earlier charge
+in that validation ledger. Diagnostic factual decisions improved from 12/18 to
+18/18 on replay; a separate one-pass holdout scored 16/16 but retained three
+invalid coverage manifests. LearnAIwithSachit's new text run passed; Content
+Tracker AI stayed held for incomplete slide verification. These small tests do
+not establish general quality or engagement uplift. Exact synthetic replies and
+zero-call replay commands are included. Repairs add complete assertion accounting,
+one-call source rechecks, explicit visual review, sharp local typography, normalized
+Instagram formats and API-backed slot evidence.
+
 ## Run the real studio with spending locked
 
 Python 3.11+:
@@ -125,14 +136,15 @@ Default safeguards:
 | Paid generation | Locked until `MESH_ENABLE_PAID=1` |
 | Automatic SDK transport retries | 0 |
 | Extra JSON/schema retries | 0 (`MESH_FORMAT_RETRIES=1` explicitly allows one) |
-| Text output limit | 1,200 tokens (`MESH_MAX_OUTPUT_TOKENS`) |
+| Text output limit | 1,600 global tokens (`MESH_MAX_OUTPUT_TOKENS`); lower ceilings per role |
 | Calls per gateway operation | 10 (`MESH_MAX_CALLS`) |
 | Image calls per generation run | At most one |
 | Writer drafts | At most three; at least one changed revision |
 
-These are call/token limits, not currency budgets. A normal two-draft run uses
-six text calls and one image call, excluding initial voice extraction and later
-learning. The deterministic scheduler needs no LLM call. Usage is displayed from
+These are call/token limits, not currency budgets. A two-draft live run with
+source verification and a visual prompt uses seven text calls and one image call,
+excluding initial voice extraction and later learning. Source corrections can use
+remaining call capacity. The deterministic scheduler needs no LLM call. Usage is displayed from
 actual response metadata, never invented for a demo.
 
 ## Walk through the studio
@@ -170,9 +182,15 @@ flowchart LR
   Memory[Brand/platform memory] --> Strategist
   Strategist --> Writer --> Editor
   Editor -->|critique + actual previous draft| Writer
-  Editor -->|bounded quality routing| Visual
+  Editor -->|bounded quality routing| Verifier
+  Sources[Product and account evidence] --> Strategist
+  Verifier -->|thin evidence, at most once| Research[Targeted retrieval]
+  Research --> Writer
+  Verifier -->|supported claims and full coverage| Visual
   Visual --> Scheduler --> Queue[Persistent UTC queue]
   Queue --> Handoff[Manual publishing handoff]
+  Queue -. explicit account and post confirmation .-> Instagram[Optional single-photo publisher]
+  Instagram --> Metrics
   Handoff --> Metrics --> Learner --> Memory
   Strategist -. reasons .-> Audit[Post-linked audit log]
   Editor -. edits and scores .-> Audit

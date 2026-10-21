@@ -2,11 +2,18 @@
 import copy
 import json
 
-VERSION = "lean-v6-exact-receipt-ids"
+VERSION = "lean-v8-semantic-clause-coverage"
 
 
 def compact_data(role, data):
     result = copy.deepcopy(data)
+    # Remove owner facts only when the EXACT same complete text already occurs
+    # in the canonical research packet; never drop merely similar evidence.
+    product=result.get('product');research=result.get('research')
+    if isinstance(product,dict) and isinstance(research,dict):
+        facts=product.get('user_provided_facts')
+        if isinstance(facts,str) and facts and any(isinstance(f,dict) and f.get('claim')==facts for f in research.get('findings',[])):
+            product.pop('user_provided_facts',None)
     if role.startswith("Verifier") and isinstance(result.get("sources"),list):
         # One canonical source packet, with exact excerpts intact. Voice, prior
         # chat and copied research findings are not additional factual evidence.

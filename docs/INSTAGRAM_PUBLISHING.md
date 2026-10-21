@@ -31,6 +31,10 @@ brand and authorize it. In the approved Instagram post's **Final post**, open
 **Publish a single image to Instagram**:
 
 - Download the 1080-square JPEG and place it on the chosen public media host.
+- Inspect the exact generated image and caption, then record the explicit visual
+  review acknowledgement. Changing either makes that review stale. This is a
+  human review gate, not an automated guarantee of visual correctness. Confirm
+  that the separately hosted JPEG is the same reviewed asset.
 - Select the matching Instagram connection, supply the JPEG URL and prepare the
   delivery. This step is local, stores the exact caption/image fingerprint, and
   makes no provider requests.

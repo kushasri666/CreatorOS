@@ -88,8 +88,9 @@ def blocking_conflicts(claim,source_ids,conflicts):
     # declaring one disputed product value to be the established truth.
     # Attribution must introduce the disputed assertion. A trailing CTA such as
     # "save this report" cannot convert an unqualified claim into attribution.
-    referent=r"(?:\[[A-Za-z0-9_-]+\]|(?:the\s+)?(?:[A-Za-z0-9'_-]+\s+){0,5}(?:sources?|specifications?|manual|manufacturer|official page|product page))"
+    referent=r"(?:\[[A-Za-z0-9_-]+\]|(?:the\s+)?(?:[A-Za-z0-9'_-]+\s+){0,5}(?:sources?|specifications?|manual|packaging|label|manufacturer|official page|product page))"
     attributed=bool(re.match(r"\s*(?:According to\s+"+referent+r"\s*[,;:]|"+referent+r"\s+(?:reports?|states?|lists?|says?)\b)",claim,re.I))
+    attributed=attributed or bool(re.match(r'\s*(?:(?:these|the|both|supplied|saved)\s+)?(?:sources|documents|specifications)\s+(?:explicitly\s+)?(?:disagree|conflict|differ)\b',claim,re.I))
     if attributed:return []
     result=[]
     for conflict in conflicts:

@@ -30,7 +30,7 @@ def scenes_for(post, supplied=None):
 
 
 def fingerprint(post, scenes, seconds, music=True):
-    return hashlib.sha256(json.dumps([post.get("image"), scenes, seconds, music, "sharp-v4"],
+    return hashlib.sha256(json.dumps([post.get("image"),post.get('illustration'), scenes, seconds, music, "sharp-v5"],
                                     ensure_ascii=False).encode()).hexdigest()
 
 
@@ -205,7 +205,7 @@ def render(item, post):
             previous = None
             brand = storage.get(post.get("brand_id", "")) or {}
             for index, text in enumerate(item["scenes"]):
-                card = scene_card(text, index, len(item["scenes"]), post.get("image"), brand.get("name", "CreatorOS"))
+                card = scene_card(text, index, len(item["scenes"]), post.get('illustration') or post.get("image"), brand.get("name", "CreatorOS"))
                 from PIL import Image
                 for frame in range(frames):
                     # Gentle camera push, crossfade transitions and a continuous timeline.

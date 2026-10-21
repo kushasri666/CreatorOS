@@ -32,7 +32,7 @@ class ValidationBudgetTests(unittest.TestCase):
         self.assertEqual(liability([dict(status='failed_response',billing_status='usage_bound',usage_bound_usd='.03',reserved_usd='.5')]),Decimal('.5'))
 
     def test_cumulative_failures_are_never_refunded(self):
-        self.ledger['calls']=[dict(status='failed_response',reserved_usd='.699')]
+        self.ledger['calls']=[dict(status='failed_response',reserved_usd=str(CAP-Decimal('.001')))]
         with self.assertRaises(ValueError):self.guard.before(self.request())
         self.metadata.get.assert_not_called()
         self.assertEqual(len(self.ledger['calls']),1)
@@ -51,7 +51,7 @@ class ValidationBudgetTests(unittest.TestCase):
         self.assertEqual(self.ledger['calls'][0]['status'],'failed_response')
 
     def test_balance_guard_accounts_for_external_spending(self):
-        self.metadata.get.return_value.raise_for_status.return_value.json.return_value={'balance_usd':'.30'}
+        self.metadata.get.return_value.raise_for_status.return_value.json.return_value={'balance_usd':str(Decimal(1)-CAP)}
         with self.assertRaises(ValueError):self.guard.before(self.request())
         self.assertEqual(self.ledger['calls'],[])
 
@@ -74,8 +74,8 @@ class ValidationBudgetTests(unittest.TestCase):
 
     def test_extended_run_preserves_shared_dollar_ceiling(self):
         guard=Budget(self.guard.path,self.ledger,self.metadata,call_limit=110,image_limit=3)
-        self.ledger['calls']=[dict(status='failed_response',reserved_usd='.699')]
+        self.ledger['calls']=[dict(status='failed_response',reserved_usd=str(CAP-Decimal('.001')))]
         with self.assertRaises(ValueError):guard.before(self.request())
         self.assertEqual(len(self.ledger['calls']),1)
-        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,call_limit=131)
-        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,image_limit=4)
+        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,call_limit=241)
+        with self.assertRaises(ValueError):Budget(self.guard.path,self.ledger,self.metadata,image_limit=6)

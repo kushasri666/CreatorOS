@@ -1,0 +1,87 @@
+{
+  "dataset_id": "creatoros-semantic-verifier-holdout-v1",
+  "origin": "Manually authored synthetic product snapshots across eight fictional products. No customer content or live social-platform observations.",
+  "annotation_policy": "Frozen before its first inference and intended for one untuned evaluation pass. Every factual gold claim is an exact draft passage. Tentative language preserves source uncertainty; guaranteed and causal outcomes require corresponding evidence. Explicit invitations are nonfactual. Test-set results are not real-world platform performance.",
+  "cases": [
+    {
+      "id": "tentative-journal-benefit",
+      "category": "qualified_uncertain_benefit",
+      "sources": [{"source_id": "S1", "source_type": "official_product_page", "title": "Synthetic EarlyCalm product description", "excerpt": "EarlyCalm is a reflection journal with daily prompts. Using it may help some participants notice existing habits. Outcomes are not guaranteed."}],
+      "draft": "EarlyCalm includes daily reflection prompts. EarlyCalm may help some participants notice existing habits. Imagine a quieter start to your day.",
+      "slides": [],
+      "citations": [{"claim": "EarlyCalm includes daily reflection prompts.", "source_ids": ["S1"]}, {"claim": "EarlyCalm may help some participants notice existing habits.", "source_ids": ["S1"]}],
+      "expected_pass": true,
+      "gold": [{"claim": "EarlyCalm includes daily reflection prompts.", "label": "supported", "source_ids": ["S1"]}, {"claim": "EarlyCalm may help some participants notice existing habits.", "label": "supported", "source_ids": ["S1"]}, {"claim": "Imagine a quieter start to your day.", "label": "nonfactual", "source_ids": []}]
+    },
+    {
+      "id": "negated-automatic-scheduling",
+      "category": "source_negates_capability",
+      "sources": [{"source_id": "S1", "source_type": "user_document", "title": "Synthetic QueuePilot feature guide", "excerpt": "QueuePilot stores drafts and reminder times. Automatic scheduling and automatic publishing are not included."}],
+      "draft": "QueuePilot stores drafts. QueuePilot automatically schedules and publishes every post.",
+      "slides": [],
+      "citations": [{"claim": "QueuePilot stores drafts.", "source_ids": ["S1"]}, {"claim": "QueuePilot automatically schedules and publishes every post.", "source_ids": ["S1"]}],
+      "expected_pass": false,
+      "gold": [{"claim": "QueuePilot stores drafts.", "label": "supported", "source_ids": ["S1"]}, {"claim": "QueuePilot automatically schedules and publishes every post.", "label": "unsupported", "source_ids": []}]
+    },
+    {
+      "id": "subscription-platform-scope",
+      "category": "scope_expansion",
+      "sources": [{"source_id": "S1", "source_type": "official_product_page", "title": "Synthetic VideoScope Starter subscription", "excerpt": "VideoScope Starter supports YouTube only. It imports read-only YouTube engagement metrics for authorized channels. Other social platforms are not included in Starter."}],
+      "draft": "VideoScope Starter imports read-only YouTube engagement metrics. VideoScope Starter covers all social platforms.",
+      "slides": [],
+      "citations": [{"claim": "VideoScope Starter imports read-only YouTube engagement metrics.", "source_ids": ["S1"]}, {"claim": "VideoScope Starter covers all social platforms.", "source_ids": ["S1"]}],
+      "expected_pass": false,
+      "gold": [{"claim": "VideoScope Starter imports read-only YouTube engagement metrics.", "label": "supported", "source_ids": ["S1"]}, {"claim": "VideoScope Starter covers all social platforms.", "label": "unsupported", "source_ids": []}]
+    },
+    {
+      "id": "included-bag-not-service",
+      "category": "physical_item_vs_bundled_service",
+      "sources": [{"source_id": "S1", "source_type": "user_product_facts", "title": "Synthetic TrailCup package contents", "excerpt": "TrailCup includes a fabric carry bag. A guided camping service is not bundled with TrailCup."}],
+      "draft": "A fabric carry bag comes with TrailCup. Every TrailCup includes a guided camping service.",
+      "slides": [],
+      "citations": [{"claim": "A fabric carry bag comes with TrailCup.", "source_ids": ["S1"]}, {"claim": "Every TrailCup includes a guided camping service.", "source_ids": ["S1"]}],
+      "expected_pass": false,
+      "gold": [{"claim": "A fabric carry bag comes with TrailCup.", "label": "supported", "source_ids": ["S1"]}, {"claim": "Every TrailCup includes a guided camping service.", "label": "unsupported", "source_ids": []}]
+    },
+    {
+      "id": "conditional-price-and-shipping",
+      "category": "price_with_purchase_conditions",
+      "sources": [{"source_id": "S1", "source_type": "official_product_page", "title": "Synthetic Mosaic Desk light online offer", "excerpt": "Mosaic Desk light costs $49 before tax when purchased online in the US. Shipping charges are separate."}],
+      "draft": "Online purchases of Mosaic Desk light in the US cost $49 before tax. Shipping costs extra.",
+      "slides": [],
+      "citations": [{"claim": "Online purchases of Mosaic Desk light in the US cost $49 before tax.", "source_ids": ["S1"]}, {"claim": "Shipping costs extra.", "source_ids": ["S1"]}],
+      "expected_pass": true,
+      "gold": [{"claim": "Online purchases of Mosaic Desk light in the US cost $49 before tax.", "label": "supported", "source_ids": ["S1"]}, {"claim": "Shipping costs extra.", "label": "supported", "source_ids": ["S1"]}]
+    },
+    {
+      "id": "analytics-period-paraphrase",
+      "category": "reporting_window_preserved",
+      "sources": [{"source_id": "S1", "source_type": "user_document", "title": "Synthetic MetricNest reporting guide", "excerpt": "MetricNest reports include observations from the most recent 28 complete calendar days. The current day's incomplete data is excluded."}],
+      "draft": "MetricNest summarizes the last 28 finished calendar days. Today's partial data is excluded.",
+      "slides": [],
+      "citations": [{"claim": "MetricNest summarizes the last 28 finished calendar days.", "source_ids": ["S1"]}, {"claim": "Today's partial data is excluded.", "source_ids": ["S1"]}],
+      "expected_pass": true,
+      "gold": [{"claim": "MetricNest summarizes the last 28 finished calendar days.", "label": "supported", "source_ids": ["S1"]}, {"claim": "Today's partial data is excluded.", "label": "supported", "source_ids": ["S1"]}]
+    },
+    {
+      "id": "mixed-cta-and-conditional-capability",
+      "category": "mixed_copy_and_capability",
+      "sources": [{"source_id": "S1", "source_type": "official_product_page", "title": "Synthetic StudioPocket product guide", "excerpt": "StudioPocket can save user-approved captions as drafts. Publishing requires a connected professional account."}],
+      "draft": "Save this for later: StudioPocket can store approved captions as drafts. Publishing requires a connected professional account.",
+      "slides": [],
+      "citations": [{"claim": "StudioPocket can store approved captions as drafts.", "source_ids": ["S1"]}, {"claim": "Publishing requires a connected professional account.", "source_ids": ["S1"]}],
+      "expected_pass": true,
+      "gold": [{"claim": "Save this for later:", "label": "nonfactual", "source_ids": []}, {"claim": "StudioPocket can store approved captions as drafts.", "label": "supported", "source_ids": ["S1"]}, {"claim": "Publishing requires a connected professional account.", "label": "supported", "source_ids": ["S1"]}]
+    },
+    {
+      "id": "causal-guarantee-from-pilot",
+      "category": "causality_and_guarantee",
+      "sources": [{"source_id": "S1", "source_type": "user_document", "title": "Synthetic FocusTiles pilot notes", "excerpt": "FocusTiles allows arranging 8 task cards. A small pilot survey observed self-reported focus without a randomized control. The survey does not establish that FocusTiles caused a productivity change."}],
+      "draft": "FocusTiles supports eight task cards. FocusTiles guarantees higher productivity because its cards increase focus.",
+      "slides": [],
+      "citations": [{"claim": "FocusTiles supports eight task cards.", "source_ids": ["S1"]}, {"claim": "FocusTiles guarantees higher productivity because its cards increase focus.", "source_ids": ["S1"]}],
+      "expected_pass": false,
+      "gold": [{"claim": "FocusTiles supports eight task cards.", "label": "supported", "source_ids": ["S1"]}, {"claim": "FocusTiles guarantees higher productivity because its cards increase focus.", "label": "unsupported", "source_ids": []}]
+    }
+  ]
+}

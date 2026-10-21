@@ -1,4 +1,13 @@
 'use strict';
+const recheckPending=new Set();
+function sourceRecheckTools(box,p){
+ if(state.preview||p.status!=='needs_review'||!p.sources?.length)return;
+ const section=el('section',undefined,'comparison'),status=el('p'),start=el('button','Recheck saved sources · at most 1 Mesh call');
+ section.append(el('h3','Recheck sources without regenerating'),el('p','Keep this exact draft, slides and source snapshots. A fresh verifier checks semantic support and coverage. The editor gate stays required; no image or posting runs.'),start,status);
+ start.disabled=!state.paid_enabled||recheckPending.has(p.id);
+ start.onclick=()=>{if(recheckPending.has(p.id))return;recheckPending.add(p.id);start.disabled=true;status.textContent='Checking the saved evidence once…';busy(section,async()=>{try{const result=await request('/posts/'+encodeURIComponent(p.id)+'/reverify',{request_id:crypto.randomUUID()});notice('Source recheck: '+result.status+'. '+(result.ai_calls||0)+' AI calls.')}finally{recheckPending.delete(p.id);await refresh(true)}})};
+ box.append(section);
+}
 const followupDrafts=new Map(),followupPending=new Set();
 const adaptationTargets=new Map(),adaptationPending=new Set();
 function adaptationTools(box,p){

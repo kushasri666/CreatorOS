@@ -1,0 +1,490 @@
+{
+  "schema_version": "creatoros-recorded-semantic-holdout-predictions-v1",
+  "dataset_id": "creatoros-semantic-verifier-holdout-v1",
+  "gold_sha256": "5f182ad083eee168b4f62cf348981d261e014817365ae9779336aa150f53d448",
+  "model": "openai/gpt-4.1-mini",
+  "max_output_tokens": 1200,
+  "provenance": {
+    "origin": "Actual recorded Mesh replies from the single untuned synthetic holdout pass.",
+    "contains_customer_content": false,
+    "captured_date": "2026-10-21",
+    "policy": "No tuning or gold-label changes after this holdout pass; invalid manifests are retained."
+  },
+  "predictions": {
+    "tentative-journal-benefit": {
+      "checks": [
+        {
+          "claim": "EarlyCalm includes daily reflection prompts.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'EarlyCalm is a reflection journal with daily prompts,' directly supporting the claim that EarlyCalm includes daily reflection prompts.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "EarlyCalm is a reflection journal with daily prompts."
+            }
+          ]
+        },
+        {
+          "claim": "EarlyCalm may help some participants notice existing habits.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'Using it may help some participants notice existing habits,' directly supporting the claim that EarlyCalm may help some participants notice existing habits.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Using it may help some participants notice existing habits."
+            }
+          ]
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim is directly supported by the source describing EarlyCalm as having daily prompts.",
+          "claims": [
+            "EarlyCalm includes daily reflection prompts."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim is directly supported by the source stating EarlyCalm may help some participants notice existing habits.",
+          "claims": [
+            "EarlyCalm may help some participants notice existing habits."
+          ]
+        },
+        {
+          "unit_id": "U3",
+          "kind": "nonfactual",
+          "reason": "This is an imaginative statement without factual content or source support.",
+          "claims": []
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "negated-automatic-scheduling": {
+      "checks": [
+        {
+          "claim": "QueuePilot stores drafts.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states 'QueuePilot stores drafts and reminder times.' which directly supports the claim 'QueuePilot stores drafts.'",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "QueuePilot stores drafts and reminder times."
+            }
+          ]
+        },
+        {
+          "claim": "QueuePilot automatically schedules and publishes every post.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "unsupported",
+          "reason": "The source explicitly states 'Automatic scheduling and automatic publishing are not included.', contradicting the claim that QueuePilot automatically schedules and publishes every post.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Automatic scheduling and automatic publishing are not included."
+            }
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "subject": "QueuePilot automatic scheduling and publishing capability",
+          "reason": "The draft claims QueuePilot automatically schedules and publishes every post, but the source explicitly states automatic scheduling and automatic publishing are not included.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Automatic scheduling and automatic publishing are not included."
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim that QueuePilot stores drafts is directly supported by the source.",
+          "claims": [
+            "QueuePilot stores drafts."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim that QueuePilot automatically schedules and publishes every post is contradicted by the source and thus unsupported.",
+          "claims": [
+            "QueuePilot automatically schedules and publishes every post."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "subscription-platform-scope": {
+      "checks": [
+        {
+          "claim": "VideoScope Starter imports read-only YouTube engagement metrics.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states that VideoScope Starter imports read-only YouTube engagement metrics for authorized channels.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "VideoScope Starter supports YouTube only. It imports read-only YouTube engagement metrics for authorized channels. Other social platforms are not included in Starter."
+            }
+          ]
+        },
+        {
+          "claim": "VideoScope Starter covers all social platforms.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "unsupported",
+          "reason": "The source explicitly states that VideoScope Starter supports YouTube only and other social platforms are not included in Starter, contradicting the claim that it covers all social platforms.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "VideoScope Starter supports YouTube only. It imports read-only YouTube engagement metrics for authorized channels. Other social platforms are not included in Starter."
+            },
+            {
+              "source_id": "S1",
+              "quote": "Other social platforms are not included in Starter."
+            }
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "subject": "VideoScope Starter coverage of social platforms",
+          "reason": "Source states VideoScope Starter supports YouTube only and excludes other social platforms, contradicting the claim that it covers all social platforms.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "VideoScope Starter supports YouTube only. It imports read-only YouTube engagement metrics for authorized channels. Other social platforms are not included in Starter."
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim about importing read-only YouTube engagement metrics is directly supported by the source.",
+          "claims": [
+            "VideoScope Starter imports read-only YouTube engagement metrics."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim that VideoScope Starter covers all social platforms is contradicted by the source stating it supports YouTube only.",
+          "claims": [
+            "VideoScope Starter covers all social platforms."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "included-bag-not-service": {
+      "checks": [
+        {
+          "claim": "A fabric carry bag comes with TrailCup.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states 'TrailCup includes a fabric carry bag,' directly supporting the claim that a fabric carry bag comes with TrailCup.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "TrailCup includes a fabric carry bag. A guided camping service is not bundled with TrailCup."
+            }
+          ]
+        },
+        {
+          "claim": "Every TrailCup includes a guided camping service.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "unsupported",
+          "reason": "The source explicitly states 'A guided camping service is not bundled with TrailCup,' contradicting the claim that every TrailCup includes a guided camping service.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "TrailCup includes a fabric carry bag. A guided camping service is not bundled with TrailCup."
+            }
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "subject": "Whether every TrailCup includes a guided camping service",
+          "reason": "The draft claims every TrailCup includes a guided camping service, but the source explicitly states that a guided camping service is not bundled with TrailCup.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "A guided camping service is not bundled with TrailCup."
+            }
+          ]
+        }
+      ],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim is directly supported by the source.",
+          "claims": [
+            "A fabric carry bag comes with TrailCup."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim is contradicted by the source and thus unsupported.",
+          "claims": [
+            "Every TrailCup includes a guided camping service."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "conditional-price-and-shipping": {
+      "checks": [
+        {
+          "claim": "Online purchases of Mosaic Desk light in the US cost $49 before tax.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states 'Mosaic Desk light costs $49 before tax when purchased online in the US,' exactly matching the candidate text.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Mosaic Desk light costs $49 before tax when purchased online in the US. Shipping charges are separate."
+            }
+          ]
+        },
+        {
+          "claim": "Shipping costs extra.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'Shipping charges are separate,' which supports the claim that shipping costs extra.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Mosaic Desk light costs $49 before tax when purchased online in the US. Shipping charges are separate."
+            }
+          ]
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim about the price before tax is directly supported by the source.",
+          "claims": [
+            "Online purchases of Mosaic Desk light in the US cost $49 before tax."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim about shipping costs being extra is directly supported by the source.",
+          "claims": [
+            "Shipping costs extra."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "analytics-period-paraphrase": {
+      "checks": [
+        {
+          "claim": "MetricNest summarizes the last 28 finished calendar days.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'MetricNest reports include observations from the most recent 28 complete calendar days,' which matches the claim that MetricNest summarizes the last 28 finished calendar days.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "MetricNest reports include observations from the most recent 28 complete calendar days."
+            }
+          ]
+        },
+        {
+          "claim": "Today's partial data is excluded.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states 'The current day's incomplete data is excluded,' directly supporting the claim that today's partial data is excluded.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The current day's incomplete data is excluded."
+            }
+          ]
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim about MetricNest summarizing the last 28 finished calendar days is directly supported by the source.",
+          "claims": [
+            "MetricNest summarizes the last 28 finished calendar days."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim that today's partial data is excluded is directly supported by the source.",
+          "claims": [
+            "Today's partial data is excluded."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "mixed-cta-and-conditional-capability": {
+      "checks": [
+        {
+          "claim": "StudioPocket can store approved captions as drafts.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'StudioPocket can save user-approved captions as drafts,' which directly supports the claim that StudioPocket can store approved captions as drafts.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "StudioPocket can save user-approved captions as drafts."
+            }
+          ]
+        },
+        {
+          "claim": "Publishing requires a connected professional account.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source explicitly states 'Publishing requires a connected professional account,' directly supporting the claim.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "Publishing requires a connected professional account."
+            }
+          ]
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim about storing approved captions as drafts is directly supported by the source.",
+          "claims": [
+            "StudioPocket can store approved captions as drafts."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim about publishing requiring a connected professional account is directly supported by the source.",
+          "claims": [
+            "Publishing requires a connected professional account."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    },
+    "causal-guarantee-from-pilot": {
+      "checks": [
+        {
+          "claim": "FocusTiles supports eight task cards.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "supported",
+          "reason": "The source states 'FocusTiles allows arranging 8 task cards,' directly supporting the claim that FocusTiles supports eight task cards.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "FocusTiles allows arranging 8 task cards."
+            }
+          ]
+        },
+        {
+          "claim": "FocusTiles guarantees higher productivity because its cards increase focus.",
+          "source_ids": [
+            "S1"
+          ],
+          "verdict": "unsupported",
+          "reason": "The source explicitly states that the survey does not establish that FocusTiles caused a productivity change, so it does not support a guarantee of higher productivity due to increased focus.",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The survey does not establish that FocusTiles caused a productivity change."
+            }
+          ]
+        }
+      ],
+      "conflicts": [],
+      "coverage": [
+        {
+          "unit_id": "U1",
+          "kind": "factual",
+          "reason": "The claim about supporting eight task cards is directly supported by the source.",
+          "claims": [
+            "FocusTiles supports eight task cards."
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "kind": "factual",
+          "reason": "The claim about guaranteeing higher productivity is contradicted by the source, which states no causal link was established.",
+          "claims": [
+            "FocusTiles guarantees higher productivity because its cards increase focus."
+          ]
+        }
+      ],
+      "receipt_contract": "exact-id-v1",
+      "coverage_required": true,
+      "coverage_version": "unit-v2"
+    }
+  }
+}

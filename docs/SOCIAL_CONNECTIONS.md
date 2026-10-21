@@ -1,8 +1,13 @@
 # Social accounts and the analytics loop
 
-Updated 20 October 2026. Connectors are read-only. No accounts have been authorized
-or converted by the development agent. No live connector validation or paid media
-validation has been performed; tests use explicit HTTP/session doubles.
+Updated 21 October 2026. The six analytics adapters are read-only; a separate,
+disabled-by-default [Instagram single-photo publisher](INSTAGRAM_PUBLISHING.md)
+requires additional consent and explicit confirmation. Recorded connector tests
+use HTTP/session doubles, so real account authorization, collection and public
+publishing remain unverified. Earlier live Mesh image/text validation is separate
+from social-account access. See the current [gap validation report](GAP_VALIDATION.md)
+for repair outcomes and cumulative validation costs. Provider access notes below
+retain the earlier official-source research; this document update made no network calls.
 
 ## Account choice and actual boundaries
 
@@ -44,7 +49,9 @@ Review account privacy/tradeoffs in Instagram before converting your own account
    **Authorize**. The app uses state, a browser-bound HttpOnly SameSite cookie,
    single-use state records, and PKCE where supported. OAuth tokens are encrypted
    with Fernet in SQLite; credentials are never returned by the status API.
-   Scopes request reading/analytics, not public posting or account changes.
+   Normal scopes request reading/analytics. The separate Instagram publishing
+   opt-in adds its content-publishing scope and requires fresh OAuth consent when
+   an existing token has analytics permission only. It never changes account type.
 4. For Telegram, configure `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, and run
    `python scripts/connect_telegram.py` yourself in a terminal. Enter your login
    information there, never in chat. Session files are credentials and gitignored.
@@ -68,11 +75,16 @@ token. Revoke the app in the provider settings for full remote revocation.
 
 - Instagram: views/reach, likes/comments, saves/shares when the media API exposes
   them. Unsupported media metrics can reject a request; the connector surfaces
-  that failure rather than inventing data. API version is configurable.
+  that failure rather than inventing data. API version is configurable. Discovery
+  distinguishes carousel, single image, Reel, Story and ordinary video using
+  provider metadata; the generic `FEED` product type no longer hides media type.
+  A refreshed imported post also updates its tracking format and publication time.
 - YouTube: a rolling 28-day Analytics report (ending yesterday), including views,
   likes, comments, shares, watch minutes, and average view duration. Channel
   ownership is checked when a channel ID is configured. Provider reporting lag
-  means the requested range is not a real-time completeness guarantee.
+  means the requested range is not a real-time completeness guarantee. Discovery
+  retains generic `video` when it has no verified Shorts/long-form classification;
+  a short-looking title or `#shorts` does not establish the format.
 - LinkedIn: lifetime impressions, reactions, comments, reshares, using the member
   analytics endpoint. Reactions are labeled reactions, not silently renamed likes.
 - Telegram: message views and forwards; reactions when available. View collection
@@ -103,6 +115,31 @@ Different numerator sets produce different formula IDs and are not pooled.
 5. Writer/editor quality checks still run. New performance must be measured again;
    a changed draft or editor score does not demonstrate engagement uplift.
 
+## How collection informs scheduling
+
+`insights.recommend` can select a weekday/hour from official observations without
+an LLM call. It requires one resolved matching account and keeps format, reporting
+window, observation-age bucket and rate formula in one cohort. Each compared slot
+needs at least two distinct posts, with at least two qualifying slots. Only the
+latest observation per post counts. Observations must be at most 14 days old,
+publications at most 90 days old, and the chosen timezone is explicit. The largest
+eligible cohort is selected before comparing rates; unrelated cohorts are not
+combined to manufacture a winner.
+
+The collector now snapshots account identity and publication-time provenance.
+Timing uses provider-discovered timestamps or the Instagram publication receipt,
+not a planned queue timestamp. Legacy snapshots missing those fields require
+fresh collection. Manually linked publication times remain user-supplied and do
+not become verified provider timing evidence. With several matching accounts,
+select `connection_id`; otherwise account-specific timing is withheld.
+
+The response labels a successful comparison `api_observational_metrics`, includes
+the selected and comparison evidence IDs, and states that this is exploratory
+association rather than a causal best-time claim. Missing/incomparable API data
+produces an explicit explanation. Separately labeled manual/simulated 24-hour
+metrics or the existing heuristic remain available as fallbacks. In particular,
+having a connector or a handful of counters does not guarantee a timing result.
+
 **Show fictional examples** loads four observations for each of six platforms in
 an isolated temporary database. Example source labels and a suggested next-brief
 experiment are visible. No examples are injected into real brands or live prompts.
@@ -116,6 +153,16 @@ CSV formula injection is neutralized.
 ## What this does not claim
 
 No live account is connected just because code or credentials exist. `verified`
-means an actual collection succeeded. No connector publishes posts, bypasses
-provider review/fees, retrieves unavailable personal-account insights, or promises
-unlimited history. Public SaaS tenancy, billing and deployment remain separate work.
+means collection succeeded for that connection, not that every scope, historical
+post or future request is available. Analytics adapters do not publish. The
+separate Instagram publisher supports one photo and caption, and requires a
+configured/reviewed developer app, publishing permission, customer OAuth consent,
+a public HTTPS JPEG and explicit current visual/account/post review. It has not
+been exercised against a live account. Scheduling remains a handoff and does not
+automatically invoke it.
+
+YouTube, LinkedIn, Telegram, Threads and X publishing are not implemented. No flow
+bypasses provider review/fees, retrieves unavailable personal-account insights or
+promises unlimited history. Public SaaS tenancy, billing and deployment remain
+separate work. Successful mock responses demonstrate contracts rather than live
+provider access or causal performance improvement.

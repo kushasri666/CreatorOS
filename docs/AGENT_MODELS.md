@@ -79,3 +79,16 @@ accepted post**, including failed attempts, before promoting these as optimal.
 
 References: [Mesh models](https://developers.meshapi.ai/docs/reference/models),
 [Mesh image generation](https://developers.meshapi.ai/docs/capabilities/image-generation).
+
+## Subsequent gap validation
+
+The [21 October gap report](GAP_VALIDATION.md) records actual economical-verifier,
+stronger-reference and saved-brand runs within the same combined $0.75 ledger.
+Mini achieved 16/16 factual decisions on a small untouched holdout, but three
+coverage manifests failed. The stronger reference also missed an assertion in
+the diagnostic set. This does not justify automatic premium escalation or a
+universal model ranking. The successful new brand run used a stronger writer
+and editor; another run with a mini writer stayed held for incomplete source
+coverage. Defaults remain unchanged. Exact source packet compaction and local
+image typography save redundant work without bypassing verification or sending
+AI calls outside Mesh.

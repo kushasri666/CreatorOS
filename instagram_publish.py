@@ -11,12 +11,13 @@ from urllib.parse import urlparse
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StrictBool
 from PIL import Image, ImageOps
 import httpx
 import social
 import social_auth
 import storage
+import visual_review
 
 router = APIRouter()
 OUTPUT = Path("data/instagram-media")
@@ -30,7 +31,7 @@ def require(id, kind):
 
 
 def signature(post):
-    return hashlib.sha256(json.dumps([post.get("text"),post.get("image")],ensure_ascii=False).encode()).hexdigest()
+    return visual_review.signature(post)
 
 
 def jpeg(post):
@@ -70,6 +71,7 @@ def prepare(post_id, connection_id, image_url):
         raise ValueError('Instagram connection must match the post brand')
     if not post.get('text') or len(post['text'])>2200:
         raise ValueError('A caption of 1–2200 characters is required')
+    visual_review.ensure_reviewed(post)
     public_url(image_url)
     id='instagram_delivery:'+hashlib.sha256((post_id+connection_id).encode()).hexdigest()
     body=dict(post_id=post_id,connection_id=connection_id,caption=post['text'],image_url=image_url,
@@ -112,6 +114,7 @@ def context(job,client):
         raise ValueError('Authorize the Instagram account first')
     if signature(post)!=job['fingerprint']:
         raise ValueError('Post changed after delivery preparation; publishing withheld')
+    visual_review.ensure_reviewed(post)
     token=social_auth.access_token(connection)
     version=os.getenv('INSTAGRAM_API_VERSION','v24.0')
     if not re.fullmatch(r'v[0-9]+\.0',version):raise ValueError('Invalid Instagram API version')
@@ -191,6 +194,25 @@ class PrepareRequest(BaseModel):
 class ConfirmRequest(BaseModel):
     username:str=Field(max_length=100)
     confirm_publish:bool=False
+
+
+class VisualReviewRequest(BaseModel):
+    fingerprint:str=Field(pattern=r'^[0-9a-f]{64}$')
+    approved:StrictBool
+    confirm_review:StrictBool=False
+    note:str=Field(default='',max_length=1000)
+
+
+@router.get('/posts/{id}/visual-review')
+def visual_review_status(id:str):
+    try:return visual_review.status(require(id,'post'))
+    except ValueError as exc:raise HTTPException(404,str(exc)) from None
+
+
+@router.post('/posts/{id}/visual-review')
+def visual_review_route(id:str,req:VisualReviewRequest):
+    try:return visual_review.record(id,req.fingerprint,req.approved,req.note,req.confirm_review)
+    except ValueError as exc:raise HTTPException(422,str(exc)) from None
 
 
 @router.get('/posts/{id}/instagram/jpeg')

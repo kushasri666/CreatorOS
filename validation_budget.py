@@ -7,7 +7,7 @@ from pathlib import Path
 import threading
 import uuid
 
-CAP = Decimal("0.70")  # Strictly below the user's combined $0.75 authorization.
+CAP = Decimal("0.745")  # Latest explicit authorization permits the full $.75; retain a $.005 margin.
 BASE = "https://api.meshapi.ai/v1"
 
 
@@ -67,8 +67,8 @@ def family_key(authorization,balance,cap):
 
 class Budget:
     def __init__(self,path,ledger,metadata,call_limit=80,image_limit=1,state_dir=None,search_root=None):
-        if type(call_limit) is not int or not 1<=call_limit<=130:raise ValueError('Invalid bounded validation request limit')
-        if type(image_limit) is not int or not 1<=image_limit<=3:raise ValueError('Invalid bounded validation image limit')
+        if type(call_limit) is not int or not 1<=call_limit<=240:raise ValueError('Invalid bounded validation request limit')
+        if type(image_limit) is not int or not 1<=image_limit<=5:raise ValueError('Invalid bounded validation image limit')
         self.path,self.ledger,self.metadata=Path(path),ledger,metadata
         self.call_limit,self.image_limit=call_limit,image_limit
         self.lock=threading.Lock();self.pending=None
